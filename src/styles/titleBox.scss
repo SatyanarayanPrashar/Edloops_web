@@ -1,0 +1,52 @@
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 83%;
+  margin: 45px 0px;
+}
+
+.title-content {
+  padding: 24px;
+  flex: 1;
+}
+
+.title-content h1 {
+  margin: 0;
+}
+
+.title-text {
+  margin: 16px 0;
+  line-height: 1.5;
+  max-height: 72px;
+  overflow: hidden;
+  transition: max-height 0.2s ease-in-out;
+}
+
+.title-text.expanded {
+  max-height: none;
+}
+
+.read-more {
+  background-color: #fff;
+  border: 2px solid #000;
+  color: #000;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.title-image {
+  /* background-image: url(https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image-840x525.jpg); */
+  background-size: cover;
+  background-position: center;
+  height: 270px;
+  width: 270px;
+  flex-shrink: 0;
+}

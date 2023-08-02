@@ -1,0 +1,118 @@
+/* /* .blogTop{
+  width: 100%;
+  /* background-color: #ACC8E5; */
+/* }  */
+.blogTop {
+  display: flex;
+}
+
+.blogTop_Title {
+  margin-top: 2.7rem;
+  font-size: 5rem;
+  font-weight: 700;
+  color: #212121;
+}
+.blogTop_MotoT {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #3c3c3c;
+  margin-top: 1.4rem;
+}
+.blogTop_MotoB {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #3c3c3c;
+}
+
+.blogDivider {
+  position: relative;
+  margin-top: 3.7rem;
+  display: flex;
+}
+.tagFilter_Container {
+  position: sticky;
+  top: 3.7rem;
+  height: 14rem;
+  width: 17.7rem;
+  /* background-color: red; */
+  font-size: 1rem;
+  font-weight: 600;
+}
+.tagContainer {
+  color: #212121;
+  border-radius: 2rem;
+  padding: 0.4rem;
+}
+
+.blog-preview-card {
+  display: flex;
+  height: 8rem;
+  width: 45rem;
+  /* justify-content: space-between; */
+  align-items: center;
+  margin-right: 2rem;
+  margin-bottom: 2.7rem;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+.blog-preview-card:hover {
+  transform: translateY(-5px);
+  border-radius: 0.5rem;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.blog-preview-card img {
+  width: 10rem;
+  height: 8rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+.blog-preview-card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-left: 1.7rem;
+  /* text-align: center; */
+  /* max-height: 4rem; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.blog-preview-card-text {
+  font-size: 1rem;
+  margin-left: 1.7rem;
+  /* text-align: justify; */
+  height: 4.2rem;
+  width: 32rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.blog-preview-card-read-time {
+  font-size: 0.805rem;
+  overflow: hidden;
+  margin: 0.5rem 0.5rem;
+  color: rgba(2, 2, 2, 0.429);
+  font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .blog-preview-card {
+    width: auto;
+  }
+  .blog-preview-card-text {
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .blog-preview-card {
+    height: 100%;
+    flex-wrap: wrap;
+  }
+  .blog-preview-card img {
+    width: 100%;
+    height: 12rem;
+  }
+  .blog-preview-card-title,
+  .blog-preview-card-text {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,19 @@
+.chatBox {
+  position: sticky;
+  top: 2rem;
+  height: 40rem;
+  width: 27rem;
+  border: 1px solid #212121;
+  border-radius: 11px;
+  margin: 0px 21px;
+}
+.topchattitle {
+  background-color: #d0d0d0;
+  border-top-left-radius: 11px;
+  border-top-right-radius: 11px;
+}
+.topchattitle p {
+  font-size: 1rem;
+  margin: 0px 11px;
+  padding: 4px 0px;
+}

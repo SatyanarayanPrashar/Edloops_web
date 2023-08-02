@@ -1,0 +1,50 @@
+.homeTop {
+  display: flex;
+}
+
+.homeTop_Title {
+  /* margin-top: 2.7rem; */
+  font-size: 5rem;
+  font-weight: 700;
+  color: #212121;
+}
+.homeTop_MotoT {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #3c3c3c;
+  margin-top: 1.4rem;
+}
+.homeTop_MotoB {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #3c3c3c;
+}
+
+.trending_text {
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+.trending_text h2 {
+  padding-right: 0px;
+  padding-top: 0px;
+  margin: 0px;
+}
+.trending_text {
+  display: flex;
+}
+.trending_text_color {
+  color: #40a944;
+  padding-left: 7px;
+}
+.trending_text h4 {
+  color: #40a944;
+}
+
+@media screen and (max-width: 821px) {
+  .homeTop_Title {
+    font-size: 4rem;
+  }
+  .homeTop_MotoT {
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,197 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 214px;
+  background-color: #212121;
+  padding: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.edloops {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: rgb(251, 251, 251);
+  margin: 20px 27px;
+}
+
+.sidebarbutton {
+  background-color: #363636;
+  border-radius: 100px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: inline-block;
+  padding: 14px 47px;
+  margin: 7px 20px;
+  transition: all 250ms;
+  border: 0;
+  /* font-size: 14px; */
+}
+
+.sidebarbutton span {
+  color: rgb(255, 255, 255);
+  /* font-size: 18px; */
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.sidebarbutton svg {
+  margin-right: 14px;
+}
+
+.active {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.sidebarbutton:hover {
+  transform: scale(1.05) rotate(-1deg);
+}
+.google-sign-in-button {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  color: #757575;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0;
+  width: 240px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.google-sign-in-button:hover {
+  background-color: #f8f8f8;
+}
+
+.google-logo-wrapper {
+  background-color: #fff;
+  border-right: 1px solid #ccc;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.google-logo {
+  width: 18px;
+  height: 18px;
+}
+
+/* .google-sign-in-text {
+    margin-left: 8px;
+  } */
+.sign-out-button {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #444;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0;
+  width: 240px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.sign-out-button:hover {
+  background-color: #f8f8f8;
+}
+
+.google-logo-wrapper {
+  background-color: #fff;
+  border-right: 1px solid #ccc;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.google-logo {
+  width: 18px;
+  height: 18px;
+  margin-right: 20px;
+}
+.google-logo_signout {
+  width: 18px;
+  height: 18px;
+  margin-right: 1px;
+}
+.loginButton {
+  margin: 20px;
+}
+
+.header {
+  display: none !important;
+  background-color: #212121;
+  display: flex;
+  color: #fff;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .logo {
+  font-size: 25px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hamburger {
+  cursor: pointer;
+  z-index: 2;
+}
+
+.header .hamburger i {
+  font-size: 28px;
+  z-index: 3;
+}
+
+@media screen and (max-width: 821px) {
+  .header {
+    display: flex !important;
+  }
+
+  .sidebar {
+    position: fixed !important;
+    left: -230px;
+    transition: all 0.5s;
+    -webkit-transition: all 0.25s;
+  }
+
+  .sidebar.open {
+    left: 0px !important;
+    transition: all 0.5s;
+    -webkit-transition: all 0.25s;
+    z-index: 1;
+    height: 100vh;
+  }
+
+  .edloops {
+    margin: 5px 27px;
+  }
+  .overlay.view {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    z-index: -1;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+}

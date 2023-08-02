@@ -1,0 +1,65 @@
+.courses-container {
+  margin: 0 auto;
+  /* max-width: 800px; */
+  padding-right: 27px;
+}
+
+h1 {
+  text-align: left;
+}
+
+.search-box {
+  border-radius: 20px;
+  /* border: none; */
+  padding: 10px;
+  width: 250px;
+  float: right;
+  margin-top: -50px;
+}
+
+.chapterTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border: solid 1px rgb(230, 230, 230);
+  border-radius: 16px;
+  /* overflow: hidden; */
+  /* width: 730px; */
+  padding: 0px 17px;
+  margin: 17px 0px;
+}
+
+.curicullums {
+  display: flex;
+}
+.belowTitle {
+  justify-content: space-between;
+  width: 45rem;
+}
+
+.titleCards {
+  flex: 1;
+  padding-right: 10px;
+}
+
+.linkCard {
+  height: 120px;
+  width: auto;
+  border-bottom: #000;
+  display: flex;
+  margin: 10px 10px;
+  text-decoration: none;
+  /* background-color: red; */
+  padding-bottom: 10px;
+  border-bottom: solid 1px grey;
+}
+
+.linkImage {
+  background-size: cover;
+  background-position: center;
+  height: 120px;
+  width: 120px;
+  flex-shrink: 0;
+  margin-right: 20px;
+}
