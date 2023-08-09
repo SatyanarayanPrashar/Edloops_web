@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Edloops from "./home/index";
+import Landing from "./landing";
 
 export default function Home() {
   return (
@@ -7,7 +7,7 @@ export default function Home() {
       <Head>
         <title>Edloops</title>
       </Head>
-      <Edloops />
+      <Landing />
     </>
   );
 }

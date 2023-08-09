@@ -2,6 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   margin-right: 4rem;
+  a {
+    color: $dark !important;
+  }
 }
 
 .nav-link {
@@ -17,7 +20,7 @@
   /* padding: 1rem; */
   border-radius: 0.5rem;
   /* border: 0.01rem solid rgb(227, 227, 227); */
-  background-color: #ffffff;
+  background-color: $default;
   transition: all 0.3s ease;
   width: 100%;
   max-width: 270px;

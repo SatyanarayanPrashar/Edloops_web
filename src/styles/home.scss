@@ -33,11 +33,11 @@
   display: flex;
 }
 .trending_text_color {
-  color: #40a944;
+  color: $primary;
   padding-left: 7px;
 }
 .trending_text h4 {
-  color: #40a944;
+  color: $primary;
 }
 
 @media screen and (max-width: 821px) {

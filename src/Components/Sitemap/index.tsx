@@ -5,7 +5,7 @@ import React from "react";
 const index = () => {
   return (
     <>
-      <footer className="section bg-footer ps-md-5 ps-3">
+      <footer className="section bg-footer ps-md-5 ps-3 mt-5">
         <div className="container">
           <div className="row">
             <div className="col-lg-3 col-md-6">

@@ -2,6 +2,13 @@
   width: 100%;
   /* background-color: #ACC8E5; */
 /* }  */
+
+.blogContainer,
+.blog_Container {
+  a {
+    color: $dark !important;
+  }
+}
 .blogTop {
   display: flex;
 }
@@ -52,7 +59,7 @@
   align-items: center;
   margin-right: 2rem;
   margin-bottom: 2.7rem;
-  background-color: #ffffff;
+  background-color: $default;
   transition: all 0.3s ease;
 }
 .blog-preview-card:hover {

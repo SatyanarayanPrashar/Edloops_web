@@ -27,12 +27,12 @@
   background-color: transparent;
   border: none;
   font-size: 20px;
-  color: white;
+  color: $default;
   cursor: pointer;
 }
 
 .close-button:hover {
-  color: #ffffff;
+  color: $default;
   background-color: #888;
   border-radius: 7px;
 }

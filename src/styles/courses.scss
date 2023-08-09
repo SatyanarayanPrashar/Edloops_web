@@ -21,7 +21,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #fff;
+  background-color: $default;
   border: solid 1px rgb(230, 230, 230);
   border-radius: 16px;
   /* overflow: hidden; */
@@ -46,7 +46,7 @@ h1 {
 .linkCard {
   height: 120px;
   width: auto;
-  border-bottom: #000;
+  border-bottom: $dark;
   display: flex;
   margin: 10px 10px;
   text-decoration: none;
