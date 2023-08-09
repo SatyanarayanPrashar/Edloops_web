@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #fff;
+  background-color: $default;
   border-radius: 16px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -32,9 +32,9 @@
 }
 
 .read-more {
-  background-color: #fff;
-  border: 2px solid #000;
-  color: #000;
+  background-color: $default;
+  border: 2px solid $dark;
+  color: $dark;
   font-weight: bold;
   border-radius: 8px;
   padding: 8px 16px;

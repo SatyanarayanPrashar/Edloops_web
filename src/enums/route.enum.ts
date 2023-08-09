@@ -1,5 +1,6 @@
 export enum publicRoutes {
-    home = "/",
+    landing = "/",
+    home = "/home",
     about="/about",
     blog = "/blog",
     blogContent = "/blogContent",

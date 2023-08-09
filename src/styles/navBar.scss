@@ -54,7 +54,7 @@
   transform: scale(1.05) rotate(-1deg);
 }
 .google-sign-in-button {
-  background-color: #fff;
+  background-color: $default;
   border: 1px solid #ccc;
   border-radius: 2px;
   color: #757575;
@@ -75,7 +75,7 @@
 }
 
 .google-logo-wrapper {
-  background-color: #fff;
+  background-color: $default;
   border-right: 1px solid #ccc;
   padding: 8px;
   display: flex;
@@ -92,7 +92,7 @@
     margin-left: 8px;
   } */
 .sign-out-button {
-  background-color: #fff;
+  background-color: $default;
   border: 1px solid #ccc;
   border-radius: 4px;
   color: #444;
@@ -113,7 +113,7 @@
 }
 
 .google-logo-wrapper {
-  background-color: #fff;
+  background-color: $default;
   border-right: 1px solid #ccc;
   padding: 8px;
   display: flex;
@@ -139,7 +139,7 @@
   display: none !important;
   background-color: #212121;
   display: flex;
-  color: #fff;
+  color: $default;
   justify-content: space-between;
   align-items: center;
 }
