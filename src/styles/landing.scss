@@ -1,7 +1,9 @@
 .landing_container {
-  overflow-x: hidden;
   background-color: $secondary;
   color: $default;
+  @include m {
+    overflow-x: hidden;
+  }
   .landing_banner {
     position: relative;
     z-index: 2;
