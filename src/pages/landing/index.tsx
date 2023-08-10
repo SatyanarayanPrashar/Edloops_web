@@ -1,6 +1,8 @@
 import AuthLayout from "@/Components/Layout/AuthLayout";
+import { publicRoutes } from "@/enums/route.enum";
 import Image from "next/image";
 import React, { ReactNode } from "react";
+import NextLink from "next/link";
 
 const Index = () => {
   return (
@@ -10,15 +12,24 @@ const Index = () => {
           <div className="me-5">Are you an investor?</div>
           <div>Join Us</div>
         </div>
-        <div className="landing_banner pb-5 mb-5">
-          <h1 className="landing_title text-center fw-bolder mb-3">EDLOOPS</h1>
-          <h1 className="text-center fw-bold">Learn to Code</h1>
-          <h1 className="fw-bold text-center">
+        <div className="landing_banner pb-5 mb-5 container d-flex flex-column align-items-center justify-content-center">
+          <h1 className="landing_title fw-bolder mb-3">EDLOOPS</h1>
+          <h1 className="fw-bold">Learn to Code</h1>
+          <h1 className="fw-bold">
             <span className="text_red">20x</span> Faster
           </h1>
-          <h3 className="text-center mb-5">
-            with Free courses powered by AI sensei
-          </h3>
+          <h3 className="mb-5">with Free courses powered by AI sensei</h3>
+          <NextLink href={publicRoutes.home}>
+            <button
+              className="explore_button fw-500 px-3 py-2 d-flex align-items-center justify-content-center"
+              type="button"
+            >
+              Explore More{" "}
+              <span>
+                <i className="fa-solid fa-angle-right ms-2"></i>
+              </span>
+            </button>
+          </NextLink>
         </div>
         <div className="dsa_section pt-5 text-center mb-5">
           <Image
@@ -77,6 +88,7 @@ const Index = () => {
                 className="position-relative double_img_box img_section1"
               >
                 <Image
+                  className="preview_img"
                   src={"/img/preview1.png"}
                   height={248}
                   width={486}
@@ -96,6 +108,7 @@ const Index = () => {
                 className="position-relative double_img_box img_section2"
               >
                 <Image
+                  className="problem_img"
                   src={"/img/problem.png"}
                   height={252}
                   width={374}
@@ -121,8 +134,8 @@ const Index = () => {
             </div>
           </div>
         </div>
-        <div className="mt-5 pb-5">
-          <div className="d-flex  align-items-center justify-content-center  mt-3 mb-1">
+        <div className="mt-5 pb-5 footer_section">
+          <div className="d-flex  align-items-center justify-content-center mt-3 mb-1 footer_input_box">
             <input className="landing_input py-2 px-2 me-3" type="text" />
             <button className="landing_button fw-500 px-3 py-2" type="button">
               Join Us
