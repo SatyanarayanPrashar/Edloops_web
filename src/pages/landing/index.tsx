@@ -14,12 +14,12 @@ const Index = () => {
         </div>
         <div className="landing_banner pb-5 mb-5 container d-flex flex-column align-items-center justify-content-center">
           <h1 className="landing_title fw-bolder mb-3">EDLOOPS</h1>
-          <h1 className="fw-bold">Learn to Code</h1>
+          {/* <h1 className="fw-bold">Learn to Code</h1> */}
           <h1 className="fw-bold">
-            <span className="text_red">20x</span> Faster
+            Learn to Code <span className="text_red">20x</span> Faster
           </h1>
           <h3 className="mb-5">with Free courses powered by AI sensei</h3>
-          <NextLink href={publicRoutes.home}>
+          {/* <NextLink href={publicRoutes.home}>
             <button
               className="explore_button fw-500 px-3 py-2 d-flex align-items-center justify-content-center"
               type="button"
@@ -29,12 +29,19 @@ const Index = () => {
                 <i className="fa-solid fa-angle-right ms-2"></i>
               </span>
             </button>
-          </NextLink>
+          </NextLink> */}
+          <div className="d-flex  align-items-center justify-content-center mt-3 mb-1 footer_input_box">
+            <a href="https://5m8ntpxkuyy.typeform.com/to/eQBwelCx" target="_blank" rel="noopener noreferrer">
+              <button className="landing_button fw-500 px-3 py-2" type="button">
+              Join Us
+              </button>
+            </a>
+          </div>
         </div>
         <div className="dsa_section pt-5 text-center mb-5">
           <Image
-            data-aos="fade-up-right"
-            data-aos-duration="1000"
+            // data-aos="fade-up-right"
+            // data-aos-duration="1000"
             className="mb-4"
             src={"/img/dsa.png"}
             height={430}

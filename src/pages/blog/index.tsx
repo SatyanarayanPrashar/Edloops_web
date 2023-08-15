@@ -21,15 +21,17 @@ const index = () => {
   const fetchNotes = async () => {
     setLoading(true);
     await requests
-      .get(blogRequestUrls.notes.getNotes)
+      // .get(blogRequestUrls.notes.getNotes)
+      .get("https://edloops-server.onrender.com/api/blogs/all/")
       .then((res) => {
         const response = ResponseHandler(res);
         if (get(response, "status", false)) {
           //Remove empty objects from array
-          let filteredData = get(response, "data", []).filter(
-            (value: any) => Object.keys(value).length !== 0
-          );
-          setNotes(filteredData);
+          // let filteredData = get(response, "data", []).filter(
+          //   (value: any) => Object.keys(value).length !== 0
+          // );
+          // setNotes(filteredData);
+        console.log(get(response, "data", []),"Jai mata di")
         }
         setLoading(false);
       })
