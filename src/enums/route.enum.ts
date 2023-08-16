@@ -3,7 +3,7 @@ export enum publicRoutes {
     home = "/home",
     about="/about",
     blog = "/blog",
-    blogContent = "/blogContent",
+    blogs = "/blogs",
     courses = "/courses",
     community = "/community",
     curriculum = "/curriculum"
