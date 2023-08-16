@@ -69,7 +69,25 @@ const index = () => {
   return (
     <>
       <Head>
-        <title>Blog</title>
+        {/* <!-- HTML Meta Tags --> */}
+          <title>Edloops | Blogs</title>
+          <meta name="description" content= "Learn to code with free tailored courses"/>
+{/* <!-- Google / Search Engine Tags --> */}
+          <meta itemProp="name" content="Edloops | Blogs" />
+          <meta name="description" content= "Learn to code with free tailored courses"/>
+          <meta itemProp="image" content="" />
+{/* <!-- Facebook Meta Tags --> */}
+          <meta property="og:url" content="https://edloops.com/blogs/react-native-vs-flutter-KhrPrM"/>
+          <meta property="og:type" content="website"/>
+          <meta property="og:title" content="Edloops | Blogs"/>
+          <meta property="og:description" content="Learn to code with free tailored courses"/>
+          <meta property="og:image" content=""/>
+
+{/* <!-- Twitter Meta Tags --> */}
+          <meta name="twitter:card" content="summary_large_image"/>
+          <meta name="twitter:title" content="Edloops | Blogs"/>
+          <meta name="twitter:description" content="Learn to code with free tailored courses"/>
+          <meta name="twitter:image" content=""></meta>
       </Head>
       <AuthLayout>
         {!loading ? (
@@ -85,7 +103,9 @@ const index = () => {
 
               {/* <img src="../../assets\blogTop.png" alt="blog top"/> */}
             </div>
-            <NotesList notesData={notes} />
+
+            // commented out the form
+            {/* <NotesList notesData={notes} /> */}
 
             <div className="blogDivider mt-md-3 mt-4">
               <div className="blog_Container">
