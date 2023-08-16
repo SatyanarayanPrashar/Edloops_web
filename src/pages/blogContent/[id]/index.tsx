@@ -37,7 +37,7 @@ const index = () => {
       console.log(router.query.id, "router");
       fetchBlogContent();
     }
-  }, [router.isReady, loading]);
+  }, [router.isReady]);
 
   return (
     <>
