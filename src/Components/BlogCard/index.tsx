@@ -7,7 +7,7 @@ interface IProps {
   title: any;
   text: any;
   readTime: any;
-  slug: any;
+  slug?: any;
 }
 
 const index = (props: IProps) => {
