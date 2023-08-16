@@ -1,11 +1,13 @@
 import axios from "axios";
 
 const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+const secondaryApiBaseUrl = process.env.NEXT_PUBLIC_SECONDARY_API_BASE_URL;
 
 const apiConstants = {
     apiEndPoint: apiBaseUrl,
-    notes: apiBaseUrl + "/notes"
-    
+    secondaryApiEndpoint: secondaryApiBaseUrl,
+    notes: apiBaseUrl + "/notes",
+    blogs: secondaryApiBaseUrl + "/blogs"
 }
 
 export const requests = {
@@ -22,5 +24,10 @@ export const blogRequestUrls = {
     //notes
     notes: {
         getNotes: apiConstants.notes + "/all"
+    },
+    blogs: {
+        getAllBlogs: apiConstants.blogs + "/all/",
+        // https://edloops-server.onrender.com/api/blogs/django-vs-php-vs-nod-1oOjk
+        getSingleBlog: (id:any) =>  apiConstants.blogs + `/${id}`,
     }
 }

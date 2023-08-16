@@ -12,3 +12,14 @@
 .mainblog p {
   font-size: 21px;
 }
+
+.blog_tags {
+  color: $secondary;
+}
+
+.blog_content {
+  h1 {
+    font-size: 30px;
+    margin-bottom: 2rem !important;
+  }
+}
