@@ -104,7 +104,7 @@ const index = () => {
               {/* <img src="../../assets\blogTop.png" alt="blog top"/> */}
             </div>
 
-            // commented out the form
+            {/* commented out the form */}
             {/* <NotesList notesData={notes} /> */}
 
             <div className="blogDivider mt-md-3 mt-4">
