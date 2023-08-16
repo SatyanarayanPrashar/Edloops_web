@@ -13,7 +13,7 @@ interface IProps {
 const index = (props: IProps) => {
   const { imageSrc, title, text, readTime, slug } = props;
   return (
-    <NextLink href={publicRoutes.blogContent + "/" + slug}>
+    <NextLink href={publicRoutes.blogs + "/" + slug}>
       <div className="blog-preview-card">
         <img src={imageSrc} alt={title} />
         <div className="blog-preview-card-content mt-3 mt-md-0">
