@@ -112,7 +112,8 @@ const index = () => {
                 {blogs.map((blog: any, index: any) => (
                   <BlogCard
                     key={index}
-                    imageSrc="https://www.waterfieldtech.com/wp-content/uploads/2022/12/Chatgpt-customer-service-bot-scaled.jpeg"
+                    imageSrc={get(blog, "image") !== "" ? get(blog, "image") : "https://i.ibb.co/279v54n/code-1839406-640.jpg"}
+                    // imageSrc="https://www.waterfieldtech.com/wp-content/uploads/2022/12/Chatgpt-customer-service-bot-scaled.jpeg"
                     title={get(blog, "title", "")}
                     text={get(blog, "content", "")}
                     readTime="21 mis read"
