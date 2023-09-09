@@ -57,7 +57,10 @@ const index = () => {
       {/* sidebar */}
       <nav className={`sidebar ${toggleSidebar ? "open" : ""}`}>
         <ul>
-          <li className="edloops">Edloops</li>
+          
+          <NextLink activeClassName={"active"} href={publicRoutes.landing}>
+            <li className="edloops">Edloops</li>
+          </NextLink>
           <NextLink activeClassName={"active"} href={publicRoutes.home}>
             <li className="sidebarbutton">
               <span>

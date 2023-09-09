@@ -10,7 +10,8 @@ const Index = () => {
       <div className="landing_container">
         <div className="d-flex align-align-items-center justify-content-center py-4 mb-5">
           <div className="me-5">Are you an investor?</div>
-          <div>Join Us</div>
+          <div >Join Us</div>
+          
         </div>
         <div className="landing_banner pb-5 mb-5 container d-flex flex-column align-items-center justify-content-center">
           <h1 className="landing_title fw-bolder mb-3">EDLOOPS</h1>
@@ -19,7 +20,7 @@ const Index = () => {
             Learn to Code <span className="text_red">20x</span> Faster
           </h1>
           <h3 className="mb-5">with Free courses powered by AI sensei</h3>
-          {/* <NextLink href={publicRoutes.home}>
+          <NextLink href={publicRoutes.home}>
             <button
               className="explore_button fw-500 px-3 py-2 d-flex align-items-center justify-content-center"
               type="button"
@@ -29,14 +30,14 @@ const Index = () => {
                 <i className="fa-solid fa-angle-right ms-2"></i>
               </span>
             </button>
-          </NextLink> */}
-          <div className="d-flex  align-items-center justify-content-center mt-3 mb-1 footer_input_box">
+          </NextLink>
+          {/* <div className="d-flex  align-items-center justify-content-center mt-3 mb-1 footer_input_box">
             <a href="https://5m8ntpxkuyy.typeform.com/to/eQBwelCx" target="_blank" rel="noopener noreferrer">
               <button className="landing_button fw-500 px-3 py-2" type="button">
               Join Us
               </button>
             </a>
-          </div>
+          </div> */}
         </div>
         <div className="dsa_section pt-5 text-center mb-5">
           <Image

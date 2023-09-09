@@ -224,6 +224,7 @@ const index = () => {
               ))}
             </div>
           </div>
+         
           <ChatBox />
         </div>
       </AuthLayout>

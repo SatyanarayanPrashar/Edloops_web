@@ -70,7 +70,7 @@ const index = () => {
           <>
             <div className="mainblog mt-4">
               <div className="contentblog">
-                {/* <h1>{get(blogContent, "title", "")}</h1> */}
+                <h1>{get(blogContent, "title", "")}</h1>
                 <p className="blog_tags">{get(blogContent, "tags", "")}</p>
                 <div
                   className="mt-4 blog_content"

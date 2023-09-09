@@ -1,9 +1,12 @@
 import CurriculumCard from "@/Components/CurriculumCard";
 import AuthLayout from "@/Components/Layout/AuthLayout";
+import { requests } from "@/helper/apiAgent";
 import Head from "next/head";
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 
 const index = () => {
+
   return (
     <>
       <Head>

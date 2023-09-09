@@ -1,11 +1,10 @@
 import BlogCard from "@/Components/BlogCard";
 import AuthLayout from "@/Components/Layout/AuthLayout";
-import NotesList from "@/Components/NotesList";
 import PageLoader from "@/Components/PageLoader";
 import TagTile from "@/Components/TagTile";
 import { blogRequestUrls, requests } from "@/helper/apiAgent";
 import { ErrorHandler, ResponseHandler } from "@/helper/utils";
-import { get, map } from "lodash";
+import { get } from "lodash";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -16,7 +15,7 @@ const index = () => {
   const [loading, setLoading] = useState(true);
   const [notes, setNotes] = useState([]);
   const [blogs, setBlogs] = useState([]);
-  console.log(loading, "loading");
+  // console.log(loading, "loading");
 
   useEffect(() => {
     if (router.isReady) {
@@ -113,7 +112,6 @@ const index = () => {
                   <BlogCard
                     key={index}
                     imageSrc={get(blog, "image") !== "" ? get(blog, "image") : "https://i.ibb.co/279v54n/code-1839406-640.jpg"}
-                    // imageSrc="https://www.waterfieldtech.com/wp-content/uploads/2022/12/Chatgpt-customer-service-bot-scaled.jpeg"
                     title={get(blog, "title", "")}
                     text={get(blog, "content", "")}
                     readTime="21 mis read"
@@ -127,14 +125,14 @@ const index = () => {
                   readTime="21 mis read"
                 /> */}
               </div>
-              <div className="tagFilter_Container mb-4 mb-md-0">
+              {/* <div className="tagFilter_Container mb-4 mb-md-0">
                 <div>Discover more of what matters to you</div>
                 <div className="tags_flex">
                   <TagTile tagName="Web Development" />
                   <TagTile tagName="Data Science" />
                   <TagTile tagName="App Development" />
                 </div>
-              </div>
+              </div> */}
             </div>
           </>
         ) : (
