@@ -22,8 +22,9 @@ h1 {
   align-items: center;
   justify-content: space-between;
   background-color: $default;
-  border: solid 1px rgb(230, 230, 230);
-  border-radius: 16px;
+  border: solid 1px rgb(151, 151, 151);
+  border-radius: 7px;
+  height: 47px;
   /* overflow: hidden; */
   /* width: 730px; */
   padding: 0px 17px;
@@ -36,6 +37,7 @@ h1 {
 .belowTitle {
   justify-content: space-between;
   width: 45rem;
+  // height: 400px;
 }
 
 .titleCards {
@@ -44,13 +46,13 @@ h1 {
 }
 
 .linkCard {
-  height: 120px;
+  // height: 120px;
   width: auto;
   border-bottom: $dark;
   display: flex;
   margin: 10px 10px;
   text-decoration: none;
-  /* background-color: red; */
+  // background-color: red;
   padding-bottom: 10px;
   border-bottom: solid 1px grey;
 }

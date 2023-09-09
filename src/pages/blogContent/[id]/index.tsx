@@ -75,7 +75,7 @@ const index = () => {
                 <div
                   className="mt-4 blog_content"
                   dangerouslySetInnerHTML={{
-                    __html: get(blogContent, "content", ""),
+                    __html: get(blogContent, "content", "")
                   }}
                 />
               </div>

@@ -8,7 +8,7 @@ const index = () => {
         < ThreeDots
           height="80"
           width="80"
-          ariaLabel="hashloader"
+          ariaLabel="threedots"
           color="#fff"
           // backgroundColor="#40a944"
         />

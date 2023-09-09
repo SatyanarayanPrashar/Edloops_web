@@ -225,7 +225,7 @@ const index = () => {
             </div>
           </div>
          
-          <ChatBox />
+          {/* <ChatBox /> */}
         </div>
       </AuthLayout>
     </>
