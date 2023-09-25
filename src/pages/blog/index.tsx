@@ -81,7 +81,7 @@ const index = () => {
                 <div className="blogTop_MotoB">from writers on any topic.</div>
               </div>
 
-              {/* <img src="../../assets\blogTop.png" alt="blog top"/> */}
+              {/* f <img src="../../assets\blogTop.png" alt="blog top"/> */}
             </div>
             <NotesList notesData={notes} />
 
