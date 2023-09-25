@@ -7,7 +7,8 @@ const apiConstants = {
     apiEndPoint: apiBaseUrl,
     secondaryApiEndpoint: secondaryApiBaseUrl,
     notes: apiBaseUrl + "/notes",
-    blogs: secondaryApiBaseUrl + "/blogs"
+    blogs: secondaryApiBaseUrl + "/blogs",
+    courses: secondaryApiBaseUrl + "/course"
 }
 
 export const requests = {
@@ -29,5 +30,9 @@ export const blogRequestUrls = {
         getAllBlogs: apiConstants.blogs + "/all/",
         // https://edloops-server.onrender.com/api/blogs/django-vs-php-vs-nod-1oOjk
         getSingleBlog: (id:any) =>  apiConstants.blogs + `/${id}`,
+    },
+    course: {
+        getAllCourses: apiConstants.courses,
+        getSingleCourse: (courseId:any) => apiConstants.courses + `/${courseId}`
     }
 }

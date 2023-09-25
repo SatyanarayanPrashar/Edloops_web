@@ -4,13 +4,14 @@ import { map } from "lodash";
 import VideoContainer from "../VideoContainer";
 
 interface IProps {
+  chapterResources?: any;
   chapterTitle: any;
   chapterLinks: any;
-  subItems: any;
+  subItems?: any;
 }
 
 const index = (props: IProps) => {
-  const { chapterTitle, chapterLinks, subItems } = props;
+  const { chapterResources, chapterTitle, chapterLinks, subItems } = props;
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isVideoVisible, setIsVideoVisible] = useState(false);
 
@@ -26,34 +27,36 @@ const index = (props: IProps) => {
     setIsVideoVisible(false);
   };
 
+  console.log(chapterResources, "chapterLinks");
+
   return (
     <div className="chapter-dropdown">
       <div className="chapter-header" onClick={handleDropdownToggle}>
         <div className="chapterTitle">
-          <h4>{chapterTitle}</h4>
-          {isDropdownOpen ? <FaArrowUp /> : <FaPlus />}
+          <h4 className="py-2">{chapterTitle}</h4>
+          <span className="cursor-pointer">
+            {isDropdownOpen ? <FaArrowUp /> : <FaPlus />}
+          </span>
         </div>
         <span className={`arrow ${isDropdownOpen ? "open" : ""}`}></span>
       </div>
       {isDropdownOpen && (
         <ul className="chapter-links">
-          {chapterLinks?.map((link: any) => (
-            <li key={link.id} className="linkCard">
-              <div className="linkImage"></div>
-              <div>
-                <a href={link.url} target="_blank" rel="noreferrer">
-                  {link.title}
-                </a>
+          {chapterResources?.map((resource: any) => (
+            <>
+              <li key={resource.id} className="linkCard">
+                {/* <div className="linkImage"></div> */}
                 <div>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Impedit mollitia minima est illum, sequi ipsa non accusamus
-                  assumenda hic. Quia!
+                  <a href={resource.url} target="_blank" rel="noreferrer">
+                    {resource.title}
+                  </a>
+                  <div>{resource.description}</div>
+                  <button className="read-more" onClick={handleWatchClick}>
+                    Watch
+                  </button>
                 </div>
-                <button className="read-more" onClick={handleWatchClick}>
-                  Watch
-                </button>
-              </div>
-            </li>
+              </li>
+            </>
           ))}
           {subItems &&
             subItems.map((item: any) => {
