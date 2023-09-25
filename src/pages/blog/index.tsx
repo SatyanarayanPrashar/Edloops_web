@@ -16,7 +16,6 @@ const index = () => {
   const [loading, setLoading] = useState(true);
   const [notes, setNotes] = useState([]);
   const [blogs, setBlogs] = useState([]);
-  console.log(loading, "loading");
 
   useEffect(() => {
     if (router.isReady) {
@@ -28,7 +27,6 @@ const index = () => {
   const fetchNotes = async () => {
     setLoading(true);
     await requests
-      // .get(blogRequestUrls.notes.getNotes)
       .get(blogRequestUrls.notes.getNotes)
       .then((res) => {
         const response = ResponseHandler(res);
@@ -99,12 +97,6 @@ const index = () => {
                     slug={get(blog, "slug", "")}
                   />
                 ))}
-                {/* <BlogCard
-                  imageSrc="https://www.waterfieldtech.com/wp-content/uploads/2022/12/Chatgpt-customer-service-bot-scaled.jpeg"
-                  title="How I made this Website using ChatGPT"
-                  text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut magna ac nisl auctor ultrices. Aliquam sed velit odio."
-                  readTime="21 mis read"
-                /> */}
               </div>
               <div className="tagFilter_Container mb-4 mb-md-0">
                 <div>Discover more of what matters to you</div>

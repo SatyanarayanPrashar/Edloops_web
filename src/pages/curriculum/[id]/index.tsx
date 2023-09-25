@@ -1,4 +1,5 @@
-import CurriculumCard from "@/Components/CurriculumCard";
+import Chapter from "@/Components/Chapter";
+import ChatBox from "@/Components/ChatBox";
 import AuthLayout from "@/Components/Layout/AuthLayout";
 import PageLoader from "@/Components/PageLoader";
 import { blogRequestUrls, requests } from "@/helper/apiAgent";
@@ -12,20 +13,22 @@ import { toast } from "react-toastify";
 const index = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
-  const [courseData, setCourseData] = useState([]);
+  const [data, setData] = useState({});
 
   useEffect(() => {
-    fetchBlogContent();
+    if (router.isReady) {
+      fetchBlogContent();
+    }
   }, [router.isReady]);
 
   const fetchBlogContent = async () => {
     setLoading(true);
     await requests
-      .get(blogRequestUrls.course.getAllCourses)
+      .get(blogRequestUrls.course.getSingleCourse(router.query.id))
       .then((res) => {
         const response = ResponseHandler(res);
         if (get(response, "status", false)) {
-          setCourseData(get(response, "data", []));
+          setData(get(response, "data", []));
         }
         setLoading(false);
       })
@@ -35,31 +38,33 @@ const index = () => {
         toast.error(get(error, "message", ""));
       });
   };
+
   return (
     <>
       <Head>
-        <title>Courses</title>
+        <title>Curriculum</title>
       </Head>
       <AuthLayout>
         {!loading ? (
-          <>
-            <h1 className="mt-4 mb-3">Welcome to the Curriculum page!</h1>
-
-            {/* <h3>Trending</h3> */}
-            <div className="Curriculum_Container">
-              {courseData.map((item: any) => (
-                <CurriculumCard
-                  key={item.id}
-                  id={get(item, "id", "")}
-                  imageSrc="https://www.waterfieldtech.com/wp-content/uploads/2022/12/Chatgpt-customer-service-bot-scaled.jpeg"
-                  title={get(item, "title", "")}
-                  text={get(item, "description")}
-                  length="21 hours"
-                  By="Satyanarayan Prashar"
-                />
-              ))}
+          <div className="curicullums">
+            <div>
+              <h1 className="mt-4">{get(data, "title", "")}</h1>
+              <div className="belowTitle">
+                <>
+                  {get(data, "chapters", []).map((item: any) => (
+                    <Chapter
+                      key={get(item, "id", "")}
+                      chapterResources={get(item, "resources", [])}
+                      chapterTitle={get(item, "title", "")}
+                      chapterLinks={[]}
+                      // subItems={chapter.subItems}
+                    />
+                  ))}
+                </>
+              </div>
             </div>
-          </>
+            <ChatBox />
+          </div>
         ) : (
           <PageLoader />
         )}

@@ -34,7 +34,6 @@ const index = () => {
 
   useEffect(() => {
     if (router.isReady) {
-      console.log(router.query.id, "router");
       fetchBlogContent();
     }
   }, [router.isReady]);
@@ -43,28 +42,34 @@ const index = () => {
     <>
       <Head>
         {/* <!-- HTML Meta Tags --> */}
-          <title>{get(blogContent, "title", "")}</title>
-          <meta name="description" content= {get(blogContent, "content", "")}/>
+        <title>{get(blogContent, "title", "")}</title>
+        <meta name="description" content={get(blogContent, "content", "")} />
 
-{/* <!-- Google / Search Engine Tags --> */}
-          <meta itemProp="name" content={get(blogContent, "title", "")} />
-          <meta name="description" content= {get(blogContent, "content", "")}/>
-          <meta itemProp="image" content="" />
+        {/* <!-- Google / Search Engine Tags --> */}
+        <meta itemProp="name" content={get(blogContent, "title", "")} />
+        <meta name="description" content={get(blogContent, "content", "")} />
+        <meta itemProp="image" content="" />
 
-{/* <!-- Facebook Meta Tags --> */}
-          <meta property="og:url" content="https://edloops.com/blogs/react-native-vs-flutter-KhrPrM"/>
-          <meta property="og:type" content="website"/>
-          <meta property="og:title" content={get(blogContent, "title", "")}/>
-          <meta property="og:description" content=""/>
-          <meta property="og:image" content=""/>
+        {/* <!-- Facebook Meta Tags --> */}
+        <meta
+          property="og:url"
+          content="https://edloops.com/blogs/react-native-vs-flutter-KhrPrM"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={get(blogContent, "title", "")} />
+        <meta property="og:description" content="" />
+        <meta property="og:image" content="" />
 
-{/* <!-- Twitter Meta Tags --> */}
-          <meta name="twitter:card" content="summary_large_image"/>
-          <meta name="twitter:title" content={get(blogContent, "title", "")}/>
-          <meta name="twitter:description" content={get(blogContent, "content", "")}/>
-          <meta name="twitter:image" content=""></meta>
+        {/* <!-- Twitter Meta Tags --> */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={get(blogContent, "title", "")} />
+        <meta
+          name="twitter:description"
+          content={get(blogContent, "content", "")}
+        />
+        <meta name="twitter:image" content=""></meta>
       </Head>
-      
+
       <AuthLayout>
         {!loading ? (
           <>
