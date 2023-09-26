@@ -5,11 +5,11 @@ const index = () => {
   return (
     <>
       <div className="loader-container d-flex justify-content-center align-items-center">
-        < ThreeDots
+        <ThreeDots
           height="80"
           width="80"
           ariaLabel="threedots"
-          color="#fff"
+          color="#40a944"
           // backgroundColor="#40a944"
         />
       </div>

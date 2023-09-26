@@ -30,6 +30,14 @@ code {
     monospace;
 }
 
+.success_cl {
+  color: $success !important;
+}
+
+.default_cl {
+  color: $dark !important;
+}
+
 .content {
   margin-left: 214px;
 }

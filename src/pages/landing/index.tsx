@@ -3,15 +3,18 @@ import { publicRoutes } from "@/enums/route.enum";
 import Image from "next/image";
 import React, { ReactNode } from "react";
 import NextLink from "next/link";
+import useScrollPosition from "@/hooks/useScrollPosition";
 
 const Index = () => {
+  const scrollPosition = useScrollPosition();
+  console.log(scrollPosition, "scroll");
+
   return (
     <>
       <div className="landing_container">
         <div className="d-flex align-align-items-center justify-content-center py-4 mb-5">
           <div className="me-5">Are you an investor?</div>
-          <div >Join Us</div>
-          
+          <div>Join Us</div>
         </div>
         <div className="landing_banner pb-5 mb-5 container d-flex flex-column align-items-center justify-content-center">
           <h1 className="landing_title fw-bolder mb-3">EDLOOPS</h1>
@@ -137,7 +140,23 @@ const Index = () => {
               className="interact_title mb-5 col-lg-5 col-12"
             >
               <h1 className="fw-bolder ps-5 ms-3">
-                Interact with lectures you watch problems you practice.
+                Interact with lectures you watch{" "}
+                <span
+                  className={`${
+                    scrollPosition > 1300 && scrollPosition < 2200
+                      ? "success_cl"
+                      : ""
+                  }`}
+                >
+                  problems
+                </span>{" "}
+                you{" "}
+                <span
+                  className={`${scrollPosition > 2200 ? "success_cl" : ""}`}
+                >
+                  practice
+                </span>
+                .
               </h1>
             </div>
           </div>
