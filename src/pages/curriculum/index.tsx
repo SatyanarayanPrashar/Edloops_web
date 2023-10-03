@@ -1,8 +1,9 @@
-// import Chapter from "@/Components/Chapter";
-// import ChatBox from "@/Components/ChatBox";
-// import AuthLayout from "@/Components/Layout/AuthLayout";
-// import Head from "next/head";
-// import React from "react";
+import Chapter from "@/Components/Chapter";
+import ChatBox from "@/Components/ChatBox";
+import AuthLayout from "@/Components/Layout/AuthLayout";
+import Head from "next/head";
+import React from "react";
+import { map } from "lodash";
 
 // const index = () => {
 //   const chapters = [
