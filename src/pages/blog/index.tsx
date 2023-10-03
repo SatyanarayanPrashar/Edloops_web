@@ -15,7 +15,6 @@ const index = () => {
   const [loading, setLoading] = useState(true);
   const [notes, setNotes] = useState([]);
   const [blogs, setBlogs] = useState([]);
-  console.log(loading, "loading");
 
   useEffect(() => {
     if (router.isReady) {
@@ -68,24 +67,39 @@ const index = () => {
     <>
       <Head>
         {/* <!-- HTML Meta Tags --> */}
-          <title>Edloops | Blogs</title>
-          <meta name="description" content= "Learn to code with free tailored courses"/>
-{/* <!-- Google / Search Engine Tags --> */}
-          <meta itemProp="name" content="Edloops | Blogs" />
-          <meta name="description" content= "Learn to code with free tailored courses"/>
-          <meta itemProp="image" content="" />
-{/* <!-- Facebook Meta Tags --> */}
-          <meta property="og:url" content="https://edloops.com/blogs/react-native-vs-flutter-KhrPrM"/>
-          <meta property="og:type" content="website"/>
-          <meta property="og:title" content="Edloops | Blogs"/>
-          <meta property="og:description" content="Learn to code with free tailored courses"/>
-          <meta property="og:image" content=""/>
+        <title>Edloops | Blogs</title>
+        <meta
+          name="description"
+          content="Learn to code with free tailored courses"
+        />
+        {/* <!-- Google / Search Engine Tags --> */}
+        <meta itemProp="name" content="Edloops | Blogs" />
+        <meta
+          name="description"
+          content="Learn to code with free tailored courses"
+        />
+        <meta itemProp="image" content="" />
+        {/* <!-- Facebook Meta Tags --> */}
+        <meta
+          property="og:url"
+          content="https://edloops.com/blogs/react-native-vs-flutter-KhrPrM"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Edloops | Blogs" />
+        <meta
+          property="og:description"
+          content="Learn to code with free tailored courses"
+        />
+        <meta property="og:image" content="" />
 
-{/* <!-- Twitter Meta Tags --> */}
-          <meta name="twitter:card" content="summary_large_image"/>
-          <meta name="twitter:title" content="Edloops | Blogs"/>
-          <meta name="twitter:description" content="Learn to code with free tailored courses"/>
-          <meta name="twitter:image" content=""></meta>
+        {/* <!-- Twitter Meta Tags --> */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Edloops | Blogs" />
+        <meta
+          name="twitter:description"
+          content="Learn to code with free tailored courses"
+        />
+        <meta name="twitter:image" content=""></meta>
       </Head>
       <AuthLayout>
         {!loading ? (
@@ -110,7 +124,11 @@ const index = () => {
                 {blogs.map((blog: any, index: any) => (
                   <BlogCard
                     key={index}
-                    imageSrc={get(blog, "image") !== "" ? get(blog, "image") : "https://i.ibb.co/279v54n/code-1839406-640.jpg"}
+                    imageSrc={
+                      get(blog, "image") !== ""
+                        ? get(blog, "image")
+                        : "https://i.ibb.co/279v54n/code-1839406-640.jpg"
+                    }
                     title={get(blog, "title", "")}
                     text={get(blog, "content", "")}
                     readTime="21 mis read"

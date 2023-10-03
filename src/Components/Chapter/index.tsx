@@ -1,33 +1,34 @@
 import React, { useEffect, useState } from "react";
 import { FaArrowUp, FaPlus } from "react-icons/fa";
-import { map } from "lodash";
+import { get, map } from "lodash";
 import VideoContainer from "../VideoContainer";
 
 interface IProps {
   chapterResources?: any;
   chapterTitle: any;
   chapterLinks: any;
-  subItems?: any;
 }
 
 const index = (props: IProps) => {
-  const { chapterResources, chapterTitle, chapterLinks, subItems } = props;
+  const { chapterResources, chapterTitle, chapterLinks } = props;
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isVideoVisible, setIsVideoVisible] = useState(false);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const handleDropdownToggle = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const handleWatchClick = () => {
+  const handleCollapseToggle = (index: number) => {};
+
+  const handleWatchClick = (index: number) => {
     setIsVideoVisible(true);
+    setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
   };
 
-  const handleCloseClick = () => {
-    setIsVideoVisible(false);
-  };
-
-  console.log(chapterResources, "chapterLinks");
+  const chapterUrl = chapterResources.map((item: any) => item.url);
+  const start = chapterResources.map((item: any) => item.start_time);
+  const end = chapterResources.map((item: any) => item.end_time);
 
   return (
     <div className="chapter-dropdown">
@@ -42,61 +43,40 @@ const index = (props: IProps) => {
       </div>
       {isDropdownOpen && (
         <ul className="chapter-links">
-          {chapterResources?.map((resource: any) => (
+          {chapterResources?.map((resource: any, index: any) => (
             <>
-              <li key={resource.id} className="linkCard">
+              <li key={index} className="linkCard">
                 {/* <div className="linkImage"></div> */}
                 <div>
-                  <a href={resource.url} target="_blank" rel="noreferrer">
-                    {resource.title}
+                  <a
+                    href={get(resource, "url", "")}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {get(resource, "title", "")}
                   </a>
-                  <div>{resource.description}</div>
-                  <button className="read-more" onClick={handleWatchClick}>
+                  <div>{get(resource, "description", "")}</div>
+                  <button
+                    className="read-more"
+                    onClick={() => handleWatchClick(index)}
+                  >
                     Watch
                   </button>
                 </div>
               </li>
+              {isVideoVisible && (
+                <VideoContainer
+                  setIsVideoVisible={setIsVideoVisible}
+                  url={chapterUrl}
+                  startTime={start}
+                  endTime={end}
+                  isClick={activeIndex}
+                />
+              )}
             </>
           ))}
-          {subItems &&
-            subItems.map((item: any) => {
-              if (item.type === "dropdown") {
-                return (
-                  <li key={item.id}>
-                    {/* <Chapter
-                      chapterTitle={item.title}
-                      chapterLinks={item.links}
-                      subItems={item.subItems}
-                    /> */}
-                  </li>
-                );
-              } else if (item.type === "link") {
-                return (
-                  <li key={item.id} className="linkCard">
-                    {/* <div className="linkImage"></div> */}
-                    {/* <img className="linkImage" src={imageSrc} alt={title} />   */}
-                    <div>
-                      <a href={item.url} target="_blank" rel="noreferrer">
-                        {item.title}
-                      </a>
-                      <div>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Impedit mollitia minima est illum, sequi ipsa non
-                        accusamus assumenda hic. Quia!
-                      </div>
-                      <button className="read-more" onClick={handleWatchClick}>
-                        Watch
-                      </button>
-                    </div>
-                  </li>
-                );
-              } else {
-                return null;
-              }
-            })}
         </ul>
       )}
-      {isVideoVisible && <VideoContainer onClose={handleCloseClick} />}
     </div>
   );
 };

@@ -52,18 +52,20 @@ const index = () => {
               <div className="belowTitle">
                 <>
                   {get(data, "chapters", []).map((item: any) => (
-                    <Chapter
-                      key={get(item, "id", "")}
-                      chapterResources={get(item, "resources", [])}
-                      chapterTitle={get(item, "title", "")}
-                      chapterLinks={[]}
-                      // subItems={chapter.subItems}
-                    />
+                    <>
+                      <Chapter
+                        key={get(item, "id", 0)}
+                        chapterResources={get(item, "resources", [])}
+                        chapterTitle={get(item, "title", "")}
+                        chapterLinks={[]}
+                        // subItems={chapter.subItems}
+                      />
+                    </>
                   ))}
                 </>
               </div>
             </div>
-            <ChatBox />
+            {/* <ChatBox /> */}
           </div>
         ) : (
           <PageLoader />

@@ -7,7 +7,6 @@ import useScrollPosition from "@/hooks/useScrollPosition";
 
 const Index = () => {
   const scrollPosition = useScrollPosition();
-  console.log(scrollPosition, "scroll");
 
   return (
     <>

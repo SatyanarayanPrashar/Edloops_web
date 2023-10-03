@@ -213,18 +213,17 @@ const index = () => {
             <div className="belowTitle">
               {chapters.map((chapter) => (
                 <>
-                  {console.log(chapter.subItems, "chapter.subItems")}
                   <Chapter
                     key={chapter.id}
                     chapterTitle={chapter.title}
                     chapterLinks={[]}
-                    subItems={chapter.subItems}
+                    // subItems={chapter.subItems}
                   />
                 </>
               ))}
             </div>
           </div>
-         
+
           {/* <ChatBox /> */}
         </div>
       </AuthLayout>
