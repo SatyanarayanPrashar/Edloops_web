@@ -64,7 +64,7 @@ const index = () => {
                 </>
               </div>
             </div>
-            <ChatBox />
+            {/* <ChatBox /> */}
           </div>
         ) : (
           <PageLoader />
