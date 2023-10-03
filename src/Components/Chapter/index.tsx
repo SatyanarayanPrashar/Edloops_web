@@ -19,16 +19,14 @@ const index = (props: IProps) => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const handleCollapseToggle = (index: number) => {};
-
   const handleWatchClick = (index: number) => {
     setIsVideoVisible(true);
     setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
   };
 
-  const chapterUrl = chapterResources.map((item: any) => item.url);
-  const start = chapterResources.map((item: any) => item.start_time);
-  const end = chapterResources.map((item: any) => item.end_time);
+  const chapterUrl = map(chapterResources, (item: any) => item.url);
+  const start = map(chapterResources, (item: any) => item.start_time);
+  const end = map(chapterResources, (item: any) => item.end_time);
 
   return (
     <div className="chapter-dropdown">

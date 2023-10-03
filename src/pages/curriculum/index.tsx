@@ -147,60 +147,6 @@ const index = () => {
         },
       ],
     },
-    // {
-    //   id: 23,
-    //   title: "Project 2",
-    //   subItems: [
-    //     {
-    //       id: 3,
-    //       type: "link",
-    //       title: "Introduction to Cource",
-    //       url: "https://www.example.com/subitem1"
-    //     },
-    //     {
-    //       id: 3,
-    //       type: "link",
-    //       title: "Setting up VS Code",
-    //       url: "https://www.example.com/VSCode"
-    //     },
-    //   ]
-    // },
-    // {
-    //   id: 23,
-    //   title: "React JS",
-    //   subItems: [
-    //     {
-    //       id: 3,
-    //       type: "link",
-    //       title: "Introduction to Cource",
-    //       url: "https://www.example.com/subitem1"
-    //     },
-    //     {
-    //       id: 3,
-    //       type: "link",
-    //       title: "Setting up VS Code",
-    //       url: "https://www.example.com/VSCode"
-    //     },
-    //   ]
-    // },
-    // {
-    //   id: 23,
-    //   title: "Project 3",
-    //   subItems: [
-    //     {
-    //       id: 3,
-    //       type: "link",
-    //       title: "Introduction to Cource",
-    //       url: "https://www.example.com/subitem1"
-    //     },
-    //     {
-    //       id: 3,
-    //       type: "link",
-    //       title: "Setting up VS Code",
-    //       url: "https://www.example.com/VSCode"
-    //     },
-    //   ]
-    // },
   ];
   return (
     <>
@@ -212,20 +158,17 @@ const index = () => {
           <div>
             <h1>Frontend Crash Course</h1>
             <div className="belowTitle">
-              {chapters.map((chapter) => (
+              {map(chapters, (chapter) => (
                 <>
                   <Chapter
                     key={chapter.id}
                     chapterTitle={chapter.title}
                     chapterLinks={[]}
-                    // subItems={chapter.subItems}
                   />
                 </>
               ))}
             </div>
           </div>
-
-          {/* <ChatBox /> */}
         </div>
       </AuthLayout>
     </>
