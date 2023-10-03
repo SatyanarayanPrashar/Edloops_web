@@ -23,10 +23,8 @@ const index = (props: IProps) => {
         <iframe
           width="949"
           height="534"
-          src={`https://www.youtube.com/embed/${id};start=${startTime[isClick]}&amp;end=${endTime[isClick]}`}
+          src={`https://www.youtube.com/embed/${id}?start=${startTime[isClick]}&end=${endTime[isClick]}`}
           // src="https://www.youtube.com/embed/s7YXz7FwMBs?si=2R43BEZOXSSPoUxb&amp;start=200&amp;end=210"
-          title="Introduction to HTML, CSS, JavaScript &amp; How websites work? | Web Development Tutorials #1"
-          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
         ></iframe>
