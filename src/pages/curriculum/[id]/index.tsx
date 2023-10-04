@@ -38,9 +38,7 @@ const index = () => {
         toast.error(get(error, "message", ""));
       });
   };
-   console.log(get(data, "title"))
-   console.log(get(data, "image"))
-   console.log(get(data, "description"))
+
   return (
     <>
       <Head>

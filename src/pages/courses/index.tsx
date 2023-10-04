@@ -51,9 +51,12 @@ const index = () => {
                 <CurriculumCard
                   key={item.id}
                   id={get(item, "id", "")}
-                  imageSrc="https://www.waterfieldtech.com/wp-content/uploads/2022/12/Chatgpt-customer-service-bot-scaled.jpeg"
+                  // imageSrc={get(item, "title", "")}
                   title={get(item, "title", "")}
                   text={get(item, "description")}
+                  imageSrc={get(item, "image") !== ""
+                  ? get(item, "image")
+                  : "https://i.ibb.co/279v54n/code-1839406-640.jpg"}
                   length=""
                   By=""
                 />
