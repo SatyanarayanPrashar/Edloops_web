@@ -38,7 +38,9 @@ const index = () => {
         toast.error(get(error, "message", ""));
       });
   };
-
+   console.log(get(data, "title"))
+   console.log(get(data, "image"))
+   console.log(get(data, "description"))
   return (
     <>
       <Head>
@@ -49,10 +51,10 @@ const index = () => {
           <div className="curicullums">
             <div>
               <div className="image-title">
-                {/* <img src={get(data, "image") !== ""
+                <img src={get(data, "image") !== ""
                           ? get(data, "image")
-                          : "https://i.ibb.co/279v54n/code-1839406-640.jpg"} alt={get(data, "title")} /> */}
-                <img src={"https://i.ibb.co/279v54n/code-1839406-640.jpg"} alt={get(data, "title")} />
+                          : "https://i.ibb.co/279v54n/code-1839406-640.jpg"} alt={get(data, "title")} />
+                {/* <img src={"https://i.ibb.co/279v54n/code-1839406-640.jpg"} alt={get(data, "title")} /> */}
                 <div className="title-description">
                   <h1 className="mt-4">{get(data, "title", "")}</h1>
                   {get(data, "description", "")}       
