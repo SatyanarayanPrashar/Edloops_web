@@ -48,7 +48,16 @@ const index = () => {
         {!loading ? (
           <div className="curicullums">
             <div>
-              <h1 className="mt-4">{get(data, "title", "")}</h1>
+              <div className="image-title">
+                {/* <img src={get(data, "image") !== ""
+                          ? get(data, "image")
+                          : "https://i.ibb.co/279v54n/code-1839406-640.jpg"} alt={get(data, "title")} /> */}
+                <img src={"https://i.ibb.co/279v54n/code-1839406-640.jpg"} alt={get(data, "title")} />
+                <div className="title-description">
+                  <h1 className="mt-4">{get(data, "title", "")}</h1>
+                  {get(data, "description", "")}       
+                </div>
+              </div>
               <div className="belowTitle">
                 <>
                   {get(data, "chapters", []).map((item: any) => (

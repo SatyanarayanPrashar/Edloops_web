@@ -14,7 +14,7 @@ interface IProps {
 const index = (props: IProps) => {
   const { imageSrc, title, text, length, By, id } = props;
   return (
-    <NextLink href={publicRoutes.curriculum + `/${id}`}>
+    <NextLink href={publicRoutes.curriculum + `/${id} `}>
       <div className="curriculum-preview-card mb-3 me-3">
         <img src={imageSrc} alt={title} />
         <div className="curriculum-preview-card-content px-2 w-100 mt-2">

@@ -14,6 +14,7 @@ const index = (props: IProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isVideoVisible, setIsVideoVisible] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [thumbnailUrls, setThumbnailUrls] = useState<string[]>([]);
 
   const handleDropdownToggle = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -27,6 +28,22 @@ const index = (props: IProps) => {
   const chapterUrl = map(chapterResources, (item: any) => item.url);
   const start = map(chapterResources, (item: any) => item.start_time);
   const end = map(chapterResources, (item: any) => item.end_time);
+
+  // Function to extract YouTube video ID from URL
+  const getYouTubeVideoId = (url: string) => {
+    const videoIdMatch = url.match(/(?:\/|v=)([A-Za-z0-9_-]{11})/);
+    return videoIdMatch ? videoIdMatch[1] : null;
+  };
+
+  useEffect(() => {
+    // Fetch and set thumbnail URLs
+    const videoIds = chapterUrl.map(getYouTubeVideoId);
+    const thumbnailUrls = videoIds.map(
+      (videoId) =>
+        `https://img.youtube.com/vi/${videoId}/0.jpg`
+    );
+    setThumbnailUrls(thumbnailUrls);
+  }, [chapterUrl]);
 
   return (
     <div className="chapter-dropdown">
@@ -42,9 +59,15 @@ const index = (props: IProps) => {
       {isDropdownOpen && (
         <ul className="chapter-links">
           {chapterResources?.map((resource: any, index: any) => (
+            
             <>
               <li key={index} className="linkCard">
-                {/* <div className="linkImage"></div> */}
+              <div className="linkImage">
+                <img
+                  src={thumbnailUrls[index]}
+                  alt={get(resource, "title", "")}
+                />
+              </div>
                 <div>
                   <a
                     href={get(resource, "url", "")}
