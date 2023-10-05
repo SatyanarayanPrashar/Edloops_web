@@ -43,7 +43,7 @@ const index = () => {
       <AuthLayout>
         {!loading ? (
           <>
-            <h1 className="mt-4 mb-3">Welcome to the Curriculum page!</h1>
+            <h1 className="mt-4 mb-3"></h1>
 
             {/* <h3>Trending</h3> */}
             <div className="Curriculum_Container">
@@ -51,11 +51,14 @@ const index = () => {
                 <CurriculumCard
                   key={item.id}
                   id={get(item, "id", "")}
-                  imageSrc="https://www.waterfieldtech.com/wp-content/uploads/2022/12/Chatgpt-customer-service-bot-scaled.jpeg"
+                  // imageSrc={get(item, "title", "")}
                   title={get(item, "title", "")}
                   text={get(item, "description")}
-                  length="21 hours"
-                  By="Satyanarayan Prashar"
+                  imageSrc={get(item, "image") !== ""
+                  ? get(item, "image")
+                  : "https://i.ibb.co/279v54n/code-1839406-640.jpg"}
+                  length=""
+                  By=""
                 />
               ))}
             </div>

@@ -15,6 +15,7 @@ const index = (props: IProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isVideoVisible, setIsVideoVisible] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [thumbnailUrls, setThumbnailUrls] = useState<string[]>([]);
 
   const handleDropdownToggle = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -53,6 +54,7 @@ const index = (props: IProps) => {
       {isDropdownOpen && (
         <ul className="chapter-links">
           {chapterResources?.map((resource: any, index: any) => (
+            
             <>
               <li key={index} className="linkCard">
                 <div className="linkImage">

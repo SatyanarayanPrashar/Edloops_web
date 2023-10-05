@@ -17,12 +17,12 @@ const index = () => {
                   <NextLink activeClassName={"active"} href={publicRoutes.home}>
                     <li>Home</li>
                   </NextLink>
-                  <NextLink
+                  {/* <NextLink
                     activeClassName={"active"}
                     href={publicRoutes.community}
                   >
                     <li>Community</li>
-                  </NextLink>
+                  </NextLink> */}
                   <NextLink
                     activeClassName={"active"}
                     href={publicRoutes.courses}
@@ -32,17 +32,17 @@ const index = () => {
                   <NextLink activeClassName={"active"} href={publicRoutes.blog}>
                     <li>Blog</li>
                   </NextLink>
-                  <NextLink
+                  {/* <NextLink
                     activeClassName={"active"}
                     href={publicRoutes.about}
                   >
                     <li>About</li>
-                  </NextLink>
+                  </NextLink> */}
                 </ul>
               </div>
             </div>
 
-            <div className="col-lg-3 col-md-6">
+            {/* <div className="col-lg-3 col-md-6">
               <div className="">
                 <h6 className="footer-heading text-uppercase text-dark">
                   Courses
@@ -87,7 +87,7 @@ const index = () => {
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> */}
 
             <div className="col-lg-3 col-md-6">
               <div className="">
@@ -97,7 +97,7 @@ const index = () => {
                 <p className="contact-info mt-4">
                   Contact us if need help withanything
                 </p>
-                <p className="contact-info">+01 123-456-7890</p>
+                <p className="contact-info">satya@edloops.com</p>
                 <p className="contact-info">Terms and Conditions</p>
               </div>
             </div>
