@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaArrowUp, FaPlus } from "react-icons/fa";
 import { get, map } from "lodash";
 import VideoContainer from "../VideoContainer";
+import getVideoId from "get-video-id";
 
 interface IProps {
   chapterResources?: any;
@@ -28,6 +29,16 @@ const index = (props: IProps) => {
   const start = map(chapterResources, (item: any) => item.start_time);
   const end = map(chapterResources, (item: any) => item.end_time);
 
+  // Function to extract YouTube video ID from URL
+  const videoIds = chapterUrl.map((url) => {
+    let { id }: any = getVideoId(url);
+    return id;
+  });
+
+  const getThumbnailUrl = (index: any) => {
+    return `https://img.youtube.com/vi/${videoIds[index]}/0.jpg`;
+  };
+
   return (
     <div className="chapter-dropdown">
       <div className="chapter-header" onClick={handleDropdownToggle}>
@@ -44,7 +55,12 @@ const index = (props: IProps) => {
           {chapterResources?.map((resource: any, index: any) => (
             <>
               <li key={index} className="linkCard">
-                {/* <div className="linkImage"></div> */}
+                <div className="linkImage">
+                  <img
+                    src={getThumbnailUrl(index)}
+                    alt={get(resource, "title", "")}
+                  />
+                </div>
                 <div>
                   <a
                     href={get(resource, "url", "")}
