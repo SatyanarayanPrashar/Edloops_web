@@ -1,8 +1,8 @@
 import BlogCard from "@/Components/BlogCard";
 import AuthLayout from "@/Components/Layout/AuthLayout";
 import PageLoader from "@/Components/PageLoader";
-import TagTile from "@/Components/TagTile";
-import CommunityCard from "@/Components/communityCard/communityCard";
+// import TagTile from "@/Components/TagTile";
+// import CommunityCard from "@/Components/communityCard/communityCard";
 import { blogRequestUrls, requests } from "@/helper/apiAgent";
 import { ErrorHandler, ResponseHandler } from "@/helper/utils";
 import { get } from "lodash";
@@ -146,7 +146,7 @@ const index = () => {
                 </div>
               </div> */}
             </div>
-            <CommunityCard/>
+            {/* <CommunityCard/> */}
           </>
 
         ) : (
