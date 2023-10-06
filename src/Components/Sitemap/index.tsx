@@ -17,12 +17,12 @@ const index = () => {
                   <NextLink activeClassName={"active"} href={publicRoutes.home}>
                     <li>Home</li>
                   </NextLink>
-                  {/* <NextLink
+                  <NextLink
                     activeClassName={"active"}
                     href={publicRoutes.community}
                   >
                     <li>Community</li>
-                  </NextLink> */}
+                  </NextLink>
                   <NextLink
                     activeClassName={"active"}
                     href={publicRoutes.courses}

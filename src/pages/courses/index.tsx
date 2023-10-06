@@ -70,7 +70,7 @@ const index = () => {
                 />
               ))}
             </div>          
-            <CommunityCard/>
+            {/* <CommunityCard/> */}
           </>
         ) : (
           <PageLoader />

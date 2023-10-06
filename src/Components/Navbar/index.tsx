@@ -69,14 +69,14 @@ const index = () => {
               </span>
             </li>
           </NextLink>
-          {/* <NextLink activeClassName={"active"} href={publicRoutes.community}>
+          <NextLink activeClassName={"active"} href={publicRoutes.community}>
             <li className="sidebarbutton">
               <span>
                 <FaCommentDots className="sidebaricon" />
                 Community
               </span>
             </li>
-          </NextLink> */}
+          </NextLink>
           <NextLink activeClassName={"active"} href={publicRoutes.courses}>
             <li className="sidebarbutton">
               <span>
