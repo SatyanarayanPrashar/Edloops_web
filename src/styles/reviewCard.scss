@@ -1,0 +1,59 @@
+.review{
+  display: flex;
+}
+.review-card {
+  
+  padding: 20px;
+  width: 340px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+
+  .top-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+    .profile-pic {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 15px;
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    .info {
+      flex: 1;
+
+      .name {
+        font-size: 18px;
+        margin: 0;
+      }
+
+      .designation {
+        font-size: 14px;
+        color: #666;
+        margin: 0;
+      }
+    }
+  }
+
+  .rating {
+    font-size: 24px;
+    color: #ffbb00;
+  }
+
+  .review-text {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  .fa-star {
+    color: #ffbb00;
+  }
+}

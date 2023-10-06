@@ -1,6 +1,8 @@
 import CurriculumCard from "@/Components/CurriculumCard";
 import AuthLayout from "@/Components/Layout/AuthLayout";
 import PageLoader from "@/Components/PageLoader";
+import ReviewCard from "@/Components/ReviewCard/ReviewCard";
+import CommunityCard from "@/Components/communityCard/communityCard";
 import { blogRequestUrls, requests } from "@/helper/apiAgent";
 import { ErrorHandler, ResponseHandler } from "@/helper/utils";
 import { get } from "lodash";
@@ -43,7 +45,13 @@ const index = () => {
       <AuthLayout>
         {!loading ? (
           <>
-            <h1 className="mt-4 mb-3"></h1>
+            <div>
+                <div className="blogTop_Title mt-0">Simplify Learning</div>
+                <div className="blogTop_MotoT">
+                  Embark on a Journey of Learning and Mastery
+                </div>
+                <div className="blogTop_MotoB">with Our Comprehensive Courses</div>
+              </div>
 
             {/* <h3>Trending</h3> */}
             <div className="Curriculum_Container">
@@ -61,7 +69,8 @@ const index = () => {
                   By=""
                 />
               ))}
-            </div>
+            </div>          
+            <CommunityCard/>
           </>
         ) : (
           <PageLoader />

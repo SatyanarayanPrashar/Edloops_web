@@ -1,7 +1,8 @@
 import Chapter from "@/Components/Chapter";
-import ChatBox from "@/Components/ChatBox";
 import AuthLayout from "@/Components/Layout/AuthLayout";
 import PageLoader from "@/Components/PageLoader";
+import ReviewCard from "@/Components/ReviewCard/ReviewCard";
+import CommunityCard from "@/Components/communityCard/communityCard";
 import { blogRequestUrls, requests } from "@/helper/apiAgent";
 import { ErrorHandler, ResponseHandler } from "@/helper/utils";
 import { get, map } from "lodash";
@@ -46,37 +47,49 @@ const index = () => {
       </Head>
       <AuthLayout>
         {!loading ? (
-          <div className="curicullums d-block">
+          <div className="curicullums">
             <div>
               <div className="image-title">
-                <img
-                  src={
-                    get(data, "image") !== ""
-                      ? get(data, "image")
-                      : "https://i.ibb.co/279v54n/code-1839406-640.jpg"
-                  }
-                  alt={get(data, "title")}
-                />
+                <img src={get(data, "image") !== ""
+                          ? get(data, "image")
+                          : "https://i.ibb.co/279v54n/code-1839406-640.jpg"} alt={get(data, "title")} />
                 {/* <img src={"https://i.ibb.co/279v54n/code-1839406-640.jpg"} alt={get(data, "title")} /> */}
                 <div className="title-description">
                   <h1 className="mt-4">{get(data, "title", "")}</h1>
-                  {get(data, "description", "")}
+                  {get(data, "description", "")}       
                 </div>
               </div>
               <div className="belowTitle">
                 <>
                   {get(data, "chapters", []).map((item: any) => (
-                    <Chapter
-                      key={get(item, "id", 0)}
-                      chapterResources={get(item, "resources", [])}
-                      chapterTitle={get(item, "title", "")}
-                      chapterLinks={[]}
-                    />
+                    <>
+                      <Chapter
+                        key={get(item, "id", 0)}
+                        chapterResources={get(item, "resources", [])}
+                        chapterTitle={get(item, "title", "")}
+                        chapterLinks={[]}
+                      />
+                    </>
                   ))}
+                  <div className="review">
+                    <ReviewCard 
+                      name="Satya"
+                      designation="founder @Edloops | PM @TreeVed"
+                      profilePic={"/img/satya.png"} 
+                      review="These curated courses are improvement of what roadmap I followed to become industry ready developer. Feel free to ping me on discord for any kind related quieres or removal of content."
+                    />
+                    <ReviewCard 
+                      name="Arnav Anant"
+                      designation="student"
+                      profilePic={"/img/user.png"} 
+                      review="Amazing curation! there are so much of free resources avilable, but getting to the right one is difficult. These Courses really navigates you to the tressures in the ocean."
+                    />
+  
+                  </div>
+                  <CommunityCard /> 
                 </>
               </div>
             </div>
-            {/* <ChatBox /> */}
           </div>
         ) : (
           <PageLoader />

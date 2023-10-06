@@ -8,6 +8,7 @@ import { ErrorHandler, ResponseHandler } from "@/helper/utils";
 import { get } from "lodash";
 import { toast } from "react-toastify";
 import PageLoader from "@/Components/PageLoader";
+import CommunityCard from "@/Components/communityCard/communityCard";
 
 const index = () => {
   const router = useRouter();
@@ -81,7 +82,9 @@ const index = () => {
               </div>
               {/* <ChatBox /> */}
             </div>
+            <CommunityCard/>
           </>
+
         ) : (
           <PageLoader />
         )}
