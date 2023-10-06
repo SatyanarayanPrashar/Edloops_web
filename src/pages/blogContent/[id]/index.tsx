@@ -1,4 +1,4 @@
-import ChatBox from "@/Components/ChatBox";
+
 import AuthLayout from "@/Components/Layout/AuthLayout";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
@@ -8,7 +8,8 @@ import { ErrorHandler, ResponseHandler } from "@/helper/utils";
 import { get } from "lodash";
 import { toast } from "react-toastify";
 import PageLoader from "@/Components/PageLoader";
-import CommunityCard from "@/Components/communityCard/communityCard";
+import CommunityCard from "@/Components/communityCard";
+
 
 const index = () => {
   const router = useRouter();

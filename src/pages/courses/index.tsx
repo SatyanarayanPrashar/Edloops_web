@@ -2,7 +2,7 @@ import CurriculumCard from "@/Components/CurriculumCard";
 import AuthLayout from "@/Components/Layout/AuthLayout";
 import PageLoader from "@/Components/PageLoader";
 import ReviewCard from "@/Components/ReviewCard/ReviewCard";
-import CommunityCard from "@/Components/communityCard/communityCard";
+import CommunityCard from "@/Components/communityCard";
 import { blogRequestUrls, requests } from "@/helper/apiAgent";
 import { ErrorHandler, ResponseHandler } from "@/helper/utils";
 import { get } from "lodash";

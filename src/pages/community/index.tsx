@@ -1,5 +1,5 @@
 import AuthLayout from "@/Components/Layout/AuthLayout";
-import CommunityCard from "@/Components/communityCard/communityCard";
+import CommunityCard from "@/Components/communityCard";
 import Head from "next/head";
 import React, { useState } from "react";
 
@@ -67,7 +67,7 @@ const index = () => {
         <title>Community | Edloops</title>
       </Head>
       <AuthLayout>
-        <div style={{"margin": "20px"}}></div>
+        <div style={{"margin": "35px"}}></div>
         {/* <div>
           <div className="blogTop_Title mt-0">Stay Ahead</div>
           <div className="blogTop_MotoT">
