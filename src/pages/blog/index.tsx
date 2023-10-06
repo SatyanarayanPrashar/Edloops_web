@@ -79,7 +79,7 @@ const index = () => {
           name="description"
           content="Learn to code with free tailored courses"
         />
-        <meta itemProp="image" content="" />
+        <meta itemProp="image" content="https://i.ibb.co/YNc7SkF/edloops.png" />
         {/* <!-- Facebook Meta Tags --> */}
         <meta
           property="og:url"

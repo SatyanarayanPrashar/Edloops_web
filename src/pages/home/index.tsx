@@ -63,7 +63,41 @@ const Index = () => {
   return (
     <>
       <Head>
-        <title>Home</title>
+        {/* <!-- HTML Meta Tags --> */}
+        <title>Home | Edloops</title>
+        <meta
+          name="description"
+          content="Learn to code with free tailored courses"
+        />
+        {/* <!-- Google / Search Engine Tags --> */}
+        <meta itemProp="name" content="Home | Edloops" />
+        <meta
+          name="description"
+          content="Learn to code with free tailored courses"
+        />
+        <meta itemProp="image" content="https://i.ibb.co/YNc7SkF/edloops.png" />
+
+        {/* <!-- Facebook Meta Tags --> */}
+        <meta
+          property="og:url"
+          content=""
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Home | Edloops" />
+        <meta
+          property="og:description"
+          content="Learn to code with free tailored courses"
+        />
+        <meta property="og:image" content="" />
+
+        {/* <!-- Twitter Meta Tags --> */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Home | Edloops" />
+        <meta
+          name="twitter:description"
+          content="Learn to code with free tailored courses"
+        />
+        <meta name="twitter:image" content=""></meta>
       </Head>
       <AuthLayout>
         {!loading ? (

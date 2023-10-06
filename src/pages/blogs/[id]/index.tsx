@@ -49,7 +49,7 @@ const index = () => {
         {/* <!-- Google / Search Engine Tags --> */}
         <meta itemProp="name" content={get(blogContent, "title", "")} />
         <meta name="description" content={get(blogContent, "content", "")} />
-        <meta itemProp="image" content="" />
+        <meta itemProp="image" content="https://i.ibb.co/YNc7SkF/edloops.png" />
 
         {/* <!-- Facebook Meta Tags --> */}
         <meta

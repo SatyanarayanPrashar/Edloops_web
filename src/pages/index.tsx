@@ -12,7 +12,7 @@ export default function Home() {
 {/* <!-- Google / Search Engine Tags --> */}
         <meta itemProp="name" content="Edloops" />
         <meta itemProp="description" content="Learn to code 20X faster with AI powered courses" />
-        <meta itemProp="image" content="" />
+        <meta itemProp="image" content="https://i.ibb.co/YNc7SkF/edloops.png" />
 
 {/* <!-- Facebook Meta Tags --> */}
         <meta property="og:url" content="https://edloops.com" />
