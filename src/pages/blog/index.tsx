@@ -14,37 +14,37 @@ import { toast } from "react-toastify";
 const index = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
-  const [notes, setNotes] = useState([]);
+  // const [notes, setNotes] = useState([]);
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
     if (router.isReady) {
-      fetchNotes();
+      // fetchNotes();
       fetchBlogs();
     }
   }, [router.isReady]);
 
-  const fetchNotes = async () => {
-    setLoading(true);
-    await requests
-      .get(blogRequestUrls.notes.getNotes)
-      .then((res) => {
-        const response = ResponseHandler(res);
-        if (get(response, "status", false)) {
-          // Remove empty objects from array
-          let filteredData = get(response, "data", []).filter(
-            (value: any) => Object.keys(value).length !== 0
-          );
-          setNotes(filteredData);
-        }
-        setLoading(false);
-      })
-      .catch((e) => {
-        setLoading(false);
-        const error = ErrorHandler(e);
-        toast.error(get(error, "message", ""));
-      });
-  };
+  // const fetchNotes = async () => {
+  //   setLoading(true);
+  //   await requests
+  //     .get(blogRequestUrls.notes.getNotes)
+  //     .then((res) => {
+  //       const response = ResponseHandler(res);
+  //       if (get(response, "status", false)) {
+  //         // Remove empty objects from array
+  //         let filteredData = get(response, "data", []).filter(
+  //           (value: any) => Object.keys(value).length !== 0
+  //         );
+  //         setNotes(filteredData);
+  //       }
+  //       setLoading(false);
+  //     })
+  //     .catch((e) => {
+  //       setLoading(false);
+  //       const error = ErrorHandler(e);
+  //       toast.error(get(error, "message", ""));
+  //     });
+  // };
 
   const fetchBlogs = async () => {
     setLoading(true);
