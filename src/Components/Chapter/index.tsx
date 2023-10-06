@@ -15,7 +15,6 @@ const index = (props: IProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isVideoVisible, setIsVideoVisible] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [thumbnailUrls, setThumbnailUrls] = useState<string[]>([]);
 
   const handleDropdownToggle = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -40,6 +39,11 @@ const index = (props: IProps) => {
     return `https://img.youtube.com/vi/${videoIds[index]}/0.jpg`;
   };
 
+  const isYouTube = (url: string) => {
+    const youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/watch\?v=([a-zA-Z0-9_-]+)/;
+    return youtubeRegex.test(url);
+  };
+
   return (
     <div className="chapter-dropdown">
       <div className="chapter-header" onClick={handleDropdownToggle}>
@@ -52,45 +56,114 @@ const index = (props: IProps) => {
         <span className={`arrow ${isDropdownOpen ? "open" : ""}`}></span>
       </div>
       {isDropdownOpen && (
+        // <ul className="chapter-links">
+        //   {chapterResources?.map((resource: any, index: any) => (
+        //     <>
+        //       <li key={index} className="linkCard">
+        //         <div className="Ch-number">
+        //           {index + 1}
+        //         </div>
+        //         <div className="linkImage">
+
+                  // <img
+                  //   src={getThumbnailUrl(index)}
+                  //   alt={get(resource, "title", "")}
+                  // />
+        //         </div>
+        //         <div className="link-mid">
+        //           <a
+        //             href={get(resource, "url", "")}
+        //             target="_blank"
+        //             rel="noreferrer"
+        //           >
+        //             {get(resource, "title", "")}
+        //           </a>
+        //           <div>{get(resource, "description", "")}</div>
+        //           </div>
+        //           <div className="bttnsection">
+                    // <button
+                    //   className="watch-bttn"
+                    //   onClick={() => handleWatchClick(index)}
+                    // >
+                    //   Watch
+                    // </button>
+        //             {/* checkbox here */}
+        //           </div>
+        //       </li>
+              // {isVideoVisible && (
+              //   <VideoContainer
+              //     setIsVideoVisible={setIsVideoVisible}
+              //     url={chapterUrl}
+              //     startTime={start}
+              //     endTime={end}
+              //     isClick={activeIndex}
+              //   />
+              // )}
+        //     </>
+        //   ))}
+        // </ul>
         <ul className="chapter-links">
-          {chapterResources?.map((resource: any, index: any) => (
-            
-            <>
+          {chapterResources?.map((resource: any, index: any) => {
+            // Check if the URL is a YouTube URL
+            const isYouTubeURL = isYouTube(resource.url);
+
+            return (
               <li key={index} className="linkCard">
+                <div className="Ch-number">{index + 1}</div>
                 <div className="linkImage">
-                  <img
-                    src={getThumbnailUrl(index)}
-                    alt={get(resource, "title", "")}
-                  />
+                  {isYouTubeURL ? (
+                    <img
+                      src={getThumbnailUrl(index)}
+                      alt={get(resource, "title", "")}
+                    />
+                  ) : (
+                    <img
+                      src="/img/link.png" // Default image URL
+                      alt={get(resource, "title", "")}
+                    />
+                  )}
                 </div>
-                <div>
+                <div className="link-mid">
                   <a
-                    href={get(resource, "url", "")}
+                    href={resource.url}
                     target="_blank"
                     rel="noreferrer"
                   >
                     {get(resource, "title", "")}
                   </a>
                   <div>{get(resource, "description", "")}</div>
-                  <button
-                    className="read-more"
-                    onClick={() => handleWatchClick(index)}
-                  >
-                    Watch
-                  </button>
                 </div>
-              </li>
-              {isVideoVisible && (
-                <VideoContainer
+                <div className="bttnsection">
+                {isYouTubeURL 
+                  ? <button
+                      className="watch-bttn"
+                      onClick={() => handleWatchClick(index)}
+                    >
+                      Watch
+                    </button>
+                  : <button
+                      className="watch-bttn"
+                      onClick={() => window.open(resource.url, "_blank")}
+                    >
+                      Read
+                    </button>
+                }
+                  {/* checkbox here */}
+                </div>
+                
+                {isVideoVisible && (
+                  <VideoContainer
                   setIsVideoVisible={setIsVideoVisible}
                   url={chapterUrl}
                   startTime={start}
                   endTime={end}
                   isClick={activeIndex}
-                />
-              )}
-            </>
-          ))}
+                  />
+                  )}
+              </li>
+              
+            );
+          })}
         </ul>
       )}
     </div>

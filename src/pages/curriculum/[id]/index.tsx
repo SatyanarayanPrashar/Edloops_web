@@ -71,6 +71,7 @@ const index = () => {
                       />
                     </>
                   ))}
+                  
                   <div className="review">
                     <ReviewCard 
                       name="Satya"

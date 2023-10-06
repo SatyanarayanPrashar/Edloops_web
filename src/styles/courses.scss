@@ -65,30 +65,69 @@ h1 {
   padding-right: 10px;
 }
 
+.chapter-links{
+  padding-left: 0px;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Ch-number{
+  font-size: 1.2rem;
+  margin-right: 20px;
+}
+
 .linkCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   height: 100%;
   max-width: 60rem;
-  width: auto;
-  border-bottom: $dark;
-  display: flex;
-  margin: 10px 10px;
+  width: 60rem;
+  margin: 0px 0px;
   text-decoration: none;
   // background-color: red;
   padding-bottom: 10px;
   border-bottom: solid 1px grey;
+  margin-bottom: 10px;
 }
 
 .linkImage {
-  background-size: cover;
-  background-position: center;
-  height: 120px;
-  width: 120px;
+  height: 10rem;;
+  width: 18rem;
   flex-shrink: 0;
   margin-right: 20px;
-
+  
   img {
     width: 100%; 
     height: 100%; 
     object-fit: cover; 
+    border-radius: 11px;
+    border: solid 1px #C5CAF2;
   }
+}
+
+.link-mid{
+  // height: 10rem;
+  width: 40rem;
+  margin-right: 20px;
+  a{
+    font-size: 1.2rem;
+  }
+}
+.bttnsection{
+  height: 10rem;
+}
+
+.watch-bttn{
+  background-color: #C5CAF2;
+  width: 6rem;
+  color: $dark;
+  font-weight: 600;
+  border-radius: 11px;
+  padding: 8px 16px;
+  // margin-top: 10px;
+  cursor: pointer;
 }
