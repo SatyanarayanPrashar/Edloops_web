@@ -37,12 +37,12 @@ const index = () => {
           <div className="blog-Content">
             <div className="roadmap-header">
               <h1>Flutter Developer Roadmap 2023</h1>
-              <img src="https://i.ibb.co/8mwvtw0/flutter.png" alt="" />
+              <img src="https://i.ibb.co/8mwvtw0/flutter.png" alt="flutter-roadmap" title="flutter-roadmap"/>
             </div>
             Becoming a proficient Flutter developer involves a blend of theoretical understanding and practical application. To help you on your journey to success in Flutter development, I've outlined a roadmap based on my personal experience:          <br />
             <ol>
               <li>
-                <strong id="checkpoint1">1.Lerning Dart Programming Language :</strong>
+                <h2 id="checkpoint1">1.Lerning Dart Programming Language :</h2>
 
                 Before delving into Flutter, it's essential to establish a strong foundation in programming. This includes grasping concepts like data types like string, int, bool and null, mastering Conditional statements and Functions. Ignoring Dart was one of the worst mistakes I did while learning Flutter and handling null later gave me truma.
 
@@ -54,7 +54,7 @@ const index = () => {
 
               </li>
               <li>
-                <strong id="checkpoint3">3. Dive into Flutter:</strong>
+                <h2 id="checkpoint3">3. Dive into Flutter:</h2>
 
                 Once you have a solid grounding in programming and Dart, it's time to explore
                 <a href="https://flutter.dev/docs" target="_blank" rel="noopener noreferrer"> Flutter Documentation</a>,
@@ -62,28 +62,28 @@ const index = () => {
 
               </li>
               <li>
-                <strong id="checkpoint4">4. Start Practicing UI:</strong>
+                <h2 id="checkpoint4">4. Start Practicing UI:</h2>
                 Practical experience is invaluable in mastering any framework. <br /><i>"Donot fall in the trap of Tutorials"</i> <br />Start creating simple UIs you can even refer speed codes from YoutTube and simply code with them, Yes there's no shame doing that to learn stuff. Few of my favourite one are:
                 <a href="https://youtu.be/LN668OAUrK4?si=YroHSPuF7HLEE2T6" target="_blank"> Plant UI </a>
                 and
                 <a href="https://www.youtube.com/watch?v=uiJF-ShOLyo" target="_blank"> Chat/Messaging App UI </a> by The Flutter way.
               </li>
               <li>
-                <strong id="checkpoint5">5. Learn Advance concepts:</strong>
+                <h2 id="checkpoint5">5. Learn Advance concepts:</h2>
                 Once you are comfortable with the UI creation with Flutter Frameworks, it's time to learn advance concepts like JSON Serializtion & Deserialization, StreamController and StreamBuilder, Single and Broadcast Streams. <br /> I prefer
                 <a href="https://www.youtube.com/@RohitSemriwal" target="_blank"> Rohit Semriwal's playlist for this.</a>
 
               </li>
               <li>
-                <strong id="checkpoint6">6. Explore State Management:</strong>
+                <h2 id="checkpoint6">6. Explore State Management:</h2>
                 State management is a crucial concept in Flutter development. Explore different state management options such as setState, Provider, Redux, and GetX to see which one works best for your project. Some suitable projects for this phase can be a news app, a social media app, or a grocery shopping app.
               </li>
               <li>
-                <strong id="checkpoint7">7. Engage with the Flutter Community:</strong>
+                <h2 id="checkpoint7">7. Engage with the Flutter Community:</h2>
                 The Flutter community is vibrant and active, offering a wealth of resources. Connect with this community by participating in online forums, attending local meetups, and engaging with fellow developers. These interactions provide opportunities to learn from experienced developers, receive feedback on your code, and stay updated on the latest trends and best practices.
               </li>
               <li>
-                <strong id="checkpoint8">8. And Build Projects, and some cool projects, some more projects:</strong>
+                <h2 id="checkpoint8">8. And Build Projects, and some cool projects, some more projects:</h2>
                 Once you've gained a solid understanding of Dart, Flutter, and explored advanced concepts, the next step is to apply your knowledge by building real-world projects. Building projects is essential because it allows you to put your skills into practice, gain hands-on experience, and demonstrate your abilities to potential employers or clients.
               </li>
             </ol>
