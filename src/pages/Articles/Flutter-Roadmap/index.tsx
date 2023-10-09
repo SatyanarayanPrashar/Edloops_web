@@ -10,24 +10,25 @@ const index = () => {
       <Head>
         {/* <!-- HTML Meta Tags --> */}
         <title>Flutter Developer Roadmap 2023</title>
-        {/* <meta name="description" content= {get(blogContent, "content", "")}/> */}
+        <meta name="description" content="Discover the essential steps to becoming a skilled Flutter developer. From mastering programming fundamentals to exploring state management, this roadmap guides you through your journey to success." />
         {/* <!-- Google / Search Engine Tags --> */}
         <meta itemProp="name" content="" />
-        {/* <meta name="description" content= {get(blogContent, "content", "")}/> */}
+        <meta name="description" content="Discover the essential steps to becoming a skilled Flutter developer. From mastering programming fundamentals to exploring state management, this roadmap guides you through your journey to success." />
         <meta itemProp="image" content="https://i.ibb.co/8mwvtw0/flutter.png" />
 
         {/* <!-- Facebook Meta Tags --> */}
-        <meta property="og:url" content="" />
+
+        <meta property="og:url" content="https://edloops.com/Articles/Flutter-Roadmap" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="" />
-        <meta property="og:description" content="" />
-        <meta property="og:image" content="" />
+        <meta property="og:title" content="Flutter Developer Roadmap 2023" />
+        <meta property="og:description" content="Discover the essential steps to becoming a skilled Flutter developer. From mastering programming fundamentals to exploring state management, this roadmap guides you through your journey to success." />
+        <meta property="og:image" content="http://i.ibb.co/8mwvtw0/flutter.png" />
 
         {/* <!-- Twitter Meta Tags --> */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="" />
-        {/* <meta name="twitter:description" content={get(blogContent, "content", "")}/> */}
-        <meta name="twitter:image" content="https://i.ibb.co/8mwvtw0/flutter.png"></meta>
+        <meta name="twitter:title" content="Flutter Developer Roadmap 2023" />
+        <meta name="twitter:description" content="Discover the essential steps to becoming a skilled Flutter developer. From mastering programming fundamentals to exploring state management, this roadmap guides you through your journey to success." />
+        <meta name="twitter:image" content="http://i.ibb.co/8mwvtw0/flutter.png" />
       </Head>
 
       <AuthLayout>
@@ -83,7 +84,7 @@ const index = () => {
               </li>
               <li>
                 <strong id="checkpoint8">8. And Build Projects, and some cool projects, some more projects:</strong>
-                Once you've gained a solid understanding of Dart, Flutter, and explored advanced concepts, the next step is to apply your knowledge by building real-world projects. Building projects is essential because it allows you to put your skills into practice, gain hands-on experience, and demonstrate your abilities to potential employers or clients. 
+                Once you've gained a solid understanding of Dart, Flutter, and explored advanced concepts, the next step is to apply your knowledge by building real-world projects. Building projects is essential because it allows you to put your skills into practice, gain hands-on experience, and demonstrate your abilities to potential employers or clients.
               </li>
             </ol>
             In summary, aspiring Flutter developers should follow this roadmap, which combines foundational programming knowledge, Dart proficiency, hands-on Flutter experience, community engagement, and state management exploration to achieve success in the field.
