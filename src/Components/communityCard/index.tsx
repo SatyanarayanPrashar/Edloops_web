@@ -16,7 +16,7 @@ const index = () => {
             <li>Participate in engaging discussions</li>
             </ul>
         {/* <div className="join-link">Join us <a href="https://discord.gg/NWRBKwpSsD"></a></div> */}
-            <div className="join-link">
+            <div className="Community-join-link ">
                 <button
                     onClick={() => window.open("https://discord.gg/NWRBKwpSsD", "_blank")}
                     className="explore_button fw-500 px-3 py-2 d-flex align-items-center justify-content-center"

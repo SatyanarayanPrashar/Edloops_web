@@ -49,14 +49,39 @@
       }
     }
 
-    .join-link {
-      margin-top: 10px;
-      font-size: 14px;
-      background-color: white;
-      height: 40px;
-      a {
-        text-decoration: none;
-        color: #0077ff;
+    .Community-join-link {
+      position: relative;
+      background: transparent;
+      border-radius: 8px;
+      border: 2px solid #fff;
+      color: #fff;
+      overflow: hidden;
+      z-index: 2;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 0px;
+        background-color: #00fff1;
+        transition: all ease 0.3s;
+        z-index: -1;
+        i {
+          transition: all ease 0.3s;
+        }
+      }
+      &:hover {
+        color: $dark;
+        border-color: #00fff1;
+        i {
+          transform: translateX(7px);
+          transition: all ease 0.3s;
+        }
+        &::after {
+          width: 100%;
+          transition: all ease 0.3s;
+        }
       }
     }
   }

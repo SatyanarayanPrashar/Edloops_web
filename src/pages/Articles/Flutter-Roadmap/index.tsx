@@ -1,4 +1,5 @@
 
+import ArticleCourseCard from "@/Components/ArticleCourseCard";
 import AuthLayout from "@/Components/Layout/AuthLayout";
 import CommunityCard from "@/Components/communityCard";
 import Head from "next/head";
@@ -48,7 +49,7 @@ const index = () => {
 
               </li>
               <li>
-                <strong id="checkpoint2">2. Learn OOPs Concepts:</strong>
+                <h2 id="checkpoint2">2. Learn OOPs Concepts:</h2>
 
                 The concepts of Object Oriented Programming like Classes & Inheritance are extensively used in Flutter Developments. Having these conceps with data types like Lists, Maps and topics like using Futures and asyncronous functions and exception handling are must to have to ease out your development journey later.
 
@@ -88,6 +89,12 @@ const index = () => {
               </li>
             </ol>
             In summary, aspiring Flutter developers should follow this roadmap, which combines foundational programming knowledge, Dart proficiency, hands-on Flutter experience, community engagement, and state management exploration to achieve success in the field.
+            <ArticleCourseCard
+              imageSrc={"https://i.ibb.co/gmn7SQg/images.png"}
+              title={"Complete Flutter Development curated Course"}
+              text={"Join 100+ users learning Flutter development"}
+              linkto={"https://edloops.com/curriculum/8"}
+            />
           </div>
 
           <div className="roadmap-path">
@@ -107,7 +114,6 @@ const index = () => {
             </ul>
           </div>
         </div>
-        <CommunityCard />
       </AuthLayout>
     </>
   );
