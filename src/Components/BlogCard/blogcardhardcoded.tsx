@@ -13,7 +13,7 @@ interface IProps {
 const index = (props: IProps) => {
   const { imageSrc, title, text, readTime, slug } = props;
   return (
-    <NextLink href={publicRoutes.blogs + "/" + slug}>
+    <NextLink href={publicRoutes.flutterroadmap}>
       <div className="blog-preview-card">
         <img src={imageSrc} alt={title} />
         <div className="blog-preview-card-content mt-3 mt-md-0">
@@ -24,7 +24,7 @@ const index = (props: IProps) => {
                     dangerouslySetInnerHTML={{ __html: text }}
                 />
             </div>
-            {/* <p className="blog-preview-card-read-time">{readTime}</p> */}
+            <p className="blog-preview-card-read-time">{readTime}</p>
         </div>
       </div>
     </NextLink>

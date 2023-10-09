@@ -1,8 +1,7 @@
 import BlogCard from "@/Components/BlogCard";
+import BlogCardHardcoded from "@/Components/BlogCard/blogcardhardcoded";
 import AuthLayout from "@/Components/Layout/AuthLayout";
 import PageLoader from "@/Components/PageLoader";
-// import TagTile from "@/Components/TagTile";
-// import CommunityCard from "@/Components/communityCard/communityCard";
 import { blogRequestUrls, requests } from "@/helper/apiAgent";
 import { ErrorHandler, ResponseHandler } from "@/helper/utils";
 import { get } from "lodash";
@@ -13,29 +12,24 @@ import { toast } from "react-toastify";
 
 const index = () => {
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   // const [notes, setNotes] = useState([]);
-  const [blogs, setBlogs] = useState([]);
+  // const [blogs, setBlogs] = useState([]);
 
-  useEffect(() => {
-    if (router.isReady) {
-      // fetchNotes();
-      fetchBlogs();
-    }
-  }, [router.isReady]);
+  // useEffect(() => {
+  //   if (router.isReady) {
+  //     fetchBlogs();
+  //   }
+  // }, [router.isReady]);
 
-  // const fetchNotes = async () => {
+  // const fetchBlogs = async () => {
   //   setLoading(true);
   //   await requests
-  //     .get(blogRequestUrls.notes.getNotes)
+  //     .get(blogRequestUrls.blogs.getAllBlogs)
   //     .then((res) => {
   //       const response = ResponseHandler(res);
   //       if (get(response, "status", false)) {
-  //         // Remove empty objects from array
-  //         let filteredData = get(response, "data", []).filter(
-  //           (value: any) => Object.keys(value).length !== 0
-  //         );
-  //         setNotes(filteredData);
+  //         setBlogs(get(response, "data", []));
   //       }
   //       setLoading(false);
   //     })
@@ -45,24 +39,6 @@ const index = () => {
   //       toast.error(get(error, "message", ""));
   //     });
   // };
-
-  const fetchBlogs = async () => {
-    setLoading(true);
-    await requests
-      .get(blogRequestUrls.blogs.getAllBlogs)
-      .then((res) => {
-        const response = ResponseHandler(res);
-        if (get(response, "status", false)) {
-          setBlogs(get(response, "data", []));
-        }
-        setLoading(false);
-      })
-      .catch((e) => {
-        setLoading(false);
-        const error = ErrorHandler(e);
-        toast.error(get(error, "message", ""));
-      });
-  };
 
   return (
     <>
@@ -103,7 +79,8 @@ const index = () => {
         <meta name="twitter:image" content=""></meta>
       </Head>
       <AuthLayout>
-        {!loading ? (
+        {/* {!loading ? ( */}
+        {true ? (
           <>
             <div className="blogTop">
               <div>
@@ -120,33 +97,30 @@ const index = () => {
             {/* commented out the form */}
             {/* <NotesList notesData={notes} /> */}
 
-            <div className="blogDivider mt-md-3 mt-4">
+            {/* <div className="blogDivider mt-md-3 mt-4">
               <div className="blog_Container">
                 {blogs.map((blog: any, index: any) => (
                   <BlogCard
-                    key={index}
-                    imageSrc={
-                      get(blog, "image") !== ""
-                        ? get(blog, "image")
-                        : "https://i.ibb.co/279v54n/code-1839406-640.jpg"
-                    }
-                    title={get(blog, "title", "")}
-                    text={get(blog, "content", "")}
-                    readTime="21 mis read"
-                    slug={get(blog, "slug", "")}
+                  key={index}
+                  imageSrc={
+                    get(blog, "image") !== ""
+                    ? get(blog, "image")
+                    : "https://i.ibb.co/279v54n/code-1839406-640.jpg"
+                  }
+                  title={get(blog, "title", "")}
+                  text={get(blog, "content", "")}
+                  readTime="21 mis read"
+                  slug={get(blog, "slug", "")}
                   />
-                ))}
-              </div>
-              {/* <div className="tagFilter_Container mb-4 mb-md-0">
-                <div>Discover more of what matters to you</div>
-                <div className="tags_flex">
-                  <TagTile tagName="Web Development" />
-                  <TagTile tagName="Data Science" />
-                  <TagTile tagName="App Development" />
-                </div>
-              </div> */}
-            </div>
-            {/* <CommunityCard/> */}
+                  ))} 
+               </div>
+            </div> */}
+                  <BlogCardHardcoded
+                    imageSrc={"https://i.ibb.co/8mwvtw0/flutter.png"}
+                    title="Flutter Developer Roadmap 2023"
+                    text="Discover the essential steps to becoming a skilled Flutter developer. From mastering programming fundamentals to exploring state management, this roadmap guides you through your journey to success."
+                    readTime="5 mis read"
+                  />
           </>
 
         ) : (

@@ -1,0 +1,72 @@
+.roadmap-structure {
+    display: flex;
+    margin-top: 1.7rem;
+    margin-bottom: 1.7rem;
+    gap: 2.4rem;
+  
+    .blog-Content {
+      flex: 1;
+      width: 57rem;
+      font-size: 1.2rem;
+
+      ol{
+        margin: 27px 0 27px 0;
+        li{
+          margin: 21px 0 21px 0;
+        }
+      }
+    }
+    
+    .roadmap-header{
+        padding: 0 0 10px 0;
+        
+        h1{
+            padding-bottom: 20px;
+        }
+        img{
+            width: 100%;
+            border-radius: 11px;
+        }
+    }
+  
+    .roadmap-path {
+      flex: 0 0 20rem;
+      height: 25rem;
+      border-radius: 11px;
+      background-color: #C5CAF2;
+      align-items: center;
+      padding: 1rem;
+      color: #1E566D;
+      position: sticky;
+      top: 1.7rem;
+    
+    .checkpoint{
+        font-size: 20px;
+        font-weight: 500;
+        padding-bottom: 11px;
+        color: #1E566D;
+        img{
+            height: 30px;
+        }
+    }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+  
+        li {
+          display: flex;
+          align-items: center;
+          margin-bottom: 1rem;
+
+          a {
+            margin-left: 0.5rem;
+            font-weight: 500;
+            color: #1E566D;
+          }
+        }
+      }
+    }
+  }
+  

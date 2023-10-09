@@ -56,52 +56,6 @@ const index = (props: IProps) => {
         <span className={`arrow ${isDropdownOpen ? "open" : ""}`}></span>
       </div>
       {isDropdownOpen && (
-        // <ul className="chapter-links">
-        //   {chapterResources?.map((resource: any, index: any) => (
-        //     <>
-        //       <li key={index} className="linkCard">
-        //         <div className="Ch-number">
-        //           {index + 1}
-        //         </div>
-        //         <div className="linkImage">
-
-                  // <img
-                  //   src={getThumbnailUrl(index)}
-                  //   alt={get(resource, "title", "")}
-                  // />
-        //         </div>
-        //         <div className="link-mid">
-        //           <a
-        //             href={get(resource, "url", "")}
-        //             target="_blank"
-        //             rel="noreferrer"
-        //           >
-        //             {get(resource, "title", "")}
-        //           </a>
-        //           <div>{get(resource, "description", "")}</div>
-        //           </div>
-        //           <div className="bttnsection">
-                    // <button
-                    //   className="watch-bttn"
-                    //   onClick={() => handleWatchClick(index)}
-                    // >
-                    //   Watch
-                    // </button>
-        //             {/* checkbox here */}
-        //           </div>
-        //       </li>
-              // {isVideoVisible && (
-              //   <VideoContainer
-              //     setIsVideoVisible={setIsVideoVisible}
-              //     url={chapterUrl}
-              //     startTime={start}
-              //     endTime={end}
-              //     isClick={activeIndex}
-              //   />
-              // )}
-        //     </>
-        //   ))}
-        // </ul>
         <ul className="chapter-links">
           {chapterResources?.map((resource: any, index: any) => {
             // Check if the URL is a YouTube URL

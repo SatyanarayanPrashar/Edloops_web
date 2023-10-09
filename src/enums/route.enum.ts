@@ -6,5 +6,6 @@ export enum publicRoutes {
     blogs = "/blogs",
     courses = "/courses",
     community = "/community",
-    curriculum = "/curriculum"
+    curriculum = "/curriculum",
+    flutterroadmap = "/Articles/Flutter-Roadmap"
 }
