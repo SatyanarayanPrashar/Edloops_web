@@ -72,8 +72,10 @@
   border-radius: 0.5rem;
   // border: 0.01rem solid rgb(227, 227, 227); 
   background-color: $default;
+  max-width:920px;
   
   img{
+    max-width:340.9px;
     border-radius: 0.5rem 0 0 0.5rem !important;
     border-right: 0.01rem solid rgb(227, 227, 227);
   }

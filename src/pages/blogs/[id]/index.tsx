@@ -85,7 +85,6 @@ const index = () => {
                   }}
                 />
               </div>
-              {/* <ChatBox /> */}
             </div>
             <CommunityCard/>
           </>

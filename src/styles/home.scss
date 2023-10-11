@@ -26,15 +26,13 @@
 
 .trending_text {
   padding-top: 40px;
-  padding-bottom: 20px;
-}
-.trending_text h2 {
+  padding-bottom: 10px;
+  display: flex;
+ h2 {
   padding-right: 0px;
   padding-top: 0px;
   margin: 0px;
-}
-.trending_text {
-  display: flex;
+
 }
 .trending_text_color {
   color: $primary;
@@ -44,6 +42,10 @@
   color: $primary;
 }
 
+.trending_bio{
+  padding-top: -10px;
+}
+
 @media screen and (max-width: 821px) {
   .homeTop_Title {
     font-size: 4rem;
@@ -51,4 +53,4 @@
   .homeTop_MotoT {
     margin-top: 0;
   }
-}
+}}
