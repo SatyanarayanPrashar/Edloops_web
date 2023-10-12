@@ -83,7 +83,7 @@ const index = (props: IProps) => {
     <div className="chapter-dropdown">
       <div className="chapter-header" onClick={handleDropdownToggle}>
         <div className="chapterTitle">
-          <h4 className="py-2">{chapterTitle + "okk"}</h4>
+          <h4 className="py-2">{chapterTitle}</h4>
           <span className="cursor-pointer">
             {isDropdownOpen ? <FaArrowUp /> : <FaPlus />}
           </span>
