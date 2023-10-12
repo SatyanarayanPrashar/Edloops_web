@@ -86,3 +86,8 @@ export const ErrorHandler = (error: AxiosError) => {
             };
     }
 };
+
+
+export const isWatched = (id:any, store:any) => {
+    localStorage.setItem(store,JSON.stringify(id));
+}

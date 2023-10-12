@@ -48,15 +48,20 @@ const index = () => {
       <AuthLayout>
         {!loading ? (
           <div className="curicullums">
-            <div>
+            <div className="w-100">
               <div className="image-title">
-                <img src={get(data, "image") !== ""
-                          ? get(data, "image")
-                          : "https://i.ibb.co/279v54n/code-1839406-640.jpg"} alt={get(data, "title")} />
+                <img
+                  src={
+                    get(data, "image") !== ""
+                      ? get(data, "image")
+                      : "https://i.ibb.co/279v54n/code-1839406-640.jpg"
+                  }
+                  alt={get(data, "title")}
+                />
                 {/* <img src={"https://i.ibb.co/279v54n/code-1839406-640.jpg"} alt={get(data, "title")} /> */}
                 <div className="title-description">
                   <h1 className="mt-4">{get(data, "title", "")}</h1>
-                  {get(data, "description", "")}       
+                  {get(data, "description", "")}
                 </div>
               </div>
               <div className="belowTitle">
@@ -71,23 +76,22 @@ const index = () => {
                       />
                     </>
                   ))}
-                  
+
                   <div className="review">
-                    <ReviewCard 
+                    <ReviewCard
                       name="Satya"
                       designation="founder @Edloops | PM @TreeVed"
-                      profilePic={"/img/satya.png"} 
+                      profilePic={"/img/satya.png"}
                       review="These curated courses are improvement of what roadmap I followed to become industry ready developer. Feel free to ping me on discord for any kind related quieres or removal of content."
                     />
-                    <ReviewCard 
+                    <ReviewCard
                       name="Arnav Anant"
                       designation="student"
-                      profilePic={"/img/user.png"} 
+                      profilePic={"/img/user.png"}
                       review="Amazing curation! there are so much of free resources avilable, but getting to the right one is difficult. These Courses really navigates you to the tressures in the ocean."
                     />
-  
                   </div>
-                  <CommunityCard /> 
+                  <CommunityCard />
                 </>
               </div>
             </div>
