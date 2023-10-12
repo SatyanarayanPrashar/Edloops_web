@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { FaArrowUp, FaPlus } from "react-icons/fa";
-import { get, map } from "lodash";
+import { filter, get, includes, map } from "lodash";
 import VideoContainer from "../VideoContainer";
 import getVideoId from "get-video-id";
+import { isWatched } from "@/helper/utils";
 
 interface IProps {
   chapterResources?: any;
@@ -15,6 +16,10 @@ const index = (props: IProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isVideoVisible, setIsVideoVisible] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [checkedValues, setCheckedValues] = useState([]);
+  const [checkedItems, setCheckedItems] = useState(
+    JSON.parse(localStorage.getItem("checkedItems") || "[]") || []
+  );
 
   const handleDropdownToggle = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -40,8 +45,29 @@ const index = (props: IProps) => {
   };
 
   const isYouTube = (url: string) => {
-    const youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/watch\?v=([a-zA-Z0-9_-]+)/;
+    const youtubeRegex =
+      /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/watch\?v=([a-zA-Z0-9_-]+)/;
     return youtubeRegex.test(url);
+  };
+
+  const handleCheckboxChange = (value: any) => {
+    // Check if the value is already present in the array
+    const isChecked = checkedItems.includes(value);
+
+    // Update state and localStorage based on the checkbox state
+    if (isChecked) {
+      // If the checkbox is checked, remove all occurrences of the value
+      const updatedCheckedItems = checkedItems.filter(
+        (item: any) => item !== value
+      );
+      setCheckedItems(updatedCheckedItems);
+      localStorage.setItem("checkedItems", JSON.stringify(updatedCheckedItems));
+    } else {
+      // If the checkbox is unchecked, add the value to the array
+      const updatedCheckedItems = [...checkedItems, value];
+      setCheckedItems(updatedCheckedItems);
+      localStorage.setItem("checkedItems", JSON.stringify(updatedCheckedItems));
+    }
   };
 
   return (
@@ -78,44 +104,55 @@ const index = (props: IProps) => {
                   )}
                 </div>
                 <div className="link-mid">
-                  <a
-                    href={resource.url}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <a href={resource.url} target="_blank" rel="noreferrer">
                     {get(resource, "title", "")}
                   </a>
                   <div>{get(resource, "description", "")}</div>
                 </div>
                 <div className="bttnsection">
-                {isYouTubeURL 
-                  ? <button
-                      className="watch-bttn"
+                  {isYouTubeURL ? (
+                    <button
+                      className="watch-bttn mb-3"
                       onClick={() => handleWatchClick(index)}
                     >
                       Watch
                     </button>
-                  : <button
-                      className="watch-bttn"
+                  ) : (
+                    <button
+                      className="watch-bttn mb-3"
                       onClick={() => window.open(resource.url, "_blank")}
                     >
                       Read
                     </button>
-                }
+                  )}
+
                   {/* checkbox here */}
+                  <div className="d-flex align-items-center flex-nowrap">
+                    <input
+                      id="read"
+                      name="read"
+                      type="checkbox"
+                      value={get(resource, "id", 0)}
+                      checked={checkedItems.includes(get(resource, "id", 0))}
+                      onChange={() =>
+                        handleCheckboxChange(get(resource, "id", 0))
+                      }
+                    />
+
+                    <label htmlFor="read">Done</label>
+                  </div>
                 </div>
-                
+
                 {isVideoVisible && (
                   <VideoContainer
-                  setIsVideoVisible={setIsVideoVisible}
-                  url={chapterUrl}
-                  startTime={start}
-                  endTime={end}
-                  isClick={activeIndex}
+                    setIsVideoVisible={setIsVideoVisible}
+                    url={chapterUrl}
+                    startTime={start}
+                    endTime={end}
+                    isClick={activeIndex}
                   />
-                  )}
+                )}
               </li>
-              
             );
           })}
         </ul>
