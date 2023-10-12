@@ -17,9 +17,11 @@ const index = (props: IProps) => {
   const [isVideoVisible, setIsVideoVisible] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [checkedValues, setCheckedValues] = useState([]);
-  const [checkedItems, setCheckedItems] = useState(
-    JSON.parse(localStorage.getItem("checkedItems") || "[]") || []
-  );
+  const [checkedItems, setCheckedItems] = useState<any>([]);
+
+  useEffect(() => {
+    setCheckedItems(JSON.parse(localStorage.getItem("checkedItems") || "[]"));
+  }, []);
 
   const handleDropdownToggle = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -61,7 +63,14 @@ const index = (props: IProps) => {
         (item: any) => item !== value
       );
       setCheckedItems(updatedCheckedItems);
-      localStorage.setItem("checkedItems", JSON.stringify(updatedCheckedItems));
+      if (typeof window !== "undefined") {
+        localStorage.setItem(
+          "checkedItems",
+          JSON.stringify(updatedCheckedItems)
+        );
+      } else {
+        console.log("we are running on the server");
+      }
     } else {
       // If the checkbox is unchecked, add the value to the array
       const updatedCheckedItems = [...checkedItems, value];
