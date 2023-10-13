@@ -1,9 +1,4 @@
-/* /* .blogTop{
-  width: 100%;
-  /* background-color: #ACC8E5; */
-/* }  */
 
-.blogContainer,
 .blog_Container {
   a {
     color: $dark !important;
@@ -76,7 +71,7 @@
   
   img{
     max-width:340.9px;
-    border-radius: 0.5rem 0 0 0.5rem !important;
+    border-radius: 0.5rem !important;
     border-right: 0.01rem solid rgb(227, 227, 227);
   }
 }
@@ -111,7 +106,6 @@
   width: 32rem;
   overflow: hidden;
   text-overflow: ellipsis;
-  h1,
   h2 {
     display: none;
   }

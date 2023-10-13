@@ -10,23 +10,23 @@ const index = () => {
       <Head>
         {/* <!-- HTML Meta Tags --> */}
         <title>45 Days Upskill Challenge</title>
-        <meta name="description" content="Accept 45 Days Upskill Challenge. Win exciting prizes by staying dedicated and learning with peers. It's your path to skill mastery!" />
+        <meta name="description" content="45 Days Upskill Challenge. Win exciting prizes by staying dedicated and learning with peers. It's your path to skill mastery!" />
         {/* <!-- Google / Search Engine Tags --> */}
         <meta itemProp="name" content="" />
-        <meta name="description" content="Accept 45 Days Upskill Challenge. Win exciting prizes by staying dedicated and learning with peers. It's your path to skill mastery!" />
+        <meta name="description" content="45 Days Upskill Challenge. Win exciting prizes by staying dedicated and learning with peers. It's your path to skill mastery!" />
         <meta itemProp="image" content="https://i.ibb.co/Rbjn1K9/challenge.jpg" />
 
         {/* <!-- Facebook Meta Tags --> */}
 
         <meta property="og:type" content="website" />
         <meta property="og:title" content="45 Days Upskill Challenge" />
-        <meta property="og:description" content="Accept 45 Days Upskill Challenge. Win exciting prizes by staying dedicated and learning with peers. It's your path to skill mastery!" />
+        <meta property="og:description" content="45 Days Upskill Challenge. Win exciting prizes by staying dedicated and learning with peers. It's your path to skill mastery!" />
         <meta property="og:image" content="https://i.ibb.co/Rbjn1K9/challenge.jpg" />
 
         {/* <!-- Twitter Meta Tags --> */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="45 Days Upskill Challenge" />
-        <meta name="twitter:description" content="Accept 45 Days Upskill Challenge. Win exciting prizes by staying dedicated and learning with peers. It's your path to skill mastery!" />
+        <meta name="twitter:description" content="45 Days Upskill Challenge. Win exciting prizes by staying dedicated and learning with peers. It's your path to skill mastery!" />
         <meta name="twitter:image" content="https://i.ibb.co/Rbjn1K9/challenge.jpg" />
       </Head>
 
@@ -69,6 +69,7 @@ const index = () => {
                     </div>
 
                     <div className="points">
+                        <img src="./img/time.gif" alt="its about time" />
                         <div>
                             <h2 id="checkpoint3">Why to start Now?</h2>
                             <ol>
@@ -78,7 +79,6 @@ const index = () => {
                                 <li>🚀Get a chance for a personalized 1-on-1 session with a mentor</li>
                             </ol>
                         </div>
-                        <img src="./img/time.gif" alt="its about time" />
                     </div>
 
                     <div className="points">

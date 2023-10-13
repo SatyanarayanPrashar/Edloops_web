@@ -5,7 +5,7 @@ import { publicRoutes } from "@/enums/route.enum";
 const index = () => {
   return (
     <div className='ChallengeCard'>
-        <div className="challenge-left-section">
+        {/* <div className="challenge-left-section"> */}
         <div className="challenge-logo">
           <img src="/img/challenge.gif" alt="45 Days Upskill Chasllenge" />
         </div>
@@ -30,7 +30,7 @@ const index = () => {
                 </button>
             </NextLink>
             {/* </div> */}
-        </div>
+        {/* </div> */}
       </div>
       {/* <div className="challenge-right-section">
         <div className="qr-code">

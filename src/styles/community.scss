@@ -1,4 +1,4 @@
-.CommunityCard{
+.CommunityCard {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,13 +13,11 @@
     align-items: center;
     flex: 1;
 
-    .discord-logo {
+    img {
       margin-right: 70px;
       margin-left: 40px;
+      max-width: 170px;
 
-      img {
-        max-width: 170px;
-      }
     }
 
     h2 {
@@ -57,6 +55,7 @@
       color: #fff;
       overflow: hidden;
       z-index: 2;
+
       &::after {
         content: "";
         position: absolute;
@@ -67,17 +66,21 @@
         background-color: #00fff1;
         transition: all ease 0.3s;
         z-index: -1;
+
         i {
           transition: all ease 0.3s;
         }
       }
+
       &:hover {
         color: $dark;
         border-color: #00fff1;
+
         i {
           transform: translateX(7px);
           transition: all ease 0.3s;
         }
+
         &::after {
           width: 100%;
           transition: all ease 0.3s;
@@ -87,6 +90,39 @@
   }
 }
 
+
+@media screen and (max-width: 768px) {
+  .CommunityCard {
+    width: auto;
+  }
+
+  .CommunityCard-text {
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .CommunityCard {
+    height: auto;
+    flex-wrap: wrap;
+  }
+  
+  .CommunityCard img {
+    width: 100%;
+    margin: 0px;
+  }
+  
+  .left-section {
+    width: 100%;
+    flex-wrap: wrap;
+    // height: 12rem;
+    margin: 0px;
+    border-radius: 11px;
+  }
+  .left-section img {
+    margin-bottom: 20px;
+  }
+}
 
 .community-benefits {
   padding: 40px;
@@ -129,8 +165,8 @@
 
 .faq-section {
   // text-align: center;
-  
-  
+
+
   h2 {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -162,7 +198,8 @@
         display: block;
 
         ul {
-          list-style-type: disc; /* Add bullets to list items */
+          list-style-type: disc;
+          /* Add bullets to list items */
           margin-left: 20px;
         }
       }
