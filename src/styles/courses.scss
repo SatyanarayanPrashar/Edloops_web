@@ -35,31 +35,78 @@ h1 {
 .curicullums {
   display: flex;
 }
-.image-title{
+
+.image-title {
   display: flex;
   flex-direction: row;
   margin-top: 20px;
   background-color: red($color: #000000);
   // width: 50rem
-  
-  img{
+
+  img {
     height: 15rem;
     width: 25rem;
     border-radius: 11px;
     object-fit: cover;
   }
 }
-.title-description{
+
+.title-description {
   margin-left: 20px;
   max-width: 32rem;
   width: 32rem;
 }
+
 // .belowTitle {
 //   // justify-content: space-between;
 //   // background-color: red;
 //   justify-content: center;
 //   // height: 400px;
 // }
+.enroll-link {
+  padding: 7px 31px;
+  font-weight: 500;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 10px;
+  background: transparent;
+  border-radius: 8px;
+  border: 2px solid #C5CAF2;
+  overflow: hidden;
+  z-index: 2;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0px;
+    background-color: #C5CAF2;
+    transition: all ease 0.3s;
+    z-index: -1;
+
+    i {
+      transition: all ease 0.3s;
+    }
+  }
+
+  &:hover {
+    color: $dark;
+    border-color: #C5CAF2;
+
+    i {
+      transform: translateX(7px);
+      transition: all ease 0.3s;
+    }
+
+    &::after {
+      width: 100%;
+      transition: all ease 0.3s;
+    }
+  }
+}
 
 .titleCards {
   max-width: 20rem;
@@ -67,7 +114,7 @@ h1 {
   padding-right: 10px;
 }
 
-.chapter-links{
+.chapter-links {
   padding-left: 0px;
   margin: 0px;
   display: flex;
@@ -76,7 +123,7 @@ h1 {
   justify-content: space-between;
 }
 
-.Ch-number{
+.Ch-number {
   font-size: 1.2rem;
   margin-right: 20px;
 }
@@ -97,33 +144,36 @@ h1 {
 }
 
 .linkImage {
-  height: 10rem;;
+  height: 10rem;
+  ;
   width: 18rem;
   flex-shrink: 0;
   margin-right: 20px;
-  
+
   img {
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 11px;
     border: solid 1px #C5CAF2;
   }
 }
 
-.link-mid{
+.link-mid {
   // height: 10rem;
   width: 40rem;
   margin-right: 20px;
-  a{
+
+  a {
     font-size: 1.2rem;
   }
 }
-.bttnsection{
+
+.bttnsection {
   height: 10rem;
 }
 
-.watch-bttn{
+.watch-bttn {
   background-color: #C5CAF2;
   width: 6rem;
   color: $dark;

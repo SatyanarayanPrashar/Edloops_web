@@ -43,7 +43,7 @@ const index = () => {
   return (
     <>
       <Head>
-        <title>Curriculum</title>
+        <title>Course | Edloops</title>
       </Head>
       <AuthLayout>
         {!loading ? (
@@ -62,6 +62,16 @@ const index = () => {
                 <div className="title-description">
                   <h1 className="mt-4">{get(data, "title", "")}</h1>
                   {get(data, "description", "")}
+                  {/* <button
+                    // onClick={() => window.open("https://discord.gg/NWRBKwpSsD", "_blank")}
+                    className="enroll-link d-flex"
+                    type="button"
+                    >      yaha pe
+                    Enroll{" "}
+                    <span>
+                        <i className="fa-solid fa-angle-right ms-2"></i>
+                    </span>
+                  </button> */}
                 </div>
               </div>
               <div className="belowTitle">

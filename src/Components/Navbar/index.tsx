@@ -117,7 +117,18 @@ const index = () => {
             <div>
               {user ? (
                 <>
-                  <div className="welcomemessage">{user.displayName}!</div>
+                  {/* <div className="Points-Container">   
+                    <div className="welcomemessage">{user.displayName}!</div>
+                    <div>
+                      {"100"} Points                                      yaha pe
+                    </div>
+                     <a className="">   on clicking open a Modal with Lorem Ipsum texts and a copy referral code button on the bottom 
+                      Refer Friends{" "}
+                      <span>
+                        <i className="fa-solid fa-angle-right ms-2"></i>
+                      </span>
+                    </a>
+                  </div> */}
                   <button className="sign-out-button" onClick={handleSignOut}>
                     <div className="google-logo-wrapper">
                       <img

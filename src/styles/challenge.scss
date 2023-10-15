@@ -187,27 +187,29 @@
 }
 
 @media screen and (max-width: 475px) {
-    .challenge-structure{
+    .challenge-structure {
         flex-wrap: wrap;
         justify-content: start;
         align-items: start;
     }
+
     .challenge-header {
         height: auto;
         flex-wrap: wrap;
     }
-    
+
     .challenge-header img {
         width: 100%;
         // height: 12rem;
         margin-right: 0px;
         border-radius: 11px;
     }
+
     .challenge-header h1 {
         font-size: 51px !important;
     }
-    
-    .points{
+
+    .points {
         height: auto;
         flex-wrap: wrap;
     }
