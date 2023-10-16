@@ -1,6 +1,5 @@
 .courses-container {
   margin: 0 auto;
-  /* max-width: 800px; */
   padding-right: 27px;
 }
 
@@ -12,7 +11,7 @@ h1 {
   border-radius: 20px;
   /* border: none; */
   padding: 10px;
-  width: 250px;
+  // width: 250px;
   float: right;
   margin-top: -50px;
 }
@@ -27,7 +26,7 @@ h1 {
   height: 47px;
   /* overflow: hidden; */
   max-width: 60rem;
-  width: 60rem;
+  // width: 60rem;
   padding: 0px 17px;
   margin: 17px 0px;
 }
@@ -55,6 +54,10 @@ h1 {
   margin-left: 20px;
   max-width: 32rem;
   width: 32rem;
+}
+
+.course-topcard{
+  display: flex;
 }
 
 // .belowTitle {
@@ -114,14 +117,19 @@ h1 {
   padding-right: 10px;
 }
 
+.chapter-header{
+  background-color: red;
+}
+
 .chapter-links {
   padding-left: 0px;
   margin: 0px;
   display: flex;
   flex-direction: column;
-  // align-items: center;
-  justify-content: space-between;
+  // justify-content: space-between;
+  // background-color: red;
 }
+
 
 .Ch-number {
   font-size: 1.2rem;
@@ -134,7 +142,7 @@ h1 {
   justify-content: space-between;
   height: 100%;
   max-width: 60rem;
-  width: 60rem;
+  // width: 60rem;
   margin: 0px 0px;
   text-decoration: none;
   // background-color: red;
@@ -145,7 +153,6 @@ h1 {
 
 .linkImage {
   height: 10rem;
-  ;
   width: 18rem;
   flex-shrink: 0;
   margin-right: 20px;
@@ -161,7 +168,7 @@ h1 {
 
 .link-mid {
   // height: 10rem;
-  width: 40rem;
+  // max-width: 40rem;
   margin-right: 20px;
 
   a {
@@ -182,4 +189,49 @@ h1 {
   padding: 8px 16px;
   // margin-top: 10px;
   cursor: pointer;
+}
+
+.linkleftsection{
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .course-topcard{
+    flex-wrap: wrap;
+  }
+  .title-description {
+    margin-left: 0px;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .course-topcard{
+    flex-wrap: wrap;
+  }
+  .title-description {
+    margin-left: 0px;
+  }
+  .chapter-links {
+    flex-wrap: wrap;
+  }
+  .linkCard{
+    // display: block;
+    flex-wrap: wrap;
+  }
+  .linkImage{
+    width: auto;
+    height: 8rem;
+  }
+  // .link-mid{
+  //   width: 15rem;
+  // }
+  .bttnsection{
+    margin-left: 50px;
+    margin-top: 10px;
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+  }
 }

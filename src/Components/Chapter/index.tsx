@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { FaArrowUp, FaPlus } from "react-icons/fa";
-import { filter, get, includes, map } from "lodash";
+import { get, map } from "lodash";
 import VideoContainer from "../VideoContainer";
 import getVideoId from "get-video-id";
-import { isWatched } from "@/helper/utils";
+
 
 interface IProps {
   chapterResources?: any;
@@ -81,15 +81,15 @@ const index = (props: IProps) => {
 
   return (
     <div className="chapter-dropdown">
-      <div className="chapter-header" onClick={handleDropdownToggle}>
-        <div className="chapterTitle">
+      
+        <div className="chapterTitle" onClick={handleDropdownToggle}>
           <h4 className="py-2">{chapterTitle}</h4>
           <span className="cursor-pointer">
             {isDropdownOpen ? <FaArrowUp /> : <FaPlus />}
           </span>
+          {/* <span className={`arrow ${isDropdownOpen ? "open" : ""}`}></span> */}
         </div>
-        <span className={`arrow ${isDropdownOpen ? "open" : ""}`}></span>
-      </div>
+      
       {isDropdownOpen && (
         <ul className="chapter-links">
           {chapterResources?.map((resource: any, index: any) => {
@@ -98,26 +98,37 @@ const index = (props: IProps) => {
 
             return (
               <li key={index} className="linkCard">
-                <div className="Ch-number">{index + 1}</div>
-                <div className="linkImage">
-                  {isYouTubeURL ? (
-                    <img
-                      src={getThumbnailUrl(index)}
-                      alt={get(resource, "title", "")}
-                    />
-                  ) : (
-                    <img
-                      src="/img/link.png" // Default image URL
-                      alt={get(resource, "title", "")}
-                    />
-                  )}
-                </div>
-                <div className="link-mid">
+
+                <div className="linkleftsection">
+                  <div className="Ch-number">{index + 1}</div>
+                  <div className="linkImage">
+                    {isYouTubeURL ? (
+                      <img
+                        src={getThumbnailUrl(index)}
+                        alt={get(resource, "title", "")}
+                      />
+                    ) : (
+                      <img
+                        src="/img/link.png" // Default image URL
+                        alt={get(resource, "title", "")}
+                      />
+                    )}
+                  </div>
+                  <div className="link-mid">
                   <a href={resource.url} target="_blank" rel="noreferrer">
                     {get(resource, "title", "")}
                   </a>
                   <div>{get(resource, "description", "")}</div>
+                  </div>
                 </div>
+
+                {/* <div className="link-mid">
+                  <a href={resource.url} target="_blank" rel="noreferrer">
+                    {get(resource, "title", "")}
+                  </a>
+                  <div>{get(resource, "description", "")}</div>
+                </div> */}
+
                 <div className="bttnsection">
                   {isYouTubeURL ? (
                     <button
@@ -150,6 +161,7 @@ const index = (props: IProps) => {
 
                     <label htmlFor="read">Done</label>
                   </div>
+
                 </div>
 
                 {isVideoVisible && (

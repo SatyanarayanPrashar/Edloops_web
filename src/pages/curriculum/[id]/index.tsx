@@ -5,7 +5,7 @@ import ReviewCard from "@/Components/ReviewCard/ReviewCard";
 import CommunityCard from "@/Components/communityCard";
 import { blogRequestUrls, requests } from "@/helper/apiAgent";
 import { ErrorHandler, ResponseHandler } from "@/helper/utils";
-import { get, map } from "lodash";
+import { get } from "lodash";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -49,29 +49,31 @@ const index = () => {
         {!loading ? (
           <div className="curicullums">
             <div className="w-100">
-              <div className="image-title">
-                <img
-                  src={
-                    get(data, "image") !== ""
-                      ? get(data, "image")
-                      : "https://i.ibb.co/279v54n/code-1839406-640.jpg"
-                  }
-                  alt={get(data, "title")}
-                />
-                {/* <img src={"https://i.ibb.co/279v54n/code-1839406-640.jpg"} alt={get(data, "title")} /> */}
+              <div className="course-topcard">
+                <div className="image-title">
+                  <img
+                    src={
+                      get(data, "image") !== ""
+                        ? get(data, "image")
+                        : "https://i.ibb.co/279v54n/code-1839406-640.jpg"
+                    }
+                    alt={get(data, "title")}
+                  />
+                  {/* <img src={"https://i.ibb.co/279v54n/code-1839406-640.jpg"} alt={get(data, "title")} /> */}
+                </div>
                 <div className="title-description">
-                  <h1 className="mt-4">{get(data, "title", "")}</h1>
-                  {get(data, "description", "")}
-                  {/* <button
-                    // onClick={() => window.open("https://discord.gg/NWRBKwpSsD", "_blank")}
-                    className="enroll-link d-flex"
-                    type="button"
-                    >      yaha pe
-                    Enroll{" "}
-                    <span>
-                        <i className="fa-solid fa-angle-right ms-2"></i>
-                    </span>
-                  </button> */}
+                    <h1 className="mt-4">{get(data, "title", "")}</h1>
+                    {get(data, "description", "")}
+                    {/* <button
+                      // onClick={() => window.open("https://discord.gg/NWRBKwpSsD", "_blank")}
+                      className="enroll-link d-flex"
+                      type="button"
+                      >      yaha pe
+                      Enroll{" "}
+                      <span>
+                          <i className="fa-solid fa-angle-right ms-2"></i>
+                      </span>
+                    </button> */}
                 </div>
               </div>
               <div className="belowTitle">

@@ -3,7 +3,6 @@ import { FaHome, FaBlog, FaBook, FaCommentDots } from "react-icons/fa";
 import { publicRoutes } from "@/enums/route.enum";
 import { useRouter } from "next/router";
 import NextLink from "@/helper/NextLink";
-import { ErrorHandler, ResponseHandler } from "@/helper/utils";
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth, signInWithPopup, signOut } from "firebase/auth";
 import { useAuthState } from 'react-firebase-hooks/auth';
