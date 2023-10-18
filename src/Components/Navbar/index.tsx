@@ -37,8 +37,9 @@ const index = () => {
     if (user === null) {
       dispatch(checkLoggedInUser({ isLoggedIn: false }));
     } else {
-      dispatch(checkLoggedInUser({ isLoggedIn: true }));
-      dispatch(checkLoggedInUser({ loggedInUser: user?.uid }));
+      dispatch(
+        checkLoggedInUser({ isLoggedIn: true, loggedInUser: user?.uid })
+      );
     }
   };
 
@@ -61,7 +62,6 @@ const index = () => {
     await requests
       .get(blogRequestUrls.users.getUserInfo(loggedInUserId))
       .then((res) => {
-        console.log(res, "response");
         const response = ResponseHandler(res);
         if (get(response, "status", false)) {
           setData(get(response, "data", []));

@@ -10,7 +10,7 @@ export const updateNotesModal = (data: {
     };
 };
 export const checkLoggedInUser = (data: {
-    isLoggedIn?: boolean;
+    isLoggedIn: boolean;
     loggedInUser?:string;
 }) => {
     return {

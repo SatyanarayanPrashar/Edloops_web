@@ -29,6 +29,8 @@ const index = (props: IProps) => {
     setCheckedItems(JSON.parse(localStorage.getItem("checkedItems") || "[]"));
   }, []);
 
+  console.log(checkLoggedIn, ",nlkn");
+
   const handleDropdownToggle = () => {
     if (checkLoggedIn) {
       setIsDropdownOpen(!isDropdownOpen);
@@ -185,7 +187,9 @@ const index = (props: IProps) => {
           })}
         </ul>
       )}
-      <LoginModal setHandleModal={setHandleModal} handleModal={handleModal} />
+      {handleModal && (
+        <LoginModal setHandleModal={setHandleModal} handleModal={handleModal} />
+      )}
     </div>
   );
 };
