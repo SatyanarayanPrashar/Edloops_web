@@ -1,9 +1,12 @@
 import { IUiState } from "@/interfaces/ui";
 import { ADD_NOTES_MODAL } from "../types";
+import { LOGGED_IN_USER } from "../types";
 import { IAction } from "@/interfaces/ui/redux.interfaces";
 
 const initialState: IUiState = {
     showNotesModal: false,
+    loggedInUser: false,
+    loggedInUserId: "",
 }
 
 const uiReducer = (state = initialState, { type, payload }: IAction) => {
@@ -13,8 +16,14 @@ const uiReducer = (state = initialState, { type, payload }: IAction) => {
                 ...state,
                 showNotesModal: payload.show,
             };
-            default:
-            return state;
+        case LOGGED_IN_USER:
+        return {
+            ...state,
+            loggedInUser: payload.isLoggedIn,
+            loggedInUserId: payload.loggedInUser
+        };
+        default:
+        return state;
     }
 }
 

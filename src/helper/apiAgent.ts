@@ -8,7 +8,8 @@ const apiConstants = {
     secondaryApiEndpoint: secondaryApiBaseUrl,
     notes: apiBaseUrl + "/notes",
     blogs: secondaryApiBaseUrl + "/blogs",
-    courses: secondaryApiBaseUrl + "/course"
+    courses: secondaryApiBaseUrl + "/course",
+    users: secondaryApiBaseUrl + "/user"
 }
 
 export const requests = {
@@ -34,5 +35,8 @@ export const blogRequestUrls = {
     course: {
         getAllCourses: apiConstants.courses,
         getSingleCourse: (courseId:any) => apiConstants.courses + `/${courseId}`
+    },
+    users: {
+        getUserInfo: (id:any) =>  apiConstants.users + `/${id}`
     }
 }
