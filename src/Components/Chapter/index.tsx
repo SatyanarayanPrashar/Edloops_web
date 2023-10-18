@@ -3,7 +3,9 @@ import { FaArrowUp, FaPlus } from "react-icons/fa";
 import { get, map } from "lodash";
 import VideoContainer from "../VideoContainer";
 import getVideoId from "get-video-id";
-
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux";
+import LoginModal from "../LoginModal";
 
 interface IProps {
   chapterResources?: any;
@@ -18,13 +20,23 @@ const index = (props: IProps) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [checkedValues, setCheckedValues] = useState([]);
   const [checkedItems, setCheckedItems] = useState<any>([]);
+  const [handleModal, setHandleModal] = useState(false);
+  const checkLoggedIn = useSelector(
+    (state: RootState) => state.uiState.loggedInUser
+  );
 
   useEffect(() => {
     setCheckedItems(JSON.parse(localStorage.getItem("checkedItems") || "[]"));
   }, []);
 
+  console.log(checkLoggedIn, ",nlkn");
+
   const handleDropdownToggle = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+    if (checkLoggedIn) {
+      setIsDropdownOpen(!isDropdownOpen);
+    } else {
+      setHandleModal(true);
+    }
   };
 
   const handleWatchClick = (index: number) => {
@@ -81,15 +93,14 @@ const index = (props: IProps) => {
 
   return (
     <div className="chapter-dropdown">
-      
-        <div className="chapterTitle" onClick={handleDropdownToggle}>
-          <h4 className="py-2">{chapterTitle}</h4>
-          <span className="cursor-pointer">
-            {isDropdownOpen ? <FaArrowUp /> : <FaPlus />}
-          </span>
-          {/* <span className={`arrow ${isDropdownOpen ? "open" : ""}`}></span> */}
-        </div>
-      
+      <div className="chapterTitle" onClick={handleDropdownToggle}>
+        <h4 className="py-2">{chapterTitle}</h4>
+        <span className="cursor-pointer">
+          {isDropdownOpen ? <FaArrowUp /> : <FaPlus />}
+        </span>
+        {/* <span className={`arrow ${isDropdownOpen ? "open" : ""}`}></span> */}
+      </div>
+
       {isDropdownOpen && (
         <ul className="chapter-links">
           {chapterResources?.map((resource: any, index: any) => {
@@ -98,7 +109,6 @@ const index = (props: IProps) => {
 
             return (
               <li key={index} className="linkCard">
-
                 <div className="linkleftsection">
                   <div className="Ch-number">{index + 1}</div>
                   <div className="linkImage">
@@ -115,10 +125,10 @@ const index = (props: IProps) => {
                     )}
                   </div>
                   <div className="link-mid">
-                  <a href={resource.url} target="_blank" rel="noreferrer">
-                    {get(resource, "title", "")}
-                  </a>
-                  <div>{get(resource, "description", "")}</div>
+                    <a href={resource.url} target="_blank" rel="noreferrer">
+                      {get(resource, "title", "")}
+                    </a>
+                    <div>{get(resource, "description", "")}</div>
                   </div>
                 </div>
 
@@ -161,7 +171,6 @@ const index = (props: IProps) => {
 
                     <label htmlFor="read">Done</label>
                   </div>
-
                 </div>
 
                 {isVideoVisible && (
@@ -177,6 +186,9 @@ const index = (props: IProps) => {
             );
           })}
         </ul>
+      )}
+      {handleModal && (
+        <LoginModal setHandleModal={setHandleModal} handleModal={handleModal} />
       )}
     </div>
   );

@@ -62,9 +62,9 @@ const index = () => {
                   {/* <img src={"https://i.ibb.co/279v54n/code-1839406-640.jpg"} alt={get(data, "title")} /> */}
                 </div>
                 <div className="title-description">
-                    <h1 className="mt-4">{get(data, "title", "")}</h1>
-                    {get(data, "description", "")}
-                    {/* <button
+                  <h1 className="mt-4">{get(data, "title", "")}</h1>
+                  {get(data, "description", "")}
+                  {/* <button
                       // onClick={() => window.open("https://discord.gg/NWRBKwpSsD", "_blank")}
                       className="enroll-link d-flex"
                       type="button"
