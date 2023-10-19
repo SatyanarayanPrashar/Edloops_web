@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaArrowCircleUp, FaArrowDown, FaArrowUp, FaCheck, FaDonate, FaPlus } from "react-icons/fa";
+import { FaArrowDown, FaArrowUp, FaCheck,} from "react-icons/fa";
 import { get, map } from "lodash";
 import VideoContainer from "../VideoContainer";
 import getVideoId from "get-video-id";
@@ -14,7 +14,7 @@ interface IProps {
 }
 
 const index = (props: IProps) => {
-  const { chapterResources, chapterTitle, chapterLinks } = props;
+  const { chapterResources, chapterTitle } = props;
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isVideoVisible, setIsVideoVisible] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
