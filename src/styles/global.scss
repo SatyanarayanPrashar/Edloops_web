@@ -20,6 +20,15 @@
 @import "../styles/roadmapArticle.scss";
 @import "../styles/challenge.scss";
 
+::-moz-selection { 
+  background: #1E566D;
+}
+
+::selection {
+  color: white;
+  background: #1E566D;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -76,7 +85,8 @@ code {
 }
 
 .loader-container {
-  height: 100vh;
+  height: 20vh;
+  margin-bottom: 70vh;
 }
 
 @media screen and (max-width: 821px) {

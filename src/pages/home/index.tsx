@@ -20,30 +20,30 @@ const Index = () => {
 
   useEffect(() => {
     if (router.isReady) {
-      fetchBlogContent();
-      fetchBlogs();
+      fetchCourses();
+      // fetchBlogs();
     }
   }, [router.isReady]);
 
-  const fetchBlogs = async () => {
-    setLoading(true);
-    await requests
-      .get(blogRequestUrls.blogs.getAllBlogs)
-      .then((res) => {
-        const response = ResponseHandler(res);
-        if (get(response, "status", false)) {
-          setBlogs(get(response, "data", []));
-        }
-        setLoading(false);
-      })
-      .catch((e) => {
-        setLoading(false);
-        const error = ErrorHandler(e);
-        toast.error(get(error, "message", ""));
-      });
-  };
+  // const fetchBlogs = async () => {
+  //   setLoading(true);
+  //   await requests
+  //     .get(blogRequestUrls.blogs.getAllBlogs)
+  //     .then((res) => {
+  //       const response = ResponseHandler(res);
+  //       if (get(response, "status", false)) {
+  //         setBlogs(get(response, "data", []));
+  //       }
+  //       setLoading(false);
+  //     })
+  //     .catch((e) => {
+  //       setLoading(false);
+  //       const error = ErrorHandler(e);
+  //       toast.error(get(error, "message", ""));
+  //     });
+  // };
 
-  const fetchBlogContent = async () => {
+  const fetchCourses = async () => {
     setLoading(true);
     await requests
       .get(blogRequestUrls.course.getAllCourses)
@@ -154,7 +154,7 @@ const Index = () => {
                 ))}
               </div>
 
-              <div className="trending_text">
+              {/* <div className="trending_text">
                 <h2 className="trending_text_first">Trending</h2>
                 <h2 className="trending_text_color">Blogs</h2>
               </div>
@@ -173,7 +173,7 @@ const Index = () => {
                     slug={get(blog, "slug", "")}
                   />
                 ))}
-              </div>
+              </div> */}
             </>
           ) : (
             <PageLoader />
