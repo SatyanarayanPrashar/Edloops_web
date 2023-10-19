@@ -29,6 +29,28 @@ h1 {
   // width: 60rem;
   padding: 0px 17px;
   margin: 17px 0px;
+
+  h4{
+    font-size: 21px;
+  }
+}
+.CompletedChater{
+  // background-color: #ccd0f0;
+  background-color: #d6f7d7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: solid 1px rgb(151, 151, 151);
+  border-radius: 7px;
+  height: 47px;
+  /* overflow: hidden; */
+  max-width: 60rem;
+  // width: 60rem;
+  padding: 0px 17px;
+  margin: 17px 0px;
+  h4{
+    font-size: 21px;
+  }
 }
 
 .curicullums {

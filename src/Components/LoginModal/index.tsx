@@ -23,7 +23,7 @@ const Index = ({ setHandleModal, handleModal }: IProps) => {
             <div className="modal-content">
               {/* <!-- Modal Header --> */}
               <div className="modal-header">
-                <h4 className="modal-title mb-0">ALERT</h4>
+                {/* <h4 className="modal-title mb-0">ALERT</h4> */}
                 <button
                   type="button"
                   className="btn-close"

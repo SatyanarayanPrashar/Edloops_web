@@ -149,6 +149,7 @@ const index = () => {
                 <>
                   <div className="Points-Container">
                     <div className="welcomemessage">{user.displayName}!</div>
+                    <div>Referral code: {get(data, "referral_code", "NA")}</div>
                     <div>{get(data, "points", 0)} Points</div>
                     {/* <a className="">
                       {" "}

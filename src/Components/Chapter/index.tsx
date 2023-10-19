@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaArrowUp, FaPlus } from "react-icons/fa";
+import { FaArrowCircleUp, FaArrowDown, FaArrowUp, FaCheck, FaDonate, FaPlus } from "react-icons/fa";
 import { get, map } from "lodash";
 import VideoContainer from "../VideoContainer";
 import getVideoId from "get-video-id";
@@ -18,7 +18,6 @@ const index = (props: IProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isVideoVisible, setIsVideoVisible] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [checkedValues, setCheckedValues] = useState([]);
   const [checkedItems, setCheckedItems] = useState<any>([]);
   const [handleModal, setHandleModal] = useState(false);
   const checkLoggedIn = useSelector(
@@ -28,8 +27,6 @@ const index = (props: IProps) => {
   useEffect(() => {
     setCheckedItems(JSON.parse(localStorage.getItem("checkedItems") || "[]"));
   }, []);
-
-  console.log(checkLoggedIn, ",nlkn");
 
   const handleDropdownToggle = () => {
     if (checkLoggedIn) {
@@ -91,12 +88,22 @@ const index = (props: IProps) => {
     }
   };
 
+  const areAllTopicsDone = () => {
+    for (const resource of chapterResources) {
+      if (!checkedItems.includes(get(resource, "id", 0))) {
+        return false;
+      }
+    }
+    return true;
+  };
+
   return (
     <div className="chapter-dropdown">
-      <div className="chapterTitle" onClick={handleDropdownToggle}>
+      {/* <div className="chapterTitle" onClick={handleDropdownToggle}> */}
+      <div className= {areAllTopicsDone() ? 'CompletedChater' : 'chapterTitle'} onClick={handleDropdownToggle}>
         <h4 className="py-2">{chapterTitle}</h4>
         <span className="cursor-pointer">
-          {isDropdownOpen ? <FaArrowUp /> : <FaPlus />}
+          {isDropdownOpen ? <FaArrowUp /> : areAllTopicsDone() ? <FaCheck/> : <FaArrowDown />}
         </span>
         {/* <span className={`arrow ${isDropdownOpen ? "open" : ""}`}></span> */}
       </div>
