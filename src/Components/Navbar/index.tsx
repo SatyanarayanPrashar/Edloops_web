@@ -15,21 +15,26 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { checkLoggedInUser } from "@/redux/ui/ui.action";
 import { RootState } from "@/redux";
-import { ErrorHandler, ResponseHandler, firebaseConfig } from "@/helper/utils";
+import {
+  ErrorHandler,
+  ResponseHandler,
+  firebaseConfig,
+  generateRandomString,
+} from "@/helper/utils";
 import { blogRequestUrls, requests } from "@/helper/apiAgent";
 import { get } from "lodash";
 import { toast } from "react-toastify";
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 
 const index = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const [activeClass, setActiveClass] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [uniqueStrings, setUniqueStrings] = useState("");
   const [data, setData] = useState({});
   const router = useRouter();
   const dispatch = useDispatch();
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
   const loggedInUserId = useSelector(
     (state: RootState) => state.uiState.loggedInUserId
   );
@@ -47,7 +52,7 @@ const index = () => {
   useEffect(() => {
     if (!router.isReady) return;
     if (loggedInUserId) {
-      fetchBlogContent();
+      fetchUserInfo();
     }
     console.log(router.pathname, "pathname");
 
@@ -55,12 +60,32 @@ const index = () => {
     if (router.pathname === publicRoutes.home) {
       setActiveClass(true);
     }
+    generateUniqueRandomString();
   }, [user, router.isReady, loggedInUserId]);
 
-  const fetchBlogContent = async () => {
+  const isStringUnique = (str: string): boolean => {
+    const regex = /^[a-zA-Z0-9]{6}$/;
+    return regex.test(str) && !uniqueStrings.includes(str);
+  };
+
+  const generateUniqueRandomString = () => {
+    let newString: string;
+    do {
+      newString = generateRandomString();
+    } while (!isStringUnique(newString));
+
+    setUniqueStrings(newString);
+  };
+
+  const userData = {
+    userID: loggedInUserId,
+    referral_code: uniqueStrings,
+  };
+
+  const fetchUserInfo = async () => {
     setLoading(true);
     await requests
-      .get(blogRequestUrls.users.getUserInfo(loggedInUserId))
+      .post(blogRequestUrls.users.getUserInfo, userData)
       .then((res) => {
         const response = ResponseHandler(res);
         if (get(response, "status", false)) {
