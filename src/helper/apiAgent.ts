@@ -34,9 +34,11 @@ export const blogRequestUrls = {
     },
     course: {
         getAllCourses: apiConstants.courses,
-        getSingleCourse: (courseId:any) => apiConstants.courses + `/${courseId}`
+        getSingleCourse: (courseId:any) => apiConstants.courses + `/${courseId}`,
+        enrollCourseWithId: (userId:any) => apiConstants.users + `/enroll/${userId}`
     },
     users: {
-        getUserInfo: apiConstants.users + "/"
+        getUserInfo: (id:any) => apiConstants.users + `/${id}`,
+        registerUser: apiConstants.users + "/"
     }
 }

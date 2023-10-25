@@ -5,22 +5,40 @@ import ReviewCard from "@/Components/ReviewCard/ReviewCard";
 import CommunityCard from "@/Components/communityCard";
 import { blogRequestUrls, requests } from "@/helper/apiAgent";
 import { ErrorHandler, ResponseHandler } from "@/helper/utils";
-import { get } from "lodash";
+import { RootState } from "@/redux";
+import { get, includes } from "lodash";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
 const index = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState({});
+  const [userInfo, setUserInfo] = useState({});
+  const [courseEnroll, setCourseEnroll] = useState([]);
+  const [checkEnrolled, setCheckEnrolled] = useState(false);
+  const loggedInUserId = useSelector(
+    (state: RootState) => state.uiState.loggedInUserId
+  );
+
+  useEffect(() => {
+    if (includes(courseEnroll, parseInt(router.query.id as any))) {
+      setCheckEnrolled(true);
+    }
+  }, [userInfo, loggedInUserId]);
 
   useEffect(() => {
     if (router.isReady) {
       fetchBlogContent();
     }
-  }, [router.isReady]);
+
+    if (loggedInUserId) {
+      fetchUserDetail();
+    }
+  }, [router.isReady, loggedInUserId]);
 
   const fetchBlogContent = async () => {
     setLoading(true);
@@ -37,6 +55,57 @@ const index = () => {
         setLoading(false);
         const error = ErrorHandler(e);
         toast.error(get(error, "message", ""));
+      });
+  };
+
+  const fetchUserDetail = async () => {
+    setLoading(true);
+    await requests
+      .get(blogRequestUrls.users.getUserInfo(loggedInUserId))
+      .then((res) => {
+        const response = ResponseHandler(res);
+        if (get(response, "status", false)) {
+          setUserInfo(get(response, "data", {}));
+          setCourseEnroll(get(response, "data.courses_enrolled", []));
+        }
+        setLoading(false);
+      })
+      .catch((e) => {
+        setLoading(false);
+        const error = ErrorHandler(e);
+        toast.error(get(error, "message", ""));
+      });
+  };
+
+  const enrollCourse = async (courseId: any) => {
+    const enrolledCourse = {
+      courseID: courseId,
+    };
+    setLoading(true);
+    await requests
+      .put(
+        blogRequestUrls.course.enrollCourseWithId(loggedInUserId),
+        enrolledCourse
+      )
+      .then((res) => {
+        const response = ResponseHandler(res);
+        if (get(response, "status", false)) {
+          setUserInfo(get(response, "data", {}));
+          console.log(res, "res message");
+        }
+        setLoading(false);
+        if (get(res, "data.message", "")) {
+          toast.success(get(res, "data.message", ""));
+        } else {
+          toast.error(get(res, "data.error", ""));
+        }
+      })
+      .catch((e) => {
+        setLoading(false);
+        const error = ErrorHandler(e);
+        console.log(error, "error message");
+
+        toast.error(get(error, "error", ""));
       });
   };
 
@@ -64,16 +133,19 @@ const index = () => {
                 <div className="title-description">
                   <h1 className="mt-4">{get(data, "title", "")}</h1>
                   {get(data, "description", "")}
-                  {/* <button
-                      // onClick={() => window.open("https://discord.gg/NWRBKwpSsD", "_blank")}
-                      className="enroll-link d-flex"
-                      type="button"
-                      >      yaha pe
-                      Enroll{" "}
-                      <span>
-                          <i className="fa-solid fa-angle-right ms-2"></i>
-                      </span>
-                    </button> */}
+                  <button
+                    onClick={() => enrollCourse(get(data, "id", 0))}
+                    className={`${
+                      checkEnrolled ? "pointer-none" : ""
+                    } enroll-link d-flex`}
+                    type="button"
+                    disabled={checkEnrolled}
+                  >
+                    {checkEnrolled ? "Enrolled" : "Enroll This Course"}
+                    <span>
+                      <i className="fa-solid fa-angle-right ms-2"></i>
+                    </span>
+                  </button>
                 </div>
               </div>
               <div className="belowTitle">
@@ -85,6 +157,7 @@ const index = () => {
                         chapterResources={get(item, "resources", [])}
                         chapterTitle={get(item, "title", "")}
                         chapterLinks={[]}
+                        checkEnrolled={checkEnrolled}
                       />
                     </>
                   ))}
