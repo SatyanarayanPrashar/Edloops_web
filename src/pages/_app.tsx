@@ -16,6 +16,19 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      {/* <!-- Google tag (gtag.js) --> */}
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-JFGKLL8373"></script>
+      <script>
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-JFGKLL8373');
+
+          `}
+      </script>
+     
       <Provider store={store}>
         <Component {...pageProps} />
         <ToastContainer
