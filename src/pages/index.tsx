@@ -28,7 +28,7 @@ export default function Home() {
         <meta name="twitter:image" content="" />
 
       </Head>
-      <Home />
+      <Landing />
     </>
   );
 }
