@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { FaArrowDown, FaArrowUp, FaCheck,} from "react-icons/fa";
+import { FaArrowDown, FaArrowUp, FaCheck } from "react-icons/fa";
 import { get, map } from "lodash";
 import VideoContainer from "../VideoContainer";
 import getVideoId from "get-video-id";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux";
 import LoginModal from "../LoginModal";
+import { toast } from "react-toastify";
 
 interface IProps {
   chapterResources?: any;
   chapterTitle: any;
   chapterLinks: any;
+  checkEnrolled?: boolean;
 }
 
 const index = (props: IProps) => {
-  const { chapterResources, chapterTitle } = props;
+  const { chapterResources, chapterTitle, checkEnrolled } = props;
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isVideoVisible, setIsVideoVisible] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -30,7 +32,11 @@ const index = (props: IProps) => {
 
   const handleDropdownToggle = () => {
     if (checkLoggedIn) {
-      setIsDropdownOpen(!isDropdownOpen);
+      if (!checkEnrolled) {
+        toast.warning("Please enroll this course first !!");
+      } else {
+        setIsDropdownOpen(!isDropdownOpen);
+      }
     } else {
       setHandleModal(true);
     }
@@ -100,10 +106,19 @@ const index = (props: IProps) => {
   return (
     <div className="chapter-dropdown">
       {/* <div className="chapterTitle" onClick={handleDropdownToggle}> */}
-      <div className= {areAllTopicsDone() ? 'CompletedChater' : 'chapterTitle'} onClick={handleDropdownToggle}>
+      <div
+        className={areAllTopicsDone() ? "CompletedChater" : "chapterTitle"}
+        onClick={handleDropdownToggle}
+      >
         <h4 className="py-2">{chapterTitle}</h4>
         <span className="cursor-pointer">
-          {isDropdownOpen ? <FaArrowUp /> : areAllTopicsDone() ? <FaCheck/> : <FaArrowDown />}
+          {isDropdownOpen ? (
+            <FaArrowUp />
+          ) : areAllTopicsDone() ? (
+            <FaCheck />
+          ) : (
+            <FaArrowDown />
+          )}
         </span>
         {/* <span className={`arrow ${isDropdownOpen ? "open" : ""}`}></span> */}
       </div>

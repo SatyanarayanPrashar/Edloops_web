@@ -85,7 +85,7 @@ const index = () => {
   const fetchUserInfo = async () => {
     setLoading(true);
     await requests
-      .post(blogRequestUrls.users.getUserInfo, userData)
+      .post(blogRequestUrls.users.registerUser, userData)
       .then((res) => {
         const response = ResponseHandler(res);
         if (get(response, "status", false)) {
