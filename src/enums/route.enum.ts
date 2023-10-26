@@ -8,5 +8,6 @@ export enum publicRoutes {
     community = "/community",
     curriculum = "/curriculum",
     flutterroadmap = "/Articles/Flutter-Roadmap",
+    systemdesignroadmap = "/Articles/SystemDesign-Roadmap",
     challenge = "/challenge",
 }

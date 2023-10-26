@@ -13,7 +13,7 @@ const index = () => {
         <title>Flutter Developer Roadmap 2023</title>
         <meta name="description" content="Discover the essential steps to becoming a skilled Flutter developer. From mastering programming fundamentals to exploring state management, this roadmap guides you through your journey to success." />
         {/* <!-- Google / Search Engine Tags --> */}
-        <meta itemProp="name" content="" />
+        <meta itemProp="name" content="Flutter Developer Roadmap 2023" />
         <meta name="description" content="Discover the essential steps to becoming a skilled Flutter developer. From mastering programming fundamentals to exploring state management, this roadmap guides you through your journey to success." />
         <meta itemProp="image" content="https://i.ibb.co/8mwvtw0/flutter.png" />
 
@@ -43,7 +43,7 @@ const index = () => {
             Becoming a proficient Flutter developer involves a blend of theoretical understanding and practical application. To help you on your journey to success in Flutter development, I've outlined a roadmap based on my personal experience:          <br />
             <ol>
               <li>
-                <h2 id="checkpoint1">1.Lerning Dart Programming Language :</h2>
+                <h2 id="checkpoint1">1.Learning Dart Programming Language :</h2>
 
                 Before delving into Flutter, it's essential to establish a strong foundation in programming. This includes grasping concepts like data types like string, int, bool and null, mastering Conditional statements and Functions. Ignoring Dart was one of the worst mistakes I did while learning Flutter and handling null later gave me truma.
 
@@ -51,7 +51,7 @@ const index = () => {
               <li>
                 <h2 id="checkpoint2">2. Learn OOPs Concepts:</h2>
 
-                The concepts of Object Oriented Programming like Classes & Inheritance are extensively used in Flutter Developments. Having these conceps with data types like Lists, Maps and topics like using Futures and asyncronous functions and exception handling are must to have to ease out your development journey later.
+                The concepts of Object Oriented Programming like Classes & Inheritance are extensively used in Flutter Developments. Having these concepts with data types like Lists, Maps and topics like using Futures and asynchronous functions and exception handling are must to have to ease out your development journey later.
 
               </li>
               <li>

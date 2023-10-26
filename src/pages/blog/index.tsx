@@ -1,14 +1,12 @@
-import BlogCard from "@/Components/BlogCard";
+
 import BlogCardHardcoded from "@/Components/BlogCard/blogcardhardcoded";
 import AuthLayout from "@/Components/Layout/AuthLayout";
 import PageLoader from "@/Components/PageLoader";
-import { blogRequestUrls, requests } from "@/helper/apiAgent";
-import { ErrorHandler, ResponseHandler } from "@/helper/utils";
-import { get } from "lodash";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
-import { toast } from "react-toastify";
+import React from "react";
+import NextLink from "next/link";
+import { publicRoutes } from "@/enums/route.enum";
 
 const index = () => {
   const router = useRouter();
@@ -115,12 +113,23 @@ const index = () => {
                   ))} 
                </div>
             </div> */}
+                <NextLink href={publicRoutes.flutterroadmap}>
                   <BlogCardHardcoded
                     imageSrc={"https://i.ibb.co/8mwvtw0/flutter.png"}
                     title="Flutter Developer Roadmap 2023"
                     text="Discover the essential steps to becoming a skilled Flutter developer. From mastering programming fundamentals to exploring state management, this roadmap guides you through your journey to success."
-                    readTime="5 mis read"
+                    readTime="3 mis read"
                   />
+                </NextLink>
+                <NextLink href={publicRoutes.systemdesignroadmap}>
+                  <BlogCardHardcoded
+                    imageSrc={"https://i.ibb.co/s21XCCj/system-design.png"}
+                    title="Roadmap to excel System Design interviews 2024"
+                    text="Learning System Design in the currect order is important to understand it properly. This Roadmap covers the all essential steps to excel your System Design Interviews."
+                    readTime="2 mis read"
+                  />
+                </NextLink>
+                  
           </>
 
         ) : (

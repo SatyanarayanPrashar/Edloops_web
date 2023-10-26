@@ -7,13 +7,11 @@ interface IProps {
   title: any;
   text: any;
   readTime: any;
-  slug?: any;
 }
 
 const index = (props: IProps) => {
-  const { imageSrc, title, text, readTime, slug } = props;
+  const { imageSrc, title, text, readTime} = props;
   return (
-    <NextLink href={publicRoutes.flutterroadmap}>
       <div className="blog-preview-card">
         <img src={imageSrc} alt={title} />
         <div className="blog-preview-card-content mt-3 mt-md-0">
@@ -27,7 +25,6 @@ const index = (props: IProps) => {
             <p className="blog-preview-card-read-time">{readTime}</p>
         </div>
       </div>
-    </NextLink>
   );
 };
 

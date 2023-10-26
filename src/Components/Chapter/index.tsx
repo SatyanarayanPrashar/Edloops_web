@@ -146,12 +146,13 @@ const index = (props: IProps) => {
                       />
                     )}
                   </div>
-                  <div className="link-mid">
-                    <a href={resource.url} target="_blank" rel="noreferrer">
-                      {get(resource, "title", "")}
-                    </a>
-                    <div>{get(resource, "description", "")}</div>
-                  </div>
+
+                </div>
+                <div className="link-mid">
+                  <a href={resource.url} target="_blank" rel="noreferrer">
+                    {get(resource, "title", "")}
+                  </a>
+                  <div>{get(resource, "description", "")}</div>
                 </div>
 
                 {/* <div className="link-mid">
