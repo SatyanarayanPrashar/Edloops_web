@@ -1,6 +1,7 @@
-import React, { ReactNode, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import CurriculumCard from "@/Components/CurriculumCard";
-import BlogCard from "@/Components/BlogCard";
+import NextLink from "next/link";
+import { publicRoutes } from "@/enums/route.enum";
 import AuthLayout from "@/Components/Layout/AuthLayout";
 import Head from "next/head";
 import { ErrorHandler, ResponseHandler } from "@/helper/utils";
@@ -103,7 +104,7 @@ const Index = () => {
       </Head>
       <AuthLayout>
         <div className="home">
-    
+
           <div className="homeTop">
             <div>
               <div className="homeTop_Title">EdLoops</div>
@@ -122,14 +123,25 @@ const Index = () => {
             <h2 className="trending_text_first">Handpicked</h2>
             <h2 className="trending_text_color">Roadmap</h2>
           </div>
-          <p className='trending_bio'>Explore our handpicked roadmaps🛣️ for various tech stacks. 🚀 Your journey to mastering the latest technologies starts here.</p> 
+          <p className='trending_bio'>Explore our handpicked roadmaps🛣️ for various tech stacks. 🚀 Your journey to mastering the latest technologies starts here.</p>
 
-          <BlogCardHardcoded
-            imageSrc={"https://i.ibb.co/8mwvtw0/flutter.png"}
-            title="Flutter Developer Roadmap 2023"
-            text="Discover the essential steps to becoming a skilled Flutter developer. From mastering programming fundamentals to exploring state management, this roadmap guides you through your journey to success."
-            readTime="5 mis read"
-          />
+          <NextLink href={publicRoutes.systemdesignroadmap}>
+            <BlogCardHardcoded
+              imageSrc={"https://i.ibb.co/s21XCCj/system-design.png"}
+              title="Roadmap to excel System Design interviews 2024"
+              text="Learning System Design in the currect order is important to understand it properly. This Roadmap covers the all essential steps to excel your System Design Interviews."
+              readTime="2 mis read"
+            />
+          </NextLink>
+          <NextLink href={publicRoutes.flutterroadmap}>
+            <BlogCardHardcoded
+              imageSrc={"https://i.ibb.co/8mwvtw0/flutter.png"}
+              title="Flutter Developer Roadmap 2023"
+              text="Discover the essential steps to becoming a skilled Flutter developer. From mastering programming fundamentals to exploring state management, this roadmap guides you through your journey to success."
+              readTime="3 mis read"
+            />
+          </NextLink>
+
 
           {!loading ? (
             <>
