@@ -38,6 +38,8 @@ const index = () => {
   const loggedInUserId = useSelector(
     (state: RootState) => state.uiState.loggedInUserId
   );
+  const callApi = useSelector((state: RootState) => state.uiState.callUserApi);
+
   const isLoggedInUser = () => {
     if (user === null) {
       dispatch(checkLoggedInUser({ isLoggedIn: false }));
@@ -51,7 +53,7 @@ const index = () => {
   const [user]: any = useAuthState(auth);
   useEffect(() => {
     if (!router.isReady) return;
-    if (loggedInUserId) {
+    if (loggedInUserId || callApi) {
       fetchUserInfo();
     }
     console.log(router.pathname, "pathname");
@@ -61,7 +63,7 @@ const index = () => {
       setActiveClass(true);
     }
     generateUniqueRandomString();
-  }, [user, router.isReady, loggedInUserId]);
+  }, [user, router.isReady, loggedInUserId, callApi]);
 
   const isStringUnique = (str: string): boolean => {
     const regex = /^[a-zA-Z0-9]{6}$/;

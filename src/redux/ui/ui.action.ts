@@ -1,5 +1,6 @@
 import { ADD_NOTES_MODAL } from "../types";
 import { LOGGED_IN_USER } from "../types";
+import { CALL_USER_API } from "../types";
 
 export const updateNotesModal = (data: {
     show: boolean;
@@ -15,6 +16,15 @@ export const checkLoggedInUser = (data: {
 }) => {
     return {
         type: LOGGED_IN_USER,
+        payload: data
+    };
+};
+
+export const callUserApi = (data: {
+    call: boolean;
+}) => {
+    return {
+        type: CALL_USER_API,
         payload: data
     };
 };
