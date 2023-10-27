@@ -14,16 +14,20 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { ClipLoader } from "react-spinners";
+import Confetti from "react-confetti";
 
 const index = () => {
   const dispatch = useDispatch();
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [btnLoading, setBtnLoading] = useState(false);
   const [data, setData] = useState({});
   const [userInfo, setUserInfo] = useState({});
   const [courseEnroll, setCourseEnroll] = useState([]);
   const [checkEnrolled, setCheckEnrolled] = useState(false);
   const [handleModal, setHandleModal] = useState(false);
+  const [confetti, setConfetti] = useState(false);
   const loggedInUserId = useSelector(
     (state: RootState) => state.uiState.loggedInUserId
   );
@@ -88,7 +92,7 @@ const index = () => {
     const enrolledCourse = {
       courseID: courseId,
     };
-    setLoading(true);
+    setBtnLoading(true);
     await requests
       .put(
         blogRequestUrls.course.enrollCourseWithId(loggedInUserId),
@@ -99,17 +103,21 @@ const index = () => {
         if (get(response, "status", false)) {
           setUserInfo(get(response, "data", {}));
         }
-        setLoading(false);
         if (get(res, "data.message", "")) {
+          setBtnLoading(false);
           toast.success(get(res, "data.message", ""));
           dispatch(callUserApi({ call: true }));
           setCheckEnrolled(true);
+          setConfetti(true);
+          setTimeout(() => {
+            setConfetti(false);
+          }, 5000);
         } else {
           toast.error(get(res, "data.error", ""));
         }
       })
       .catch((e) => {
-        setLoading(false);
+        setBtnLoading(false);
         const error = ErrorHandler(e);
         toast.error(get(error, "error", ""));
       });
@@ -132,6 +140,9 @@ const index = () => {
         {!loading ? (
           <div className="curicullums">
             <div className="w-100">
+              {confetti && (
+                <Confetti className="confetti" width={1000} height={400} />
+              )}
               <div className="course-topcard">
                 <div className="image-title">
                   <img
@@ -155,12 +166,22 @@ const index = () => {
                     type="button"
                     disabled={checkEnrolled || callApi}
                   >
-                    {checkEnrolled || callApi
-                      ? "Enrolled"
-                      : "Enroll This Course"}
-                    <span>
-                      <i className="fa-solid fa-angle-right ms-2"></i>
-                    </span>
+                    {btnLoading ? (
+                      <ClipLoader
+                        color={"#40a944"}
+                        loading={btnLoading}
+                        size={25}
+                      />
+                    ) : (
+                      <>
+                        {checkEnrolled || callApi
+                          ? "Enrolled"
+                          : "Enroll This Course"}
+                        <span>
+                          <i className="fa-solid fa-angle-right ms-2"></i>
+                        </span>
+                      </>
+                    )}
                   </button>
                 </div>
               </div>
