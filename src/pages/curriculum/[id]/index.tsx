@@ -103,6 +103,7 @@ const index = () => {
         if (get(res, "data.message", "")) {
           toast.success(get(res, "data.message", ""));
           dispatch(callUserApi({ call: true }));
+          setCheckEnrolled(true);
         } else {
           toast.error(get(res, "data.error", ""));
         }
