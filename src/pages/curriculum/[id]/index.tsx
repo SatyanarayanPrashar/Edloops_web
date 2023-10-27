@@ -1,28 +1,33 @@
 import Chapter from "@/Components/Chapter";
 import AuthLayout from "@/Components/Layout/AuthLayout";
+import LoginModal from "@/Components/LoginModal";
 import PageLoader from "@/Components/PageLoader";
 import ReviewCard from "@/Components/ReviewCard/ReviewCard";
 import CommunityCard from "@/Components/communityCard";
 import { blogRequestUrls, requests } from "@/helper/apiAgent";
 import { ErrorHandler, ResponseHandler } from "@/helper/utils";
 import { RootState } from "@/redux";
+import { callUserApi } from "@/redux/ui/ui.action";
 import { get, includes } from "lodash";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
 const index = () => {
+  const dispatch = useDispatch();
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState({});
   const [userInfo, setUserInfo] = useState({});
   const [courseEnroll, setCourseEnroll] = useState([]);
   const [checkEnrolled, setCheckEnrolled] = useState(false);
+  const [handleModal, setHandleModal] = useState(false);
   const loggedInUserId = useSelector(
     (state: RootState) => state.uiState.loggedInUserId
   );
+  const callApi = useSelector((state: RootState) => state.uiState.callUserApi);
 
   useEffect(() => {
     if (includes(courseEnroll, parseInt(router.query.id as any))) {
@@ -37,6 +42,8 @@ const index = () => {
 
     if (loggedInUserId) {
       fetchUserDetail();
+    } else {
+      setHandleModal(false);
     }
   }, [router.isReady, loggedInUserId]);
 
@@ -91,11 +98,11 @@ const index = () => {
         const response = ResponseHandler(res);
         if (get(response, "status", false)) {
           setUserInfo(get(response, "data", {}));
-          console.log(res, "res message");
         }
         setLoading(false);
         if (get(res, "data.message", "")) {
           toast.success(get(res, "data.message", ""));
+          dispatch(callUserApi({ call: true }));
         } else {
           toast.error(get(res, "data.error", ""));
         }
@@ -103,10 +110,16 @@ const index = () => {
       .catch((e) => {
         setLoading(false);
         const error = ErrorHandler(e);
-        console.log(error, "error message");
-
         toast.error(get(error, "error", ""));
       });
+  };
+
+  const handleEnroll = () => {
+    if (loggedInUserId) {
+      enrollCourse(get(data, "id", 0));
+    } else {
+      setHandleModal(true);
+    }
   };
 
   return (
@@ -134,14 +147,16 @@ const index = () => {
                   <h1 className="mt-4">{get(data, "title", "")}</h1>
                   {get(data, "description", "")}
                   <button
-                    onClick={() => enrollCourse(get(data, "id", 0))}
+                    onClick={handleEnroll}
                     className={`${
-                      checkEnrolled ? "pointer-none" : ""
+                      checkEnrolled || callApi ? "pointer-none" : ""
                     } enroll-link d-flex`}
                     type="button"
-                    disabled={checkEnrolled}
+                    disabled={checkEnrolled || callApi}
                   >
-                    {checkEnrolled ? "Enrolled" : "Enroll This Course"}
+                    {checkEnrolled || callApi
+                      ? "Enrolled"
+                      : "Enroll This Course"}
                     <span>
                       <i className="fa-solid fa-angle-right ms-2"></i>
                     </span>
@@ -180,6 +195,12 @@ const index = () => {
                 </>
               </div>
             </div>
+            {handleModal && (
+              <LoginModal
+                setHandleModal={setHandleModal}
+                handleModal={handleModal}
+              />
+            )}
           </div>
         ) : (
           <PageLoader />
