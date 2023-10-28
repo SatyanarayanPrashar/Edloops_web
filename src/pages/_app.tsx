@@ -17,7 +17,10 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       {/* <!-- Google tag (gtag.js) --> */}
-      {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-JFGKLL8373"></script>
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-JFGKLL8373"
+      ></script>
       <script>
         {`
           window.dataLayer = window.dataLayer || [];
@@ -27,8 +30,8 @@ export default function App({ Component, pageProps }: AppProps) {
           gtag('config', 'G-JFGKLL8373');
 
           `}
-      </script> */}
-     
+      </script>
+
       <Provider store={store}>
         <Component {...pageProps} />
         <ToastContainer
