@@ -113,6 +113,7 @@ const index = () => {
             setConfetti(false);
           }, 5000);
         } else {
+          setBtnLoading(false);
           toast.error(get(res, "data.error", ""));
         }
       })
