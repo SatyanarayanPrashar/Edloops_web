@@ -102,6 +102,7 @@ const Index = () => {
         />
         <meta name="twitter:image" content=""></meta>
       </Head>
+
       <AuthLayout>
         <div className="home">
 
@@ -113,17 +114,17 @@ const Index = () => {
               </div>
             </div>
           </div>
-          <div className="trending_text">
+          {/* <div className="trending_text">
             <h2 className="trending_text_first">New</h2>
             <h2 className="trending_text_color">Challenge💪</h2>
-          </div>
-          <ChallengeCard />
+          </div> */}
+          {/* <ChallengeCard /> */}
 
           <div className="trending_text">
             <h2 className="trending_text_first">Handpicked</h2>
             <h2 className="trending_text_color">Roadmap</h2>
           </div>
-          <p className='trending_bio'>Explore our handpicked roadmaps🛣️ for various tech stacks. 🚀 Your journey to mastering the latest technologies starts here.</p>
+          <p className='trending_bio'>Explore our handpicked roadmaps🛣️ for various tech stacks. <br />🚀 Your journey to mastering the latest technologies starts here.</p>
 
           <NextLink href={publicRoutes.systemdesignroadmap}>
             <BlogCardHardcoded
@@ -148,7 +149,11 @@ const Index = () => {
               <div className="trending_text">
                 <h2 className="trending_text_first">Trending</h2>
                 <h2 className="trending_text_color">Curriculums</h2>
+
               </div>
+              <p className='trending_bio'>
+                Discover our carefully curated course offerings 📚 to embark on your journey to mastering a wide range of subjects and skills. 🚀 Your path to gaining expertise in diverse fields begins right here.
+              </p>
               <div className="Curriculum_Container">
                 {courseData.map((item: any) => (
                   <CurriculumCard

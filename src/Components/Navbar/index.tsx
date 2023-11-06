@@ -115,6 +115,7 @@ const index = () => {
       {/* header */}
       <nav className="header px-4 py-3">
         <div className="logo">Edloops</div>
+        {/* <img src="/img/logo.png" alt="" /> */}
         <div
           className="hamburger"
           onClick={() => setToggleSidebar(!toggleSidebar)}
@@ -127,7 +128,9 @@ const index = () => {
         <ul>
           <div>
             <NextLink activeClassName={"active"} href={publicRoutes.landing}>
-              <li className="edloops">Edloops</li>
+              <li className="edloops">
+                <img src="/img/logo.png" alt="" />
+              </li>
             </NextLink>
             <NextLink activeClassName={"active"} href={publicRoutes.home}>
               <li className="sidebarbutton">
