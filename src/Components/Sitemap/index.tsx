@@ -10,9 +10,9 @@ const index = () => {
           <div className="row">
             <div className="col-lg-3 col-md-6">
               <div className="">
-                <h6 className="footer-heading text-uppercase text-dark">
+                {/* <h6 className="footer-heading text-uppercase text-dark">
                   Edloops
-                </h6>
+                </h6> */}
                 <ul className="list-unstyled footer-link mt-4">
                   <NextLink activeClassName={"active"} href={publicRoutes.home}>
                     <li>Home</li>

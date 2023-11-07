@@ -113,23 +113,23 @@ const index = () => {
                   ))} 
                </div>
             </div> */}
-                <NextLink href={publicRoutes.flutterroadmap}>
-                  <BlogCardHardcoded
-                    imageSrc={"https://i.ibb.co/8mwvtw0/flutter.png"}
-                    title="Flutter Developer Roadmap 2023"
-                    text="Discover the essential steps to becoming a skilled Flutter developer. From mastering programming fundamentals to exploring state management, this roadmap guides you through your journey to success."
-                    readTime="3 mis read"
-                  />
-                </NextLink>
-                <NextLink href={publicRoutes.systemdesignroadmap}>
-                  <BlogCardHardcoded
-                    imageSrc={"https://i.ibb.co/s21XCCj/system-design.png"}
-                    title="Roadmap to excel System Design interviews 2024"
-                    text="Learning System Design in the currect order is important to understand it properly. This Roadmap covers the all essential steps to excel your System Design Interviews."
-                    readTime="2 mis read"
-                  />
-                </NextLink>
-                  
+            <NextLink href={publicRoutes.flutterroadmap}>
+              <BlogCardHardcoded
+                imageSrc={"https://i.ibb.co/8mwvtw0/flutter.png"}
+                title="Flutter Developer Roadmap 2023"
+                text="Discover the essential steps to becoming a skilled Flutter developer. From mastering programming fundamentals to exploring state management, this roadmap guides you through your journey to success."
+                readTime="3 mis read"
+              />
+            </NextLink>
+            <NextLink href={publicRoutes.systemdesignroadmap}>
+              <BlogCardHardcoded
+                imageSrc={"https://i.ibb.co/s21XCCj/system-design.png"}
+                title="Roadmap to excel System Design interviews 2024"
+                text="Learning System Design in the currect order is important to understand it properly. This Roadmap covers the all essential steps to excel your System Design Interviews."
+                readTime="2 mis read"
+              />
+            </NextLink>
+
           </>
 
         ) : (

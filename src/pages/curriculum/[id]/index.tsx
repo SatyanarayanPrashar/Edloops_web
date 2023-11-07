@@ -136,6 +136,12 @@ const index = () => {
     <>
       <Head>
         <title>Course | Edloops</title>
+        <meta name="description" content="Curated Courses to learn tech without spending any money." />
+
+{/* <!-- Google / Search Engine Tags --> */}
+        <meta itemProp="name" content="Edloops" />
+        <meta itemProp="description" content="Curated Courses to learn tech without spending any money." />
+        <meta itemProp="image" content="https://i.ibb.co/YNc7SkF/edloops.png" />
       </Head>
       <AuthLayout>
         {!loading ? (

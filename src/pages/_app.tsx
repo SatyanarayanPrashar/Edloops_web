@@ -8,6 +8,7 @@ import { store } from "@/redux";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import Script from "next/script";
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -17,11 +18,11 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       {/* <!-- Google tag (gtag.js) --> */}
-      {/* <script
+      <Script
         async
         src="https://www.googletagmanager.com/gtag/js?id=G-JFGKLL8373"
-      ></script>
-      <script>
+      ></Script>
+      <Script>
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -30,7 +31,7 @@ export default function App({ Component, pageProps }: AppProps) {
           gtag('config', 'G-JFGKLL8373');
 
           `}
-      </script> */}
+      </Script> 
 
       <Provider store={store}>
         <Component {...pageProps} />
