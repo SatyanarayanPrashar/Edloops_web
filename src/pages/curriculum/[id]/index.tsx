@@ -126,13 +126,13 @@ const index = () => {
   return (
     <>
       <Head>
-        <title>{get(data, "title")}</title>
-        <meta name="description" content={get(data, "description", "")} />
+        <title>Course | Edloops</title>
+        <meta name="description" content="Curated Courses to learn tech without spending any money." />
 
 {/* <!-- Google / Search Engine Tags --> */}
-        <meta itemProp="name" content={get(data, "title")} />
-        <meta itemProp="description" content= {get(data, "description", "")} />
-        <meta itemProp="image" content={get(data, "image")} />
+        <meta itemProp="name" content="Edloops" />
+        <meta itemProp="description" content="Curated Courses to learn tech without spending any money." />
+        <meta itemProp="image" content="https://i.ibb.co/YNc7SkF/edloops.png" />
       </Head>
       <AuthLayout>
         {!loading ? (
