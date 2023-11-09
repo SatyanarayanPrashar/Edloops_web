@@ -124,6 +124,11 @@ input[type="checkbox"]:before {
   z-index: 2;
 }
 
+.confetti {
+  width: 98vw;
+  height: 600px;
+}
+
 @media screen and (max-width: 476px) {
   .curriculum-preview-card {
     max-width: 100%;
