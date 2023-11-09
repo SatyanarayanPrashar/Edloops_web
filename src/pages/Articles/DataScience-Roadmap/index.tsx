@@ -110,14 +110,13 @@ const index = () => {
             
               
                 <h2 id="checkpoint6">6. PowerBI Tool</h2>
-                Explore the significance of PowerBI in data science. Understand its role in data visualization and the importance of hands-on projects to solidify your skills.
+                Explore the significance of PowerBI in data science. Understand its role in data visualization and the importance of hands-on projects to solidify your skills. <br />
                     OneShot video by <a href="https://www.youtube.com/watch?v=TmhQCQr_DCA" target="_blank" rel="noopener noreferrer"> Kevin Stratvert</a>  <br />
-                    Personal Finance Dashboard <a href="https://www.youtube.com/watch?v=TmhQCQr_DCA" target="_blank" rel="noopener noreferrer"> Codebasics</a> <br /> <br />
+                    Personal Finance Dashboard <a href="https://www.youtube.com/watch?v=TmhQCQr_DCA" target="_blank" rel="noopener noreferrer"> Codebasics</a> <br />
                     HR Data Analytics Dashboard <a href="https://www.youtube.com/watch?v=5KaIU-9EF-0" target="_blank" rel="noopener noreferrer"> Chandoo</a> <br /> <br />
               
-              
-
                     This roadmap is your guide to navigating the complexities of the field. Stay curious, practice regularly, and immerse yourself in projects to apply your knowledge. As the data science landscape evolves, your solid foundation will empower you to unlock the vast potential of data and contribute meaningfully to the ever-growing field of data science. Happy learning!
+            
             <ArticleCourseCard
               imageSrc={"https://i.ibb.co/mcTQyvF/Group-37.png"}
               title={"Data Science for Beginners"}
