@@ -10,7 +10,6 @@ import { useRouter } from "next/router";
 import { title } from "process";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { text } from "stream/consumers";
 import NextLink from "next/link";
 
 
@@ -56,14 +55,15 @@ const index = () => {
               <div className="blogTop_MotoB">with Our Comprehensive Courses</div>
             </div>
 
-            <NextLink href={publicRoutes.systemdesignCourse}>
+            <NextLink className="customCurriculum" href={publicRoutes.systemdesignCourse}>
               <div className="curriculum-preview-card mb-3 me-3">
-                <img src="https://i.ibb.co/279v54n/code-1839406-640.jpg" alt={title} />
+                <img src="https://i.ibb.co/s21XCCj/system-design.png" alt={title} />
                 <div className="curriculum-preview-card-content px-2 w-100 mt-2">
-                  <h3 className="curriculum-preview-card-title">System Design</h3>
-                  {/* <p className="curriculum-preview-card-text">{text}</p>
-                  <p className="curriculum-preview-card-text">{length}</p>
-                  <p className="curriculum-preview-card-By">{By}</p> */}
+                  <h3 className="curriculum-preview-card-title">System Design: From Theory to Practice</h3>
+                  <p className="curriculum-preview-card-text">Course is curated with the best tutorials and articles covering all the essential topics from fundamental to advanced concepts of system design. Analyze case studies of designs of Spotify, Amaazona and more. By the end of this course, you'll be well-prepared to excel in SDE interviews and design systems that can handle massive user loads</p>
+                  <div className="feature">
+                    <div className="svg-feature"><img src="/svg/youtubeblack.svg" /> 25 Lectures</div>
+                  </div>
                 </div>
               </div>
             </NextLink>

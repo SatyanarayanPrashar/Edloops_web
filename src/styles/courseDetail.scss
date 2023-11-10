@@ -208,3 +208,31 @@
         max-width: 750px;
     }
 }
+
+.otherCourses-container{
+    margin-top: 20px;
+    max-width: 755px;
+    display: flex;
+    color: black;
+    h2{
+        font-size: 22px;
+    }
+}
+.exploreCourse{
+    margin-top: 20px;
+    color: black;
+    display: wrap;
+    margin-top: 20px;
+    .courseCard{
+        color: black;
+        border: solid 1px #1E566D;
+        max-width: 240px;
+        img{
+            width: 200px
+        }
+        .text{
+            background-color: rgb(247, 243, 243);
+            padding: 10px;
+        }
+    }
+}
