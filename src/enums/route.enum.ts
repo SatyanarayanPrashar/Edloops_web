@@ -11,4 +11,5 @@ export enum publicRoutes {
     systemdesignroadmap = "/Articles/SystemDesign-Roadmap",
     datascienceroadmap = "/Articles/DataScience-Roadmap",
     challenge = "/challenge",
+    systemdesignCourse = "/courses/SystemDesign",
 }

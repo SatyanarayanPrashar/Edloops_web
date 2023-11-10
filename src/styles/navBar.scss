@@ -5,6 +5,7 @@
   height: 100%;
   width: 230px;
   background-color: #212121;
+  z-index: 1000;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -28,7 +29,7 @@
 }
  
 .sidebarbutton {
-  background-color: #363636;
+  // background-color: #363636;
   border-radius: 100px;
   color: rgb(255, 255, 255);
   cursor: pointer;
