@@ -12,4 +12,6 @@ export enum publicRoutes {
     datascienceroadmap = "/Articles/DataScience-Roadmap",
     challenge = "/challenge",
     systemdesignCourse = "/courses/SystemDesign",
+    flutterdevCourse = "/courses/FlutterDevlopment",
+    datascienceCourse = "/courses/DataScienceCourse",
 }
