@@ -14,4 +14,5 @@ export enum publicRoutes {
     systemdesignCourse = "/courses/SystemDesign",
     flutterdevCourse = "/courses/FlutterDevlopment",
     datascienceCourse = "/courses/DataScienceCourse",
+    web3Course = "/courses/Web3Course",
 }

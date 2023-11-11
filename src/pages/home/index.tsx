@@ -155,7 +155,7 @@ const Index = () => {
                 </div>
               </div>
             </NextLink>
-            <NextLink className="customCurriculum" href={publicRoutes.datascienceCourse}>
+            <NextLink className="customCurriculum" href={publicRoutes.web3Course}>
               <div className="curriculum-preview-card mb-3 me-3">
                 <img src="https://i.ibb.co/mcTQyvF/Group-37.png" alt="data science course image" />
                 <div className="curriculum-preview-card-content px-2 w-100 mt-2">
@@ -167,18 +167,7 @@ const Index = () => {
                 </div>
               </div>
             </NextLink>
-            <NextLink className="customCurriculum" href={publicRoutes.datascienceCourse}>
-              <div className="curriculum-preview-card mb-3 me-3">
-                <img src="https://i.ibb.co/W24b4kY/web3.jpg" alt="web 3 course image" />
-                <div className="curriculum-preview-card-content px-2 w-100 mt-2">
-                  <h3 className="curriculum-preview-card-title">Web3: Zero to Hero</h3>
-                  <p className="curriculum-preview-card-text">This course will teach you the basics of Web3, including what it is, how it works, and the different technologies that make it up. You will also learn how to build and deploy decentralized applications (DApps) and use smart contracts. No prior knowledge of blockchain or programming is required.</p>
-                  <div className="feature">
-                    <div className="svg-feature"><img src="/svg/youtubeblack.svg" /> 36 Lectures</div>
-                  </div>
-                </div>
-              </div>
-            </NextLink>
+            
             {/* {courseData.map((item: any) => (
                   <CurriculumCard
                     key={item.id}
