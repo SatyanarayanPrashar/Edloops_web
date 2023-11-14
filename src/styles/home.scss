@@ -1,4 +1,6 @@
-
+.home{
+  display: flex;
+}
 .homeTop {
   display: flex;
 }
@@ -25,7 +27,7 @@
 }
 
 .trending_text {
-  padding-top: 40px;
+  padding-top: 20px;
   padding-bottom: 10px;
   display: flex;
  h2 {
@@ -47,6 +49,10 @@
 }
 
 @media screen and (max-width: 821px) {
+  .home{
+    display: block;
+
+  }
   .homeTop_Title {
     font-size: 4rem;
   }

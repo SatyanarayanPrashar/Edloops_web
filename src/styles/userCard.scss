@@ -1,0 +1,45 @@
+.userCard{
+    width: 240px;
+    max-height: 285px;
+    top: 30px;
+    position: sticky;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #1E566D;
+    color: white;
+    border: solid 1px #1E566D;
+    
+    h6{
+        font-size: 20px;
+        padding-right: 4px;
+    }
+}
+.user-name{
+    font-size: 20px;
+    img{
+        margin-left: -10px;
+        color: white;
+    }
+}
+.coursename{
+    li{
+        color: white;
+    }
+    li:hover{
+        font-size: 21px;
+    }
+    // background-color: red;
+}
+
+.reffer-bttn{
+    padding: 4px;
+    margin-top: 20px;
+    border: solid 1px #1E566D;
+    border-radius: 7px;
+    background-color: #f1fbff;
+
+    font-size: 17px;
+    top: 320px;
+    position: sticky;
+}

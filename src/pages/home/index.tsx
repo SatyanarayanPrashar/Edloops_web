@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 import PageLoader from "@/Components/PageLoader";
 import ChallengeCard from "@/Components/ChallengeCard";
 import BlogCardHardcoded from "@/Components/BlogCard/blogcardhardcoded";
+import UserCard from "@/Components/UserCard";
 
 const Index = () => {
   const router = useRouter();
@@ -105,57 +106,64 @@ const Index = () => {
 
       <AuthLayout>
         <div className="home">
+          <div>
 
-          <div className="homeTop">
-            <div>
-              <div className="homeTop_Title">EdLoops</div>
-              <div className="homeTop_MotoT">Learn Teach Repeat
-                {/* <br />Learn from curriculums from experts with the POWER of AI. */}
+
+            {/* <div className="homeTop">
+              <div>
+                <div className="homeTop_Title">EdLoops</div>
+                <div className="homeTop_MotoT">Learn Teach Repeat
+                </div>
               </div>
+            </div> */}
+
+            <div className="trending_text">
+              <h2 className="trending_text_first">Trending</h2>
+              <h2 className="trending_text_color">Curriculums</h2>
+
             </div>
-          </div>
-          {/* <div className="trending_text">
-            <h2 className="trending_text_first">New</h2>
-            <h2 className="trending_text_color">Challenge💪</h2>
-          </div> */}
-          {/* <ChallengeCard /> */}
+            <p className='trending_bio'>
+              Discover our carefully curated course offerings 📚 to embark on your journey to mastering a wide range of subjects and skills. <br />🚀 Your path to gaining expertise in diverse fields begins right here.
+            </p>
+            <div className="Curriculum_Container">
+              <NextLink className="customCurriculum" href={publicRoutes.systemdesignCourse}>
+                <div className="curriculum-preview-card mb-3 me-3">
+                  <img src="https://i.ibb.co/s21XCCj/system-design.png" alt="System Design Course image" />
+                  <div className="curriculum-preview-card-content px-2 w-100 mt-2">
+                    <h3 className="curriculum-preview-card-title">System Design: From Theory to Practice</h3>
+                    <p className="curriculum-preview-card-text">Course is curated with the best tutorials and articles covering all the essential topics from fundamental to advanced concepts of system design. Analyze case studies of designs of Spotify, Amaazona and more. By the end of this course, you'll be well-prepared to excel in SDE interviews and design systems that can handle massive user loads</p>
+                    <div className="feature">
+                      <div className="svg-feature"><img src="/svg/youtubeblack.svg" /> 25 Lectures</div>
+                    </div>
+                  </div>
+                </div>
+              </NextLink>
+              <NextLink className="customCurriculum" href={publicRoutes.flutterdevCourse}>
+                <div className="curriculum-preview-card mb-3 me-3">
+                  <img src="https://i.ibb.co/gmn7SQg/images.png" alt="Flutter Development course image" />
+                  <div className="curriculum-preview-card-content px-2 w-100 mt-2">
+                    <h3 className="curriculum-preview-card-title">Flutter Development from scratch</h3>
+                    <p className="curriculum-preview-card-text">This comprehensive course is designed for beginners to start their journey in Flutter development from scratch. You'll learn the basics of Flutter, understand its architecture, and build your first Flutter applications step by step. Whether you're new to programming or looking to transition to mobile app development, this course will provide you with a solid foundation in Flutter.</p>
+                    <div className="feature">
+                      <div className="svg-feature"><img src="/svg/youtubeblack.svg" /> 33 Lectures</div>
+                    </div>
+                  </div>
+                </div>
+              </NextLink>
+              <NextLink className="customCurriculum" href={publicRoutes.web3Course}>
+                <div className="curriculum-preview-card mb-3 me-3">
+                  <img src="https://i.ibb.co/mcTQyvF/Group-37.png" alt="data science course image" />
+                  <div className="curriculum-preview-card-content px-2 w-100 mt-2">
+                    <h3 className="curriculum-preview-card-title">Data Science for beginners</h3>
+                    <p className="curriculum-preview-card-text">The Course is structured for a total beginner, having no coding or computer science background. Following so will build a very strong foundation for a strong Data Science carrier.</p>
+                    <div className="feature">
+                      <div className="svg-feature"><img src="/svg/youtubeblack.svg" /> 36 Lectures</div>
+                    </div>
+                  </div>
+                </div>
+              </NextLink>
 
-          <div className="trending_text">
-            <h2 className="trending_text_first">Handpicked</h2>
-            <h2 className="trending_text_color">Roadmap</h2>
-          </div>
-          <p className='trending_bio'>Explore our handpicked roadmaps🛣️ for various tech stacks.🚀 Your journey to mastering the latest technologies starts here.</p>
-
-          <NextLink href={publicRoutes.systemdesignroadmap}>
-            <BlogCardHardcoded
-              imageSrc={"https://i.ibb.co/s21XCCj/system-design.png"}
-              title="Roadmap to excel System Design interviews 2024"
-              text="Learning System Design in the currect order is important to understand it properly. This Roadmap covers the all essential steps to excel your System Design Interviews."
-              readTime="2 mis read"
-            />
-          </NextLink>
-          <NextLink href={publicRoutes.flutterroadmap}>
-            <BlogCardHardcoded
-              imageSrc={"https://i.ibb.co/8mwvtw0/flutter.png"}
-              title="Flutter Developer Roadmap 2023"
-              text="Discover the essential steps to becoming a skilled Flutter developer. From mastering programming fundamentals to exploring state management, this roadmap guides you through your journey to success."
-              readTime="3 mis read"
-            />
-          </NextLink>
-
-
-          {!loading ? (
-            <>
-              <div className="trending_text">
-                <h2 className="trending_text_first">Trending</h2>
-                <h2 className="trending_text_color">Curriculums</h2>
-
-              </div>
-              <p className='trending_bio'>
-                Discover our carefully curated course offerings 📚 to embark on your journey to mastering a wide range of subjects and skills. <br />🚀 Your path to gaining expertise in diverse fields begins right here.
-              </p>
-              <div className="Curriculum_Container">
-                {courseData.map((item: any) => (
+              {/* {courseData.map((item: any) => (
                   <CurriculumCard
                     key={item.id}
                     id={get(item, "id", "")}
@@ -168,10 +176,41 @@ const Index = () => {
                     length=""
                     By=""
                   />
-                ))}
-              </div>
+                ))} */}
+            </div>
 
-              {/* <div className="trending_text">
+            <div className="trending_text">
+              <h2 className="trending_text_first">Handpicked</h2>
+              <h2 className="trending_text_color">Roadmap</h2>
+            </div>
+            <p className='trending_bio'>Explore our handpicked roadmaps🛣️ for various tech stacks.🚀 Your journey to mastering the latest technologies starts here.</p>
+
+            <NextLink href={publicRoutes.systemdesignroadmap}>
+              <BlogCardHardcoded
+                imageSrc={"https://i.ibb.co/s21XCCj/system-design.png"}
+                title="Roadmap to excel System Design interviews 2024"
+                text="Learning System Design in the currect order is important to understand it properly. This Roadmap covers the all essential steps to excel your System Design Interviews."
+                readTime=""
+              />
+            </NextLink>
+            <NextLink href={publicRoutes.flutterroadmap}>
+              <BlogCardHardcoded
+                imageSrc={"https://i.ibb.co/8mwvtw0/flutter.png"}
+                title="Flutter Developer Roadmap 2023"
+                text="Discover the essential steps to becoming a skilled Flutter developer. From mastering programming fundamentals to exploring state management, this roadmap guides you through your journey to success."
+                readTime=""
+              />
+            </NextLink>
+            <NextLink href={publicRoutes.datascienceroadmap}>
+              <BlogCardHardcoded
+                imageSrc={"https://i.ibb.co/Jz164wH/Group-37.png"}
+                title="Data Science: Roadmap to Success in 2023"
+                text="The need for data science has become increasingly important in today's world due to the vast amount of data being generated by businesses, organizations, and individuals. Discover the essential steps to becoming a skilled Data Scientist."
+                readTime=""
+              />
+            </NextLink>
+
+            {/* <div className="trending_text">
                 <h2 className="trending_text_first">Trending</h2>
                 <h2 className="trending_text_color">Blogs</h2>
               </div>
@@ -190,20 +229,19 @@ const Index = () => {
                     slug={get(blog, "slug", "")}
                   />
                 ))}
-              </div> */}
-            </>
-          ) : (
+              </div>  */}
+            {/* </> */}
+            {/* ) : (
             <PageLoader />
-          )}
+          )} */}
+          </div>
+          <UserCard name={"Satya"} coins={"700"} enrolledcourses={["12", "8", "13", "6"]} referral="zzzzz"/>
         </div>
       </AuthLayout>
     </>
   );
 };
 
-// Index.getLayout = function getLayout(component: ReactNode) {
-//   return <AuthLayout>{component}</AuthLayout>;
-// };
 
 export default Index;
 

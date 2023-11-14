@@ -135,7 +135,7 @@ const index = () => {
   return (
     <>
       <Head>
-        <title>Course | Edloops</title>
+        <title>{get(data, "title", "")}</title>
         <meta name="description" content="Curated Courses to learn tech without spending any money." />
 
 {/* <!-- Google / Search Engine Tags --> */}
