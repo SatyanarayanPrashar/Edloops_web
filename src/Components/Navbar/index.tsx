@@ -13,7 +13,7 @@ import {
 } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useDispatch, useSelector } from "react-redux";
-import { checkLoggedInUser } from "@/redux/ui/ui.action";
+import { checkLoggedInUser, userInfoData } from "@/redux/ui/ui.action";
 import { RootState } from "@/redux";
 import {
   ErrorHandler,
@@ -24,6 +24,7 @@ import {
 import { blogRequestUrls, requests } from "@/helper/apiAgent";
 import { get } from "lodash";
 import { toast } from "react-toastify";
+import { log } from "console";
 
 const index = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
@@ -35,22 +36,13 @@ const index = () => {
   const dispatch = useDispatch();
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
+  const [user]: any = useAuthState(auth);
   const loggedInUserId = useSelector(
     (state: RootState) => state.uiState.loggedInUserId
   );
+
   const callApi = useSelector((state: RootState) => state.uiState.callUserApi);
 
-  const isLoggedInUser = () => {
-    if (user === null) {
-      dispatch(checkLoggedInUser({ isLoggedIn: false }));
-    } else {
-      dispatch(
-        checkLoggedInUser({ isLoggedIn: true, loggedInUser: user?.uid })
-      );
-    }
-  };
-
-  const [user]: any = useAuthState(auth);
   useEffect(() => {
     if (!router.isReady) return;
     if (loggedInUserId || callApi) {
@@ -64,6 +56,19 @@ const index = () => {
     }
     generateUniqueRandomString();
   }, [user, router.isReady, loggedInUserId, callApi]);
+
+  const isLoggedInUser = () => {
+    if (user === null) {
+      dispatch(checkLoggedInUser({ isLoggedIn: false }));
+    } else {
+      dispatch(
+        checkLoggedInUser({
+          isLoggedIn: true,
+          loggedInUser: user?.uid,
+        })
+      );
+    }
+  };
 
   const isStringUnique = (str: string): boolean => {
     const regex = /^[a-zA-Z0-9]{6}$/;
@@ -92,6 +97,7 @@ const index = () => {
         const response = ResponseHandler(res);
         if (get(response, "status", false)) {
           setData(get(response, "data", []));
+          dispatch(userInfoData(get(response, "data", {})));
         }
         setLoading(false);
       })

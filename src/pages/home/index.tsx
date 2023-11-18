@@ -13,12 +13,20 @@ import PageLoader from "@/Components/PageLoader";
 import ChallengeCard from "@/Components/ChallengeCard";
 import BlogCardHardcoded from "@/Components/BlogCard/blogcardhardcoded";
 import UserCard from "@/Components/UserCard";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/redux";
+import AddReferalModal from "@/Components/AddReferalModal";
+import { checkLoggedInUser } from "@/redux/ui/ui.action";
 
 const Index = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const [courseData, setCourseData] = useState([]);
   const [blogs, setBlogs] = useState([]);
+  const handleReferralModal = useSelector(
+    (state: RootState) => state.uiState.showReferralModal
+  );
 
   useEffect(() => {
     if (router.isReady) {
@@ -63,7 +71,6 @@ const Index = () => {
       });
   };
 
-
   return (
     <>
       <Head>
@@ -82,10 +89,7 @@ const Index = () => {
         <meta itemProp="image" content="https://i.ibb.co/YNc7SkF/edloops.png" />
 
         {/* <!-- Facebook Meta Tags --> */}
-        <meta
-          property="og:url"
-          content=""
-        />
+        <meta property="og:url" content="" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Home | Edloops" />
         <meta
@@ -107,8 +111,6 @@ const Index = () => {
       <AuthLayout>
         <div className="home">
           <div>
-
-
             {/* <div className="homeTop">
               <div>
                 <div className="homeTop_Title">EdLoops</div>
@@ -120,44 +122,98 @@ const Index = () => {
             <div className="trending_text">
               <h2 className="trending_text_first">Trending</h2>
               <h2 className="trending_text_color">Curriculums</h2>
-
             </div>
-            <p className='trending_bio'>
-              Discover our carefully curated course offerings 📚 to embark on your journey to mastering a wide range of subjects and skills. <br />🚀 Your path to gaining expertise in diverse fields begins right here.
+            <p className="trending_bio">
+              Discover our carefully curated course offerings 📚 to embark on
+              your journey to mastering a wide range of subjects and skills.{" "}
+              <br />
+              🚀 Your path to gaining expertise in diverse fields begins right
+              here.
             </p>
             <div className="Curriculum_Container">
-              <NextLink className="customCurriculum" href={publicRoutes.systemdesignCourse}>
+              <NextLink
+                className="customCurriculum"
+                href={publicRoutes.systemdesignCourse}
+              >
                 <div className="curriculum-preview-card mb-3 me-3">
-                  <img src="https://i.ibb.co/s21XCCj/system-design.png" alt="System Design Course image" />
+                  <img
+                    src="https://i.ibb.co/s21XCCj/system-design.png"
+                    alt="System Design Course image"
+                  />
                   <div className="curriculum-preview-card-content px-2 w-100 mt-2">
-                    <h3 className="curriculum-preview-card-title">System Design: From Theory to Practice</h3>
-                    <p className="curriculum-preview-card-text">Course is curated with the best tutorials and articles covering all the essential topics from fundamental to advanced concepts of system design. Analyze case studies of designs of Spotify, Amaazona and more. By the end of this course, you'll be well-prepared to excel in SDE interviews and design systems that can handle massive user loads</p>
+                    <h3 className="curriculum-preview-card-title">
+                      System Design: From Theory to Practice
+                    </h3>
+                    <p className="curriculum-preview-card-text">
+                      Course is curated with the best tutorials and articles
+                      covering all the essential topics from fundamental to
+                      advanced concepts of system design. Analyze case studies
+                      of designs of Spotify, Amaazona and more. By the end of
+                      this course, you'll be well-prepared to excel in SDE
+                      interviews and design systems that can handle massive user
+                      loads
+                    </p>
                     <div className="feature">
-                      <div className="svg-feature"><img src="/svg/youtubeblack.svg" /> 25 Lectures</div>
+                      <div className="svg-feature">
+                        <img src="/svg/youtubeblack.svg" /> 25 Lectures
+                      </div>
                     </div>
                   </div>
                 </div>
               </NextLink>
-              <NextLink className="customCurriculum" href={publicRoutes.flutterdevCourse}>
+              <NextLink
+                className="customCurriculum"
+                href={publicRoutes.flutterdevCourse}
+              >
                 <div className="curriculum-preview-card mb-3 me-3">
-                  <img src="https://i.ibb.co/gmn7SQg/images.png" alt="Flutter Development course image" />
+                  <img
+                    src="https://i.ibb.co/gmn7SQg/images.png"
+                    alt="Flutter Development course image"
+                  />
                   <div className="curriculum-preview-card-content px-2 w-100 mt-2">
-                    <h3 className="curriculum-preview-card-title">Flutter Development from scratch</h3>
-                    <p className="curriculum-preview-card-text">This comprehensive course is designed for beginners to start their journey in Flutter development from scratch. You'll learn the basics of Flutter, understand its architecture, and build your first Flutter applications step by step. Whether you're new to programming or looking to transition to mobile app development, this course will provide you with a solid foundation in Flutter.</p>
+                    <h3 className="curriculum-preview-card-title">
+                      Flutter Development from scratch
+                    </h3>
+                    <p className="curriculum-preview-card-text">
+                      This comprehensive course is designed for beginners to
+                      start their journey in Flutter development from scratch.
+                      You'll learn the basics of Flutter, understand its
+                      architecture, and build your first Flutter applications
+                      step by step. Whether you're new to programming or looking
+                      to transition to mobile app development, this course will
+                      provide you with a solid foundation in Flutter.
+                    </p>
                     <div className="feature">
-                      <div className="svg-feature"><img src="/svg/youtubeblack.svg" /> 33 Lectures</div>
+                      <div className="svg-feature">
+                        <img src="/svg/youtubeblack.svg" /> 33 Lectures
+                      </div>
                     </div>
                   </div>
                 </div>
               </NextLink>
-              <NextLink className="customCurriculum" href={publicRoutes.web3Course}>
+              <NextLink
+                className="customCurriculum"
+                href={publicRoutes.web3Course}
+              >
                 <div className="curriculum-preview-card mb-3 me-3">
-                  <img src="https://i.ibb.co/mcTQyvF/Group-37.png" alt="data science course image" />
+                  <img
+                    src="https://i.ibb.co/mcTQyvF/Group-37.png"
+                    alt="data science course image"
+                  />
                   <div className="curriculum-preview-card-content px-2 w-100 mt-2">
-                    <h3 className="curriculum-preview-card-title">Data Science for beginners</h3>
-                    <p className="curriculum-preview-card-text">The Course is structured for a total beginner, having no coding or computer science background. Following so will build a very strong foundation for a strong Data Science carrier.</p>
+                    <h3 className="curriculum-preview-card-title">
+                      Data Science for beginners
+                    </h3>
+                    <p className="curriculum-preview-card-text">
+                      The Course is structured for a total beginner, having no
+                      coding or computer science background. Following so will
+                      build a very strong foundation for a strong Data Science
+                      carrier.
+                    </p>
                     <div className="feature">
-                      <div className="svg-feature"><img src="/svg/youtubeblack.svg" /> 36 Lectures</div>
+                      <div className="svg-feature">
+                        <img src="/svg/youtubeblack.svg" /> 36 Lectures
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -183,7 +239,10 @@ const Index = () => {
               <h2 className="trending_text_first">Handpicked</h2>
               <h2 className="trending_text_color">Roadmap</h2>
             </div>
-            <p className='trending_bio'>Explore our handpicked roadmaps🛣️ for various tech stacks.🚀 Your journey to mastering the latest technologies starts here.</p>
+            <p className="trending_bio">
+              Explore our handpicked roadmaps🛣️ for various tech stacks.🚀 Your
+              journey to mastering the latest technologies starts here.
+            </p>
 
             <NextLink href={publicRoutes.systemdesignroadmap}>
               <BlogCardHardcoded
@@ -235,18 +294,21 @@ const Index = () => {
             <PageLoader />
           )} */}
           </div>
-          <UserCard name={"Satya"} coins={"700"} enrolledcourses={["12", "8", "13", "6"]} referral="zzzzz"/>
+          <UserCard
+            name={"Satya"}
+            coins={"700"}
+            enrolledcourses={["12", "8", "13", "6"]}
+            referral="zzzzz"
+          />
+          {handleReferralModal && <AddReferalModal />}
         </div>
       </AuthLayout>
     </>
   );
 };
 
-
 export default Index;
 
-
-
-
-
-{/* <p className='trending_bio'>Check out the most 🔥 courses in the market</p>  */ }
+{
+  /* <p className='trending_bio'>Check out the most 🔥 courses in the market</p>  */
+}
