@@ -1,5 +1,10 @@
 import { IUiState } from "@/interfaces/ui";
-import { ADD_NOTES_MODAL, REFERRAL_MODAL, USER_INFO } from "../types";
+import {
+  ADD_NOTES_MODAL,
+  FIREBASE_USER_INFO,
+  REFERRAL_MODAL,
+  USER_INFO,
+} from "../types";
 import { LOGGED_IN_USER } from "../types";
 import { CALL_USER_API } from "../types";
 import { IAction } from "@/interfaces/ui/redux.interfaces";
@@ -10,6 +15,7 @@ const initialState: IUiState = {
   loggedInUserId: "",
   callUserApi: false,
   userInfo: {},
+  firebaseUserInfo: {},
   showReferralModal: false,
   referralUsed: false,
 };
@@ -37,6 +43,11 @@ const uiReducer = (state = initialState, { type, payload }: IAction) => {
       return {
         ...state,
         userInfo: payload,
+      };
+    case FIREBASE_USER_INFO:
+      return {
+        ...state,
+        firebaseUserInfo: payload,
       };
     case REFERRAL_MODAL:
       return {
