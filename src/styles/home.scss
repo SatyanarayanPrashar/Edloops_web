@@ -33,12 +33,14 @@
     display: block;
   }
   .homeTop_Title {
-    font-size: 5.7rem;
+    font-size: 4rem;
   }
   .homeTop_MotoT {
+    font-size: 0.9rem;
     margin-top: 1rem;
   }
   .homeTop_MotoTT {
+    font-size: 0.9rem;
     margin-top: 0rem;
     margin-bottom: 1rem;
   }
@@ -94,7 +96,7 @@
     flex-direction: column;
     width: 20rem;
     .video{
-      width: 400px;
+      max-width: 300px;
       background-color: red;
       margin-left: 0;
       iframe{
