@@ -28,13 +28,22 @@
   font-weight: 700;
   color: #3c3c3c;
 }
+@media screen and (max-width: 768px) {
+  .home {
+    display: block;
+  }
+  .homeTop_Title {
+    font-size: 5.7rem;
+  }
+  .homeTop_MotoT {
+    margin-top: 1rem;
+  }
+  .homeTop_MotoTT {
+    margin-top: 0rem;
+    margin-bottom: 1rem;
+  }
+}
 
-// .hrline{
-//   height: 1px;
-//   width: 91.5%;
-//   margin-top: 20px;
-//   background-color: #212121;
-// }
 .trending_text {
   padding-top: 20px;
   padding-bottom: 10px;
@@ -54,18 +63,6 @@
 
   .trending_bio {
     padding-top: -10px;
-  }
-
-  @media screen and (max-width: 7681px) {
-    .home {
-      display: block;
-    }
-    .homeTop_Title {
-      font-size: 4rem;
-    }
-    .homeTop_MotoT {
-      margin-top: 0;
-    }
   }
 }
 
@@ -95,10 +92,14 @@
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    width: 400px;
+    width: 20rem;
     .video{
       width: 400px;
+      background-color: red;
       margin-left: 0;
+      iframe{
+        width: 100%;
+      }
     }
   }
 }
