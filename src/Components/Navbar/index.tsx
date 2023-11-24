@@ -41,7 +41,6 @@ const index = () => {
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const [user]: any = useAuthState(auth);
-  console.log(user, "Userrrrr");
 
   const loggedInUserId = useSelector(
     (state: RootState) => state.uiState.loggedInUserId

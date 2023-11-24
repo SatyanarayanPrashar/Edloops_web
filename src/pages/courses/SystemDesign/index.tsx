@@ -1,10 +1,76 @@
 import AuthLayout from "@/Components/Layout/AuthLayout";
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NextLink from "next/link";
 import { publicRoutes } from "@/enums/route.enum";
+import { ClipLoader } from "react-spinners";
+import { blogRequestUrls, requests } from "@/helper/apiAgent";
+import { ErrorHandler, ResponseHandler } from "@/helper/utils";
+import { get, includes } from "lodash";
+import { toast } from "react-toastify";
+import Confetti from "react-confetti";
+import LoginModal from "@/Components/LoginModal";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux";
 
 const index = () => {
+  const [btnLoading, setBtnLoading] = useState(false);
+  const [checkEnrolled, setCheckEnrolled] = useState(false);
+  const [confetti, setConfetti] = useState(false);
+  const [handleModal, setHandleModal] = useState(false);
+  const loggedInUserId = useSelector(
+    (state: RootState) => state.uiState.loggedInUserId
+  );
+  const userInfo = useSelector((state: RootState) => state.uiState.userInfo);
+  useEffect(() => {
+    if (includes(get(userInfo, "courses_enrolled", 0), "12")) {
+      setCheckEnrolled(true);
+    } else {
+      setCheckEnrolled(false);
+    }
+  }, [userInfo]);
+
+  const enrollCourse = async (courseId: any) => {
+    const enrolledCourse = {
+      courseID: courseId,
+    };
+    setBtnLoading(true);
+    await requests
+      .put(
+        blogRequestUrls.course.enrollCourseWithId(loggedInUserId),
+        enrolledCourse
+      )
+      .then((res) => {
+        const response = ResponseHandler(res);
+        if (get(response, "status", false)) {
+          // setUserInfo(get(response, "data", {}));
+        }
+        if (get(res, "data.message", "")) {
+          setBtnLoading(false);
+          toast.success(get(res, "data.message", ""));
+          setCheckEnrolled(true);
+          setConfetti(true);
+          setTimeout(() => {
+            setConfetti(false);
+          }, 5000);
+        } else {
+          setBtnLoading(false);
+          toast.error(get(res, "data.error", ""));
+        }
+      })
+      .catch((e) => {
+        setBtnLoading(false);
+        const error = ErrorHandler(e);
+        toast.error(get(error, "error", ""));
+      });
+  };
+  const handleEnroll = () => {
+    if (loggedInUserId) {
+      enrollCourse("12");
+    } else {
+      setHandleModal(true);
+    }
+  };
   const faqItems = [
     {
       question: "Introduction to System Design",
@@ -231,9 +297,35 @@ const index = () => {
             />
             <h2>Free!</h2>
             <div className="wrapper">
-              <a href="https://edloops.com/curriculum/12">
-                <span>Start Learning</span>
-              </a>
+              {checkEnrolled ? (
+                <a href="https://edloops.com/curriculum/12">
+                  <span>Start Learning</span>
+                </a>
+              ) : (
+                <button
+                  onClick={handleEnroll}
+                  className={`${
+                    checkEnrolled ? "pointer-none" : ""
+                  } enroll-link d-flex text-white mt-0`}
+                  type="button"
+                  disabled={checkEnrolled}
+                >
+                  {btnLoading ? (
+                    <ClipLoader
+                      color={"#40a944"}
+                      loading={btnLoading}
+                      size={25}
+                    />
+                  ) : (
+                    <>
+                      {checkEnrolled ? "Enrolled" : "Enroll This Course"}
+                      <span>
+                        <i className="fa-solid fa-angle-right ms-2"></i>
+                      </span>
+                    </>
+                  )}
+                </button>
+              )}
             </div>
             <h6>This course includes:</h6>
             <div className="svg-feature">
@@ -399,6 +491,12 @@ const index = () => {
               learning process for a more effective and enjoyable experience.
             </div>
           </div>
+          {handleModal && (
+            <LoginModal
+              setHandleModal={setHandleModal}
+              handleModal={handleModal}
+            />
+          )}
         </div>
 
         {/* <div className="otherCourses-container">
