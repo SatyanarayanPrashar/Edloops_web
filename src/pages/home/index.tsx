@@ -33,7 +33,6 @@ const Index = () => {
   const firebaseUserInfo = useSelector(
     (state: RootState) => state.uiState.firebaseUserInfo
   );
-  console.log(userInfo, "userInfooooo");
 
   useEffect(() => {
     if (router.isReady) {

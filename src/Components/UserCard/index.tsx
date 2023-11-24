@@ -7,6 +7,7 @@ import { RootState } from "@/redux";
 import { get } from "lodash";
 import { useRouter } from "next/router";
 import LoginModal from "../LoginModal";
+import { streakCounter } from "streak-counter";
 
 interface UserCardProps {
   name: string;
@@ -33,6 +34,8 @@ const UserCard: React.FC<UserCardProps> = ({
   const dispatch = useDispatch();
   const [setShowButton, setSetShowButton] = useState(false);
   const [handleModal, setHandleModal] = useState(false);
+  const [handleStreak, setHandleStreak] = useState(0);
+  console.log(handleStreak, "handle streak");
   const showModal = () => {
     dispatch(updateReferralModal({ show: true }));
   };
@@ -40,6 +43,15 @@ const UserCard: React.FC<UserCardProps> = ({
     (state: RootState) => state.uiState.loggedInUserId
   );
   const surveyInfo = useSelector((state: RootState) => state.uiState.userInfo);
+  const today = new Date();
+  useEffect(() => {
+    if (loggedInUserId) {
+      let { currentCount } = streakCounter(localStorage, today);
+      setHandleStreak(currentCount);
+    } else {
+      localStorage.setItem("streak", JSON.stringify("currentCount"));
+    }
+  }, [loggedInUserId]);
   useEffect(() => {
     setSetShowButton(get(surveyInfo, "referral_used", false));
   }, [router.isReady, surveyInfo]);
@@ -52,7 +64,8 @@ const UserCard: React.FC<UserCardProps> = ({
             <>
               <div className="user-name">
                 <div className="svg-feature">
-                  <img src="/svg/fire.svg" /> 7 day Streak
+                  <img src="/svg/fire.svg" /> {handleStreak} day
+                  {handleStreak > 1 ? "s" : ""} Streak
                 </div>
                 <div className="svg-feature">
                   <img src="/svg/user.svg" /> {name}

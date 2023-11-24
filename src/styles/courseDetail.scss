@@ -12,9 +12,26 @@
     font-weight: 700;
     font-size: 40px;
     padding-bottom: 0.6rem;
+    // @media screen and (max-width: 768px) {
+    //   font-size: 30px;
+    // }
   }
   .h1title {
     width: 955px;
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    position: inherit;
+    height: 100%;
+    max-width: auto;
+    padding-right: 1rem !important;
+  }
+  @media screen and (max-width: 426px) {
+    margin: 0px -41px;
+    padding: 17px 41px;
   }
 }
 .topdescription {
@@ -54,11 +71,22 @@
       margin-right: 21px;
     }
   }
+  @media screen and (max-width: 768px) {
+    padding-top: 1rem;
+  }
+  @media screen and (max-width: 426px) {
+    margin: 0px -41px;
+    padding: 17px 41px;
+  }
 }
 
 .topleft-info {
   max-width: 67%;
   margin-right: 60px;
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+    margin: 0;
+  }
 }
 
 .topright-sticky {
@@ -69,6 +97,9 @@
   border: solid 1px #787c7e;
   img {
     width: 298px;
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
   }
   h2 {
     padding: 11px;
@@ -94,6 +125,10 @@
     a:hover {
       background-color: #c8eaff;
     }
+  }
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+    height: 100%;
   }
 }
 
@@ -206,6 +241,9 @@
   }
   img {
     max-width: 750px;
+    @media screen and (max-width: 768px) {
+      width: 380px;
+    }
   }
 }
 

@@ -1,71 +1,40 @@
+import { RootState } from "@/redux";
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { streakCounter } from "streak-counter";
 
 const index = () => {
-  // State to manage the streak count
-  const [streakCount, setStreakCount] = useState(0);
+  const [handleStreak, setHandleStreak] = useState(0);
+  console.log(handleStreak, "handle streak");
 
+  const loggedInUserId = useSelector(
+    (state: RootState) => state.uiState.loggedInUserId
+  );
+  const today = new Date();
   useEffect(() => {
-    // Get the stored streak data from local storage
-    const storedStreakDataString = localStorage.getItem("streakData");
-    const storedStreakData = storedStreakDataString
-      ? JSON.parse(storedStreakDataString)
-      : {};
-
-    // Check if the streak is from today
-    const today = new Date().toLocaleDateString();
-    if (storedStreakData.date === today) {
-      // Streak is from today, set the streak count
-      setStreakCount(storedStreakData.count);
+    if (loggedInUserId) {
+      let { currentCount } = streakCounter(localStorage, today);
+      setHandleStreak(currentCount);
     } else {
-      // Streak is from a previous day or doesn't exist, reset streak count
-      setStreakCount(0);
+      localStorage.setItem("streak", JSON.stringify("currentCount"));
     }
-  }, []);
-
-  const handleLogin = () => {
-    // Get the stored streak data from local storage
-    const storedStreakDataString = localStorage.getItem("streakData");
-    const storedStreakData = storedStreakDataString
-      ? JSON.parse(storedStreakDataString)
-      : {};
-
-    // Check if the last login date is yesterday
-    const yesterday = new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
-
-    if (
-      new Date(storedStreakData.date).toLocaleDateString() ===
-      yesterday.toLocaleDateString()
-    ) {
-      // User logged in consecutively, increase the streak count
-      const newStreakCount = storedStreakData.count + 1;
-      setStreakCount(newStreakCount);
-
-      // Store the updated streak data in local storage
-      localStorage.setItem(
-        "streakData",
-        JSON.stringify({
-          date: new Date().toLocaleDateString(),
-          count: newStreakCount,
-        })
-      );
-    } else {
-      // User missed a day, reset the streak count to 1
-      setStreakCount(1);
-
-      // Store the new streak data in local storage
-      localStorage.setItem(
-        "streakData",
-        JSON.stringify({ date: new Date().toLocaleDateString(), count: 1 })
-      );
-    }
-  };
+  }, [loggedInUserId]);
 
   return (
-    <div>
-      <p>Streak Count: {streakCount}</p>
-      <button onClick={handleLogin}>Login</button>
-    </div>
+    <>
+      <h1 style={{ marginBottom: "1rem" }}>Current streak</h1>
+      <div>
+        <p style={{ fontSize: "4rem", marginTop: "2rem", marginBottom: "0" }}>
+          <span aria-label="fire emoji" role="img">
+            🔥
+          </span>
+        </p>
+      </div>
+      <p style={{ fontSize: "2rem" }}>
+        {handleStreak} day
+        {handleStreak > 1 ? "s" : ""}
+      </p>
+    </>
   );
 };
 
