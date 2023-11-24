@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux";
 import AddReferalModal from "@/Components/AddReferalModal";
 import { checkLoggedInUser } from "@/redux/ui/ui.action";
+import StreakCounter from "@/Components/StreakCounter";
 
 const Index = () => {
   const router = useRouter();
@@ -26,6 +27,11 @@ const Index = () => {
   const [blogs, setBlogs] = useState([]);
   const handleReferralModal = useSelector(
     (state: RootState) => state.uiState.showReferralModal
+  );
+
+  const userInfo = useSelector((state: RootState) => state.uiState.userInfo);
+  const firebaseUserInfo = useSelector(
+    (state: RootState) => state.uiState.firebaseUserInfo
   );
 
   useEffect(() => {
@@ -295,11 +301,12 @@ const Index = () => {
           )} */}
           </div>
           <UserCard
-            name={"Satya"}
-            coins={"700"}
-            enrolledcourses={["12", "8", "13", "6"]}
+            name={get(firebaseUserInfo, "displayName", "")}
+            coins={get(userInfo, "points", 0)}
+            enrolledcourses={get(userInfo, "courses_enrolled", [])}
             referral="zzzzz"
           />
+          {/* <StreakCounter /> */}
           {handleReferralModal && <AddReferalModal />}
         </div>
       </AuthLayout>

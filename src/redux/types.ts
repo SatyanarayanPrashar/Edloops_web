@@ -4,6 +4,8 @@ export const ADD_NOTES_MODAL = "ADD_NOTES_MODAL";
 export const LOGGED_IN_USER = "LOGGED_IN_USER";
 //User Data
 export const USER_INFO = "USER_INFO";
+//Firebasse User Info
+export const FIREBASE_USER_INFO = "FIREBASE_USER_INFO";
 //Call User API
 export const CALL_USER_API = "CALL_USER_API";
 //Referral Modal

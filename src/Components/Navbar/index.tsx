@@ -13,7 +13,11 @@ import {
 } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useDispatch, useSelector } from "react-redux";
-import { checkLoggedInUser, userInfoData } from "@/redux/ui/ui.action";
+import {
+  checkLoggedInUser,
+  firebaseUserInfoData,
+  userInfoData,
+} from "@/redux/ui/ui.action";
 import { RootState } from "@/redux";
 import {
   ErrorHandler,
@@ -37,6 +41,7 @@ const index = () => {
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const [user]: any = useAuthState(auth);
+
   const loggedInUserId = useSelector(
     (state: RootState) => state.uiState.loggedInUserId
   );
@@ -47,6 +52,7 @@ const index = () => {
     if (!router.isReady) return;
     if (loggedInUserId || callApi) {
       fetchUserInfo();
+      dispatch(firebaseUserInfoData(user));
     }
     console.log(router.pathname, "pathname");
 

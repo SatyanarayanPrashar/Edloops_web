@@ -1,4 +1,9 @@
-import { ADD_NOTES_MODAL, REFERRAL_MODAL, USER_INFO } from "../types";
+import {
+  ADD_NOTES_MODAL,
+  FIREBASE_USER_INFO,
+  REFERRAL_MODAL,
+  USER_INFO,
+} from "../types";
 import { LOGGED_IN_USER } from "../types";
 import { CALL_USER_API } from "../types";
 
@@ -29,6 +34,12 @@ export const callUserApi = (data: { call: boolean }) => {
 export const userInfoData = (data: any) => {
   return {
     type: USER_INFO,
+    payload: data,
+  };
+};
+export const firebaseUserInfoData = (data: any) => {
+  return {
+    type: FIREBASE_USER_INFO,
     payload: data,
   };
 };
