@@ -29,9 +29,6 @@
   color: #3c3c3c;
 }
 @media screen and (max-width: 768px) {
-  .home {
-    display: block;
-  }
   .homeTop_Title {
     font-size: 4rem;
   }
@@ -95,10 +92,9 @@
   @media screen and (max-width: 768px) {
     margin-top: 3rem;
     flex-direction: column;
-    width: 17rem;
+    width: 18.2rem;
     .video{
       max-width: 300px;
-
       margin-left: 0;
       iframe{
         width: 100%;
