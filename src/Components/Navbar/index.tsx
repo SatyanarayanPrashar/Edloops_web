@@ -144,7 +144,7 @@ const index = () => {
                 <img src="/img/logo.png" alt="" />
               </li>
             </NextLink>
-            <NextLink activeClassName={"active"} href={publicRoutes.home}>
+            <NextLink activeClassName={"active"} href={publicRoutes.landing}>
               <li className="sidebarbutton">
                 <span>
                   <FaHome className="sidebaricon" />
@@ -189,27 +189,7 @@ const index = () => {
             <div>
               {user ? (
                 <>
-                  <div className="Points-Container">
-                    <div className="welcomemessage">{user.displayName}!</div>
-                    <div>Referral code: {get(data, "referral_code", "NA")}</div>
-                    <div>{get(data, "points", 0)} Points</div>
-                    {/* <a className="">
-                      {" "}
-                      on clicking open a Modal with Lorem Ipsum texts and a copy
-                      referral code button on the bottom Refer Friends{" "}
-                      <span>
-                        <i className="fa-solid fa-angle-right ms-2"></i>
-                      </span>
-                    </a> */}
-                  </div>
                   <button className="sign-out-button" onClick={handleSignOut}>
-                    {/* <div className="google-logo-wrapper border-0">
-                      <img
-                        className="google-logo_signout"
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXdZstnFOO87-aJ43mJ_-R2gGYO8SV9A_GAw&usqp=CAU"
-                        alt="Google logo"
-                      />
-                    </div> */}
                     <span className="google-sign-in-text">Sign Out</span>
                   </button>
                 </>
