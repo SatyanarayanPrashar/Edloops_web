@@ -93,11 +93,12 @@
   }
 
   @media screen and (max-width: 768px) {
+    margin-top: 3rem;
     flex-direction: column;
-    width: 20rem;
+    width: 17rem;
     .video{
       max-width: 300px;
-      background-color: red;
+
       margin-left: 0;
       iframe{
         width: 100%;
