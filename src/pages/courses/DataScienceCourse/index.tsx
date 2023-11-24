@@ -353,7 +353,7 @@ const index = () => {
                     />
                   ) : (
                     <>
-                      {checkEnrolled ? "Enrolled" : "Enroll This Course"}
+                      {checkEnrolled ? "Enrolled" : "Enroll"}
                       <span>
                         <i className="fa-solid fa-angle-right ms-2"></i>
                       </span>

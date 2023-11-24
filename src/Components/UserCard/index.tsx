@@ -109,14 +109,19 @@ const UserCard: React.FC<UserCardProps> = ({
               )}
             </>
           ) : (
-            <div
-              className="reffer-bttn mt-0"
-              onClick={() => setHandleModal(true)}
-            >
+            <div>
+              <div className="unauth-img">
+                  <img src="/img/waving.png" alt="Discord Logo" />
+              </div>
+              <div
+                className="reffer-bttn mt-0"
+                onClick={() => setHandleModal(true)}
+              >
               <div className="svg-feature cursor-pointer d-flex align-items-center justify-content-center">
                 <i className="fa-brands fa-google me-2"></i>
-                <p className="m-0 lh-1">Login with Google</p>
+                <p className="m-0 lh-1">Signup / Login</p>
               </div>
+            </div>
             </div>
           )}
         </div>
@@ -129,7 +134,3 @@ const UserCard: React.FC<UserCardProps> = ({
 };
 
 export default UserCard;
-
-{
-  /* <NextLink href={publicRoutes.curriculum + `/${courseId} `}></NextLink> */
-}

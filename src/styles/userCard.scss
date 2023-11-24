@@ -1,6 +1,6 @@
 .userCard {
   width: 240px;
-  max-height: 285px;
+  // max-height: 285px;
   top: 30px;
   position: sticky;
   margin-top: 20px;
@@ -15,7 +15,7 @@
     padding-right: 4px;
   }
   @media screen and (max-width: 768px) {
-    width: 100%;
+    width: 97%;
   }
 }
 .user-name {
@@ -33,6 +33,18 @@
     font-size: 21px;
   }
   // background-color: red;
+}
+
+.unauth-img{
+  img{
+    max-width: 210px;
+    // height: 60px;
+    @media screen and (max-width: 768px) {
+      max-width: 310px;
+      display: flex;
+      margin-left: 35px;
+    }
+  }
 }
 
 .reffer-bttn {

@@ -9,24 +9,24 @@
 }
 
 .homeTop_Title {
-  /* margin-top: 2.7rem; */
+  margin-top: -2.7rem; 
   margin-bottom: -1.7rem;
   margin-left: -0.5rem;
-  font-size: 5rem;
+  font-size: 6.6rem;
   font-weight: 700;
   color: #212121;
 }
 .homeTop_MotoT {
-  font-size: 1.2rem;
+  margin-top: -2.15rem; 
+  font-size: 1.15rem;
   font-weight: 700;
   color: #3c3c3c;
-  margin-top: 1.4rem;
 }
-.homeTop_MotoB {
+.homeTop_MotoTT {
+  margin-top: 1rem; 
   font-size: 1.2rem;
   font-weight: 700;
   color: #3c3c3c;
-  margin-bottom: -1.5rem;
 }
 
 .trending_text {
@@ -50,7 +50,7 @@
     padding-top: -10px;
   }
 
-  @media screen and (max-width: 821px) {
+  @media screen and (max-width: 7681px) {
     .home {
       display: block;
     }
@@ -59,6 +59,38 @@
     }
     .homeTop_MotoT {
       margin-top: 0;
+    }
+  }
+}
+
+.intro-video{
+  display: flex;
+  max-width: 870px;
+  margin-top: 20px;
+
+  .video{
+    width: 760px;
+    height: 235px;
+    margin-left: 40px;
+    iframe {
+      width: 100%;
+      height: 100%;
+      border-radius: 7px;
+      border: solid 1px #3c3c3c;
+    }
+  }
+  .homeTop_MotoB {
+    font-weight: 600;
+    color: #3c3c3c;
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    width: 400px;
+    .video{
+      width: 400px;
+      margin-left: 0;
     }
   }
 }

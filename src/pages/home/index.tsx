@@ -1,30 +1,16 @@
 import React, { useEffect, useState } from "react";
-import CurriculumCard from "@/Components/CurriculumCard";
 import NextLink from "next/link";
 import { publicRoutes } from "@/enums/route.enum";
 import AuthLayout from "@/Components/Layout/AuthLayout";
 import Head from "next/head";
-import { ErrorHandler, ResponseHandler } from "@/helper/utils";
-import { requests, blogRequestUrls } from "@/helper/apiAgent";
 import { get } from "lodash";
-import { useRouter } from "next/router";
-import { toast } from "react-toastify";
-import PageLoader from "@/Components/PageLoader";
-import ChallengeCard from "@/Components/ChallengeCard";
 import BlogCardHardcoded from "@/Components/BlogCard/blogcardhardcoded";
 import UserCard from "@/Components/UserCard";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "@/redux";
 import AddReferalModal from "@/Components/AddReferalModal";
-import { checkLoggedInUser } from "@/redux/ui/ui.action";
-import StreakCounter from "@/Components/StreakCounter";
 
 const Index = () => {
-  const router = useRouter();
-  const dispatch = useDispatch();
-  const [loading, setLoading] = useState(true);
-  const [courseData, setCourseData] = useState([]);
-  const [blogs, setBlogs] = useState([]);
   const handleReferralModal = useSelector(
     (state: RootState) => state.uiState.showReferralModal
   );
@@ -34,53 +20,9 @@ const Index = () => {
     (state: RootState) => state.uiState.firebaseUserInfo
   );
 
-  useEffect(() => {
-    if (router.isReady) {
-      fetchCourses();
-      // fetchBlogs();
-    }
-  }, [router.isReady]);
-
-  // const fetchBlogs = async () => {
-  //   setLoading(true);
-  //   await requests
-  //     .get(blogRequestUrls.blogs.getAllBlogs)
-  //     .then((res) => {
-  //       const response = ResponseHandler(res);
-  //       if (get(response, "status", false)) {
-  //         setBlogs(get(response, "data", []));
-  //       }
-  //       setLoading(false);
-  //     })
-  //     .catch((e) => {
-  //       setLoading(false);
-  //       const error = ErrorHandler(e);
-  //       toast.error(get(error, "message", ""));
-  //     });
-  // };
-
-  const fetchCourses = async () => {
-    setLoading(true);
-    await requests
-      .get(blogRequestUrls.course.getAllCourses)
-      .then((res) => {
-        const response = ResponseHandler(res);
-        if (get(response, "status", false)) {
-          setCourseData(get(response, "data", []));
-        }
-        setLoading(false);
-      })
-      .catch((e) => {
-        setLoading(false);
-        const error = ErrorHandler(e);
-        toast.error(get(error, "message", ""));
-      });
-  };
-
   return (
     <>
       <Head>
-        {/* <!-- HTML Meta Tags --> */}
         <title>Home | Edloops</title>
         <meta
           name="description"
@@ -117,13 +59,22 @@ const Index = () => {
       <AuthLayout>
         <div className="home">
           <div>
-            {/* <div className="homeTop">
+            <div className="homeTop">
               <div>
-                <div className="homeTop_Title">EdLoops</div>
-                <div className="homeTop_MotoT">Learn Teach Repeat
+
+                <div className="intro-video">
+                  <div>
+                    <div className="homeTop_Title">EdLoops</div>
+                    <div className="homeTop_MotoT">Navigating Your Learning Journey</div>
+                    <div className="homeTop_MotoTT">Top 1% learning materials curated and crafted into courses.</div>
+                    <div className="homeTop_MotoTT"></div>
+                  </div>
+                  <div className="video">
+                    <iframe src="https://www.youtube.com/embed/WcE9oy6qTrk?vq=hd1080&autoplay=1&loop=1&muted=1"></iframe>
+                  </div>
                 </div>
               </div>
-            </div> */}
+            </div>
 
             <div className="trending_text">
               <h2 className="trending_text_first">Trending</h2>
@@ -199,7 +150,7 @@ const Index = () => {
               </NextLink>
               <NextLink
                 className="customCurriculum"
-                href={publicRoutes.web3Course}
+                href={publicRoutes.datascienceCourse}
               >
                 <div className="curriculum-preview-card mb-3 me-3">
                   <img
