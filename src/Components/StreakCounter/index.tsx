@@ -5,7 +5,6 @@ import { streakCounter } from "streak-counter";
 
 const index = () => {
   const [handleStreak, setHandleStreak] = useState(0);
-  console.log(handleStreak, "handle streak");
 
   const loggedInUserId = useSelector(
     (state: RootState) => state.uiState.loggedInUserId

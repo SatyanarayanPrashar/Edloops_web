@@ -2,6 +2,7 @@ import { IUiState } from "@/interfaces/ui";
 import {
   ADD_NOTES_MODAL,
   FIREBASE_USER_INFO,
+  REFERRAL_CODE,
   REFERRAL_MODAL,
   USER_INFO,
 } from "../types";

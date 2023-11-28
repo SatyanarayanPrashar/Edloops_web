@@ -8,6 +8,7 @@ import { get } from "lodash";
 import { useRouter } from "next/router";
 import LoginModal from "../LoginModal";
 import { streakCounter } from "streak-counter";
+import ReferralModal from "../ReferralModal";
 
 interface UserCardProps {
   name: string;
@@ -34,8 +35,9 @@ const UserCard: React.FC<UserCardProps> = ({
   const dispatch = useDispatch();
   const [setShowButton, setSetShowButton] = useState(false);
   const [handleModal, setHandleModal] = useState(false);
+  const [handleReferralModal, setHandleReferralModal] = useState(false);
   const [handleStreak, setHandleStreak] = useState(0);
-  console.log(handleStreak, "handle streak");
+  const [copiedCode, setCopiedCode] = useState("");
   const showModal = () => {
     dispatch(updateReferralModal({ show: true }));
   };
@@ -73,7 +75,10 @@ const UserCard: React.FC<UserCardProps> = ({
                 <div className="svg-feature">
                   <img src="/svg/coin.svg" /> {coins} Edcoins
                 </div>
-                <a href="   POP UP displaying referral code and a copy bttn ">
+                <a
+                  className="cursor-pointer text-decoration-none"
+                  onClick={() => setHandleReferralModal(true)}
+                >
                   <div className="svg-feature">
                     <img src="/svg/referral.svg" /> Refer Friends
                   </div>
@@ -111,21 +116,27 @@ const UserCard: React.FC<UserCardProps> = ({
           ) : (
             <div>
               <div className="unauth-img">
-                  <img src="/img/waving.png" alt="Discord Logo" />
+                <img src="/img/waving.png" alt="Discord Logo" />
               </div>
               <div
                 className="reffer-bttn mt-0"
                 onClick={() => setHandleModal(true)}
               >
-              <div className="svg-feature cursor-pointer d-flex align-items-center justify-content-center">
-                <i className="fa-brands fa-google me-2"></i>
-                <p className="m-0 lh-1">Signup / Login</p>
+                <div className="svg-feature cursor-pointer d-flex align-items-center justify-content-center">
+                  <i className="fa-brands fa-google me-2"></i>
+                  <p className="m-0 lh-1">Signup / Login</p>
+                </div>
               </div>
-            </div>
             </div>
           )}
         </div>
       </div>
+      {handleReferralModal && (
+        <ReferralModal
+          setHandleReferralModal={setHandleReferralModal}
+          handleReferralModal={handleReferralModal}
+        />
+      )}
       {handleModal && (
         <LoginModal setHandleModal={setHandleModal} handleModal={handleModal} />
       )}
