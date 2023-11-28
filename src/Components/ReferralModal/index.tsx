@@ -14,13 +14,13 @@ const index = ({ setHandleReferralModal, handleReferralModal }: IProps) => {
   const userInfo = useSelector((state: RootState) => state.uiState.userInfo);
 
   const handleReferralCode = () => {
-    copyToClipboard(userInfo.referral_code);
+    copyToClipboard("Hey, Do you know? You can learn Data Science, Flutter Development, System design or Web3 development for Free on EdLoops? Signup and use my referral code to get 100 edcoins: " +  userInfo.referral_code);
     setChangeIcon(true);
     setTimeout(() => {
       setHandleReferralModal(false);
     }, 1000);
   };
-  console.log(handleReferralModal, "rererererer");
+  // console.log(handleReferralModal, "rererererer");
 
   return (
     <>
@@ -34,7 +34,7 @@ const index = ({ setHandleReferralModal, handleReferralModal }: IProps) => {
           <div className="modal-content">
             {/* <!-- Modal Header --> */}
             <div className="modal-header">
-              <h4 className="modal-title mb-0">Copy Referral Code</h4>
+              <h4 className="modal-title mb-0">Invite Friends</h4>
               <button
                 type="button"
                 className="btn-close"
@@ -49,20 +49,29 @@ const index = ({ setHandleReferralModal, handleReferralModal }: IProps) => {
                 <div className="field auth__field border rounded-2 px-3 py-2">
                   <div className="field__wrap d-flex justify-content-between align-items-center">
                     <div>
-                      <h2>{userInfo.referral_code}</h2>
-                    </div>
+                      <p>
+                        Free Leaning materials best not kept secret. <br />
+                        Invite your friends to learn together on Edloops, and earn <b>100 Edcoins</b> <br />
+                        Join our Discord community to make new study buddies. <br />
+                      </p>
+                      <div className="d-flex">
+                        Invite code: 
+                        <h5>{userInfo.referral_code}</h5>
+                      </div>
+                      <div className="d-flex">
+                        <button className="refer-modal-bttn" type="button" onClick={handleReferralCode}>
+                          Copy Code
+                          <i 
+                            className={`${changeIcon ? "fa fa-check" : "fa fa-copy"} fs-5`}
+                          ></i>
+                        </button>
 
-                    <div
-                      className="field__icon cursor-pointer"
-                      onClick={handleReferralCode}
-                    >
-                      <button type="button">
-                        <i
-                          className={`${
-                            changeIcon ? "fa fa-check" : "fa fa-copy"
-                          } fs-4`}
-                        ></i>
-                      </button>
+                        <a  href="whatsapp://send?text=Hey, Do you know? You can learn Data Science, Flutter Development, System design or Web3 development for Free on EdLoops? Signup and use my referral code to get 100 edcoins."
+                          data-action="share/whatsapp/share"
+                          rel="nofollow noopener" target="_blank"
+                          className="refer-modal-bttn">share on <img src="/svg/whatsapp.svg" style={{ height: '27px' }} />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>

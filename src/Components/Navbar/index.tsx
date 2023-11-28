@@ -54,7 +54,7 @@ const index = () => {
       fetchUserInfo();
       dispatch(firebaseUserInfoData(user));
     }
-    console.log(router.pathname, "pathname");
+    // console.log(router.pathname, "pathname");
 
     isLoggedInUser();
     if (router.pathname === publicRoutes.home) {

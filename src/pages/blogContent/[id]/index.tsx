@@ -36,7 +36,7 @@ const index = () => {
 
   useEffect(() => {
     if (router.isReady) {
-      console.log(router.query.id, "router");
+      // console.log(router.query.id, "router");
       fetchBlogContent();
     }
   }, [router.isReady]);

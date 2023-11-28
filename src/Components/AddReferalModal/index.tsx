@@ -34,7 +34,7 @@ const index = () => {
       .put(blogRequestUrls.referralCode(loggedInUser), referral)
       .then((res) => {
         const response = ResponseHandler(res);
-        console.log(response, "response");
+        // console.log(response, "response");
         if (get(res, "data.message", "")) {
           setBtnLoading(false);
           dispatch(updateReferralModal({ show: false }));
