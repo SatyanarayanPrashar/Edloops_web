@@ -12,8 +12,10 @@ import Confetti from "react-confetti";
 import LoginModal from "@/Components/LoginModal";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux";
+import { useRouter } from "next/router";
 
 const index = () => {
+  const router = useRouter();
   const [btnLoading, setBtnLoading] = useState(false);
   const [checkEnrolled, setCheckEnrolled] = useState(false);
   const [confetti, setConfetti] = useState(false);
@@ -298,9 +300,9 @@ const index = () => {
             <h2>Free!</h2>
             <div className="wrapper">
               {checkEnrolled ? (
-                <a href="https://edloops.com/curriculum/12">
+                <NextLink href={publicRoutes.curriculum + "/12"}>
                   <span>Start Learning</span>
-                </a>
+                </NextLink>
               ) : (
                 <button
                   onClick={handleEnroll}

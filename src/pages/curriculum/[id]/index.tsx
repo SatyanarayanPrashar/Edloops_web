@@ -34,10 +34,14 @@ const index = () => {
   const callApi = useSelector((state: RootState) => state.uiState.callUserApi);
 
   useEffect(() => {
-    if (includes(courseEnroll, parseInt(router.query.id as any))) {
-      setCheckEnrolled(true);
+    if (router.isReady) {
+      console.log(includes(courseEnroll, router.query.id as any), "kjboipon");
+
+      if (includes(courseEnroll, router.query.id as any)) {
+        setCheckEnrolled(true);
+      }
     }
-  }, [userInfo, loggedInUserId]);
+  }, [userInfo, loggedInUserId, router.isReady]);
 
   useEffect(() => {
     if (router.isReady) {
@@ -136,11 +140,17 @@ const index = () => {
     <>
       <Head>
         <title>{get(data, "title", "")}</title>
-        <meta name="description" content="Curated Courses to learn tech without spending any money." />
+        <meta
+          name="description"
+          content="Curated Courses to learn tech without spending any money."
+        />
 
-{/* <!-- Google / Search Engine Tags --> */}
+        {/* <!-- Google / Search Engine Tags --> */}
         <meta itemProp="name" content="Edloops" />
-        <meta itemProp="description" content="Curated Courses to learn tech without spending any money." />
+        <meta
+          itemProp="description"
+          content="Curated Courses to learn tech without spending any money."
+        />
         <meta itemProp="image" content="https://i.ibb.co/YNc7SkF/edloops.png" />
       </Head>
       <AuthLayout>

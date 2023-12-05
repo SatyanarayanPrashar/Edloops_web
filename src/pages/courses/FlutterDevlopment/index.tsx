@@ -336,9 +336,9 @@ const index = () => {
             <h2>Free!</h2>
             <div className="wrapper">
               {checkEnrolled ? (
-                <a href="https://edloops.com/curriculum/8">
+                <NextLink href={publicRoutes.curriculum + "/8"}>
                   <span>Start Learning</span>
-                </a>
+                </NextLink>
               ) : (
                 <button
                   onClick={handleEnroll}
