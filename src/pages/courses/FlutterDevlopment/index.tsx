@@ -1,15 +1,11 @@
 import AuthLayout from "@/Components/Layout/AuthLayout";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import NextLink from "next/link";
-import { publicRoutes } from "@/enums/route.enum";
 import { ClipLoader } from "react-spinners";
 import { blogRequestUrls, requests } from "@/helper/apiAgent";
 import { ErrorHandler, ResponseHandler } from "@/helper/utils";
 import { get, includes } from "lodash";
 import { toast } from "react-toastify";
-import Confetti from "react-confetti";
-import LoginModal from "@/Components/LoginModal";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux";
 
@@ -336,7 +332,7 @@ const index = () => {
             <h2>Free!</h2>
             <div className="wrapper">
               {checkEnrolled ? (
-                <a href="https://edloops.com/curriculum/8">
+                <a href="https://edloops.com/curriculum/4">
                   <span>Start Learning</span>
                 </a>
               ) : (
