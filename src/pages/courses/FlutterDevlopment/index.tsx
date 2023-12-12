@@ -8,7 +8,8 @@ import { get, includes } from "lodash";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux";
-
+import NextLink from "next/link";
+import { publicRoutes } from "@/enums/route.enum";
 const index = () => {
   const [btnLoading, setBtnLoading] = useState(false);
   const [checkEnrolled, setCheckEnrolled] = useState(false);
@@ -62,7 +63,7 @@ const index = () => {
   };
   const handleEnroll = () => {
     if (loggedInUserId) {
-      enrollCourse("8");
+      enrollCourse("4");
     } else {
       setHandleModal(true);
     }
@@ -332,9 +333,9 @@ const index = () => {
             <h2>Free!</h2>
             <div className="wrapper">
               {checkEnrolled ? (
-                <a href="https://edloops.com/curriculum/4">
+                <NextLink href={publicRoutes.curriculum + "/4"}>
                   <span>Start Learning</span>
-                </a>
+                </NextLink>
               ) : (
                 <button
                   onClick={handleEnroll}
