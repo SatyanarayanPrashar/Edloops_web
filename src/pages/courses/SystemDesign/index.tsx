@@ -300,7 +300,7 @@ const index = () => {
             <h2>Free!</h2>
             <div className="wrapper">
               {checkEnrolled ? (
-                <NextLink href={publicRoutes.curriculum + "/12"}>
+                <NextLink href="https://edloops.com/curriculum/2">
                   <span>Start Learning</span>
                 </NextLink>
               ) : (
