@@ -35,13 +35,11 @@ const index = () => {
 
   useEffect(() => {
     if (router.isReady) {
-      console.log(includes(courseEnroll, router.query.id as any), "kjboipon");
-
       if (includes(courseEnroll, router.query.id as any)) {
         setCheckEnrolled(true);
       }
     }
-  }, [userInfo, loggedInUserId, router.isReady]);
+  }, [userInfo, loggedInUserId, router.isReady, courseEnroll]);
 
   useEffect(() => {
     if (router.isReady) {

@@ -68,7 +68,7 @@ const index = () => {
   };
   const handleEnroll = () => {
     if (loggedInUserId) {
-      enrollCourse("12");
+      enrollCourse("2");
     } else {
       setHandleModal(true);
     }
@@ -300,7 +300,7 @@ const index = () => {
             <h2>Free!</h2>
             <div className="wrapper">
               {checkEnrolled ? (
-                <NextLink href="https://edloops.com/curriculum/2">
+                <NextLink href={publicRoutes.curriculum + "/2"}>
                   <span>Start Learning</span>
                 </NextLink>
               ) : (
