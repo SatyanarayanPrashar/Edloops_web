@@ -333,7 +333,7 @@ const index = () => {
             <h2>Free!</h2>
             <div className="wrapper">
               {checkEnrolled ? (
-                <a href="https://edloops.com/curriculum/1">
+                <NextLink href="https://edloops.com/curriculum/1">
                   <span>Start Learning</span>
                 </NextLink>
               ) : (
