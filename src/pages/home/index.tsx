@@ -70,7 +70,7 @@ const Index = () => {
                     <div className="homeTop_MotoTT"></div>
                   </div>
                   <div className="video">
-                    <iframe src="https://www.youtube.com/embed/WcE9oy6qTrk?autoplay=1&muted=1&loop=1" allow='autoplay;'></iframe>
+                    <iframe src="https://www.youtube.com/embed/WcE9oy6qTrk?muted=1&loop=1" allow='autoplay;'></iframe>
                   </div>
                 </div>
               </div>

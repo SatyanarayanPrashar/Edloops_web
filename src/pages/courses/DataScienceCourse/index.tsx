@@ -23,7 +23,7 @@ const index = () => {
   );
   const userInfo = useSelector((state: RootState) => state.uiState.userInfo);
   useEffect(() => {
-    if (includes(get(userInfo, "courses_enrolled", 0), "13")) {
+    if (includes(get(userInfo, "courses_enrolled", 0), "1")) {
       setCheckEnrolled(true);
     } else {
       setCheckEnrolled(false);
@@ -480,7 +480,7 @@ const index = () => {
         </div>
 
         <div className="midcurated-container">
-          <h2> Curated and veriffied by experts </h2>
+          <h2> Curated and verified by experts </h2>
           <img src="/img/curatedCourse.png" alt="curated course" />
           <div className="points-wrap">
             <div className="points">

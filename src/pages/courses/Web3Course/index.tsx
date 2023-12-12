@@ -1,10 +1,74 @@
 import AuthLayout from "@/Components/Layout/AuthLayout";
 import Head from "next/head";
-import React, { useState } from "react";
-import NextLink from "next/link";
+import React, { useState, useEffect } from "react";
+import { blogRequestUrls, requests } from "@/helper/apiAgent";
+import { ErrorHandler, ResponseHandler } from "@/helper/utils";
+import { get, includes } from "lodash";
+import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux";
 import { publicRoutes } from "@/enums/route.enum";
+import NextLink from "next/link";
+import { ClipLoader } from "react-spinners";
 
 const index = () => {
+    const [btnLoading, setBtnLoading] = useState(false);
+    const [checkEnrolled, setCheckEnrolled] = useState(false);
+    const [confetti, setConfetti] = useState(false);
+    const [handleModal, setHandleModal] = useState(false);
+    const loggedInUserId = useSelector(
+        (state: RootState) => state.uiState.loggedInUserId
+    );
+    const userInfo = useSelector((state: RootState) => state.uiState.userInfo);
+    useEffect(() => {
+        if (includes(get(userInfo, "courses_enrolled", 0), "3")) {
+            setCheckEnrolled(true);
+        } else {
+            setCheckEnrolled(false);
+        }
+    }, [userInfo]);
+
+    const enrollCourse = async (courseId: any) => {
+        const enrolledCourse = {
+            courseID: "3",
+        };
+        setBtnLoading(true);
+        await requests
+            .put(
+                blogRequestUrls.course.enrollCourseWithId(loggedInUserId),
+                enrolledCourse
+            )
+            .then((res) => {
+                const response = ResponseHandler(res);
+                if (get(response, "status", false)) {
+                    // setUserInfo(get(response, "data", {}));
+                }
+                if (get(res, "data.message", "")) {
+                    setBtnLoading(false);
+                    toast.success(get(res, "data.message", ""));
+                    setCheckEnrolled(true);
+                    setConfetti(true);
+                    setTimeout(() => {
+                        setConfetti(false);
+                    }, 5000);
+                } else {
+                    setBtnLoading(false);
+                    toast.error(get(res, "data.error", ""));
+                }
+            })
+            .catch((e) => {
+                setBtnLoading(false);
+                const error = ErrorHandler(e);
+                toast.error(get(error, "error", ""));
+            });
+    };
+    const handleEnroll = () => {
+        if (loggedInUserId) {
+            enrollCourse("1");
+        } else {
+            setHandleModal(true);
+        }
+    };
     const faqItems = [
         {
             question: 'Introduction to Web3',
@@ -136,8 +200,37 @@ const index = () => {
                         <img src="https://i.ibb.co/W24b4kY/web3.jpg" alt="web 3 course" />
                         <h2>Free!</h2>
                         <div className="wrapper">
-                            <a href="https://edloops.com/curriculum/6"><span>Start Learning</span></a>
+                            {checkEnrolled ? (
+                                <NextLink href={publicRoutes.curriculum + "/3"}>
+                                    <span>Start Learning</span>
+                                </NextLink>
+                            ) : (
+                                <button
+                                    onClick={handleEnroll}
+                                    className={`${checkEnrolled ? "pointer-none" : ""
+                                        } enroll-link d-flex text-white mt-0`}
+                                    type="button"
+                                    disabled={checkEnrolled}
+                                >
+                                    {btnLoading ? (
+                                        <ClipLoader
+                                            color={"#40a944"}
+                                            loading={btnLoading}
+                                            size={25}
+                                        />
+                                    ) : (
+                                        <>
+                                            {checkEnrolled ? "Enrolled" : "Enroll This Course"}
+                                            <span>
+                                                <i className="fa-solid fa-angle-right ms-2"></i>
+                                            </span>
+                                        </>
+                                    )}
+                                </button>
+                            )}
                         </div>
+
+
                         <h6>This course includes:</h6>
                         <div className="svg-feature"><img src="/svg/video.svg" /> 27 Lectures</div>
                         <div className="svg-feature"><img src="/svg/infinity.svg" /> Life Time Access</div>
@@ -200,7 +293,7 @@ const index = () => {
                 </div>
 
                 <div className="midcurated-container">
-                    <h2> Curated and veriffied by experts </h2>
+                    <h2> Curated and verified by experts </h2>
                     <img src="/img/curatedCourse.png" alt="curated course" />
                     <div className="points-wrap">
                         <div className="points"> <img src="/svg/tick.svg" alt="tick" />The best resources handpicked to provide best explaination</div>

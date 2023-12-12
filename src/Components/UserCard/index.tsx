@@ -18,11 +18,10 @@ interface UserCardProps {
 }
 
 const courseNameMapping: Record<string, string> = {
-  "6": "Web3",
-  "8": "Flutter",
-  "12": "System Design",
-  "13": "Data Science",
-  // Add more mappings as needed
+  "1": "Data Science",
+  "2": "System Design",
+  "3": "Web3 development",
+  "4": "Flutter",
 };
 
 const UserCard: React.FC<UserCardProps> = ({

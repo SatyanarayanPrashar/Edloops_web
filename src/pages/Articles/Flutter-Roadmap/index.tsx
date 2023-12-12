@@ -64,7 +64,7 @@ const index = () => {
               </li>
               <li>
                 <h2 id="checkpoint4">4. Start Practicing UI:</h2>
-                Practical experience is invaluable in mastering any framework. <br /><i>"Donot fall in the trap of Tutorials"</i> <br />Start creating simple UIs you can even refer speed codes from YoutTube and simply code with them, Yes there's no shame doing that to learn stuff. Few of my favourite one are:
+                Practical experience is invaluable in mastering any framework. <br /><i>"Donot fall in the trap of Tutorials"</i> <br />Start creating e UIs you can even refer speed codes from YoutTube and simply code with them, Yes there's no shame doing that to learn stuff. Few of my favourite one are:
                 <a href="https://youtu.be/LN668OAUrK4?si=YroHSPuF7HLEE2T6" target="_blank"> Plant UI </a>
                 and
                 <a href="https://www.youtube.com/watch?v=uiJF-ShOLyo" target="_blank"> Chat/Messaging App UI </a> by The Flutter way.

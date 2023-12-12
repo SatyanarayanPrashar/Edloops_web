@@ -96,7 +96,7 @@ const index = () => {
                 </div>
               </div>
             </NextLink>
-            <NextLink className="customCurriculum" href={publicRoutes.datascienceCourse}>
+            <NextLink className="customCurriculum" href={publicRoutes.web3Course}>
               <div className="curriculum-preview-card mb-3 me-3">
                 <img src="https://i.ibb.co/W24b4kY/web3.jpg" alt="web 3 course image" />
                 <div className="curriculum-preview-card-content px-2 w-100 mt-2">
