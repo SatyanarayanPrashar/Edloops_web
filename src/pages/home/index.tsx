@@ -57,20 +57,27 @@ const Index = () => {
       </Head>
 
       <AuthLayout>
-        <div className="home">
-          <div>
-            <div className="homeTop">
-              <div>
-
+        <div className="home w-100">
+          <div className="inside_home">
+            <div className="homeTop w-100">
+              <div className="w-100">
                 <div className="intro-video">
                   <div>
                     <div className="homeTop_Title">EdLoops</div>
-                    <div className="homeTop_MotoT">Navigating Your Learning Journey</div>
-                    <div className="homeTop_MotoTT">Top 1% learning materials curated and crafted into courses.</div>
+                    <div className="homeTop_MotoT">
+                      Navigating Your Learning Journey
+                    </div>
+                    <div className="homeTop_MotoTT">
+                      Top 1% learning materials curated and crafted into
+                      courses.
+                    </div>
                     <div className="homeTop_MotoTT"></div>
                   </div>
                   <div className="video">
-                    <iframe src="https://www.youtube.com/embed/WcE9oy6qTrk?muted=1&loop=1" allow='autoplay;'></iframe>
+                    <iframe
+                      src="https://www.youtube.com/embed/WcE9oy6qTrk?muted=1&loop=1"
+                      allow="autoplay;"
+                    ></iframe>
                   </div>
                 </div>
               </div>

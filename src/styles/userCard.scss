@@ -1,7 +1,7 @@
 .userCard {
   width: 240px;
   max-height: 285px;
-  top: 30px;
+  top: 20px;
   position: sticky;
   margin-top: 20px;
   padding: 10px;
@@ -15,7 +15,7 @@
     padding-right: 4px;
   }
   @media screen and (max-width: 768px) {
-    width: 97%;
+    width: 100%;
   }
 }
 .user-name {
@@ -35,8 +35,8 @@
   // background-color: red;
 }
 
-.unauth-img{
-  img{
+.unauth-img {
+  img {
     max-width: 210px;
     // height: 60px;
     @media screen and (max-width: 768px) {
@@ -66,9 +66,8 @@
   }
 }
 
-
 // Refer Modal
-.refer-modal-bttn{
+.refer-modal-bttn {
   padding: 1px 11px;
   margin-right: 7px;
   margin-top: 17px;

@@ -6,7 +6,7 @@ import React, { useState } from "react";
 const index = () => {
   const faqItems = [
     {
-      question: 'What will be the benefits of EdLoops premium membership?',
+      question: "What will be the benefits of EdLoops premium membership?",
       answer: (
         <div>
           Edloops premiium membership will include following benifits:
@@ -18,36 +18,47 @@ const index = () => {
             <li>Access to paid Community</li>
           </ul>
         </div>
-      )
+      ),
     },
     {
-      question: 'What is AI Sensei?',
+      question: "What is AI Sensei?",
       answer: (
         <div>
           AI Sensei is an advance AI tutor personalized to each student.
           <br />
-          Ask as many doubts as you want anytime, anywhere and get your concepts crystal clear in realtime while watching the leactures or practicing the problems.
-          <br/>
-          AI sensei will be aware of the lecture postion to order to clear your doubts in much relevent ways unlike the other existing AI platforms.
+          Ask as many doubts as you want anytime, anywhere and get your concepts
+          crystal clear in realtime while watching the leactures or practicing
+          the problems.
+          <br />
+          AI sensei will be aware of the lecture postion to order to clear your
+          doubts in much relevent ways unlike the other existing AI platforms.
         </div>
-      )
+      ),
     },
     {
-      question: 'What is Learning Dashboard?',
+      question: "What is Learning Dashboard?",
       answer: (
         <div>
-          Learning dashboard is a interface or system that provides students a visual overview of various aspects of learning and educational progress. It typically offers data-driven insights, metrics, and graphical representations to help students monitor, assess, and optimize their learning experiences.
+          Learning dashboard is a interface or system that provides students a
+          visual overview of various aspects of learning and educational
+          progress. It typically offers data-driven insights, metrics, and
+          graphical representations to help students monitor, assess, and
+          optimize their learning experiences.
         </div>
-      )
+      ),
     },
     {
-      question: 'Why the current courses free to use?',
+      question: "Why the current courses free to use?",
       answer: (
         <div>
-          Our current focus is to provide the best pre-existing resources on the internet to students for free. We give the full credit to the tutorial makers. <br /><br />
-          We welcome course makers on Edloops to create & curate Couurses which they can monetize.
+          Our current focus is to provide the best pre-existing resources on the
+          internet to students for free. We give the full credit to the tutorial
+          makers. <br />
+          <br />
+          We welcome course makers on Edloops to create & curate Couurses which
+          they can monetize.
         </div>
-      )
+      ),
     },
   ];
 
@@ -67,7 +78,7 @@ const index = () => {
         <title>Community | Edloops</title>
       </Head>
       <AuthLayout>
-        <div style={{"margin": "35px"}}></div>
+        <div style={{ margin: "35px" }}></div>
         {/* <div>
           <div className="blogTop_Title mt-0">Stay Ahead</div>
           <div className="blogTop_MotoT">
@@ -83,15 +94,18 @@ const index = () => {
           <h2>Frequently Asked Questions</h2>
           <div className="faq-list">
             {faqItems.map((item, index: number) => (
-              <div className={`faq-item ${openItem === index ? 'open' : ''}`} key={index}>
+              <div
+                className={`faq-item ${openItem === index ? "open" : ""}`}
+                key={index}
+              >
                 <div className="question" onClick={() => toggleItem(index)}>
                   {item.question}
-                  <span className="toggle-icon">{openItem === index ? '-' : '+'}</span>
+                  <span className="toggle-icon">
+                    {openItem === index ? "-" : "+"}
+                  </span>
                 </div>
                 {openItem === index && (
-                  <div className="answer">
-                    {item.answer}
-                  </div>
+                  <div className="answer">{item.answer}</div>
                 )}
               </div>
             ))}
