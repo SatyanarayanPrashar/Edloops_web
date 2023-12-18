@@ -391,120 +391,124 @@ const index = () => {
           </div>
         </div>
 
-        <div className="midLearn-container">
-          <h2> What you'll learn </h2>
-          <div className="points-wrap">
-            <div className="points">
-              {" "}
-              <img src="/svg/tick.svg" alt="tick" />
-              <p>
-                The course provides knowledge all the necessary toolbox you need
-                to become a data scientist
-              </p>
-            </div>
-            <div className="points">
-              {" "}
-              <img src="/svg/tick.svg" alt="tick" />
-              <p>
-                Start coding in Python and learn how to use it for statistical
-                analysis
-              </p>
-            </div>
-            <div className="points">
-              {" "}
-              <img src="/svg/tick.svg" alt="tick" />
-              <p>Apply your skills to real-life business cases</p>
-            </div>
-            <div className="points">
-              {" "}
-              <img src="/svg/tick.svg" alt="tick" />
-              <p>Build two projects alongside for your resume</p>
+        <div className="px-3 px-lg-0">
+          <div className="midLearn-container">
+            <h2> What you'll learn </h2>
+            <div className="points-wrap">
+              <div className="points">
+                {" "}
+                <img src="/svg/tick.svg" alt="tick" />
+                <p>
+                  The course provides knowledge all the necessary toolbox you
+                  need to become a data scientist
+                </p>
+              </div>
+              <div className="points">
+                {" "}
+                <img src="/svg/tick.svg" alt="tick" />
+                <p>
+                  Start coding in Python and learn how to use it for statistical
+                  analysis
+                </p>
+              </div>
+              <div className="points">
+                {" "}
+                <img src="/svg/tick.svg" alt="tick" />
+                <p>Apply your skills to real-life business cases</p>
+              </div>
+              <div className="points">
+                {" "}
+                <img src="/svg/tick.svg" alt="tick" />
+                <p>Build two projects alongside for your resume</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="midContent-container">
-          <h2> Course Content </h2>
-          <section className="content-section">
-            <div className="contetnt-list">
-              {faqItems.map((item, index: number) => (
-                <div
-                  className={`content-item ${openItem === index ? "open" : ""}`}
-                  key={index}
-                >
-                  <div className="chapter" onClick={() => toggleItem(index)}>
-                    {item.question}
-                    <span className="toggle-icon">
-                      {openItem === index ? "-" : "+"}
-                    </span>
+          <div className="midContent-container">
+            <h2> Course Content </h2>
+            <section className="content-section">
+              <div className="contetnt-list">
+                {faqItems.map((item, index: number) => (
+                  <div
+                    className={`content-item ${
+                      openItem === index ? "open" : ""
+                    }`}
+                    key={index}
+                  >
+                    <div className="chapter" onClick={() => toggleItem(index)}>
+                      {item.question}
+                      <span className="toggle-icon">
+                        {openItem === index ? "-" : "+"}
+                      </span>
+                    </div>
+                    {openItem === index && (
+                      <div className="topic">{item.answer}</div>
+                    )}
                   </div>
-                  {openItem === index && (
-                    <div className="topic">{item.answer}</div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </section>
-        </div>
+                ))}
+              </div>
+            </section>
+          </div>
 
-        {/* <div className="midLearn-container">
+          {/* <div className="midLearn-container">
                     <h2> Pre-Requisites </h2>
                     <div className="points-wrap">
                         <div className="points"> <img src="/svg/tick.svg" alt="tick" />Basic Computer Science fundamentals</div>
                     </div>
                 </div> */}
 
-        <div className="midDescription-container">
-          <h2> Description </h2>
-          <p className="descriptiontext">
-            In the digital age, the role of a data scientist is pivotal and in
-            high demand. However, acquiring the necessary skills has been a
-            challenge due to limited specialized programs and fragmented online
-            courses. <br /> <br />
-            This curated course covers a comprehensive array of topics in a
-            logical sequence, from understanding the field and mathematics to
-            Python programming, advanced statistical techniques, data
-            visualization, and machine learning.
-            <br />
-            <br />
-            Designed to overcome the hurdles of traditional programs, our course
-            offers a cost-effective and time-efficient pathway to becoming a
-            proficient data scientist. We've consolidated all the necessary
-            resources in one place, providing a structured and seamless learning
-            experience. Join us on this transformative journey, where each
-            element is thoughtfully curated to empower you in the dynamic realm
-            of data science.
-            <br />
-            <br />
-          </p>
-        </div>
+          <div className="midDescription-container">
+            <h2> Description </h2>
+            <p className="descriptiontext">
+              In the digital age, the role of a data scientist is pivotal and in
+              high demand. However, acquiring the necessary skills has been a
+              challenge due to limited specialized programs and fragmented
+              online courses. <br /> <br />
+              This curated course covers a comprehensive array of topics in a
+              logical sequence, from understanding the field and mathematics to
+              Python programming, advanced statistical techniques, data
+              visualization, and machine learning.
+              <br />
+              <br />
+              Designed to overcome the hurdles of traditional programs, our
+              course offers a cost-effective and time-efficient pathway to
+              becoming a proficient data scientist. We've consolidated all the
+              necessary resources in one place, providing a structured and
+              seamless learning experience. Join us on this transformative
+              journey, where each element is thoughtfully curated to empower you
+              in the dynamic realm of data science.
+              <br />
+              <br />
+            </p>
+          </div>
 
-        <div className="midcurated-container">
-          <h2> Curated and verified by experts </h2>
-          <img src="/img/curatedCourse.png" alt="curated course" />
-          <div className="points-wrap">
-            <div className="points">
-              {" "}
-              <img src="/svg/tick.svg" alt="tick" />
-              The best resources handpicked to provide best explaination
-            </div>
-            <div className="points">
-              {" "}
-              <img src="/svg/tick.svg" alt="tick" />
-              Structured pathways, saving learners time by presenting essential
-              topics without unnecessay information
-            </div>
-            <div className="points">
-              {" "}
-              <img src="/svg/tick.svg" alt="tick" />
-              Expertly-Selected Resources, ensuring high-quality materials that
-              align with industry standards.
-            </div>
-            <div className="points">
-              {" "}
-              <img src="/svg/tick.svg" alt="tick" />
-              Streamlined Learning Experience, curated courses streamline the
-              learning process for a more effective and enjoyable experience.
+          <div className="midcurated-container">
+            <h2> Curated and verified by experts </h2>
+            <img src="/img/curatedCourse.png" alt="curated course" />
+            <div className="points-wrap">
+              <div className="points">
+                {" "}
+                <img src="/svg/tick.svg" alt="tick" />
+                The best resources handpicked to provide best explaination
+              </div>
+              <div className="points">
+                {" "}
+                <img src="/svg/tick.svg" alt="tick" />
+                Structured pathways, saving learners time by presenting
+                essential topics without unnecessay information
+              </div>
+              <div className="points">
+                {" "}
+                <img src="/svg/tick.svg" alt="tick" />
+                Expertly-Selected Resources, ensuring high-quality materials
+                that align with industry standards.
+              </div>
+              <div className="points">
+                {" "}
+                <img src="/svg/tick.svg" alt="tick" />
+                Streamlined Learning Experience, curated courses streamline the
+                learning process for a more effective and enjoyable experience.
+              </div>
             </div>
           </div>
         </div>

@@ -13,7 +13,7 @@ const index = (props: IProps) => {
         {/* sidebar */}
         <Navbar />
         <div className="content">
-          <div className="page-content pe-lg-3 px-3">
+          <div className="page-content pe-lg-3">
             {props.children}
             {/* footer */}
             <Sitemap />

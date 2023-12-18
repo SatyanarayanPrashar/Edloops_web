@@ -391,121 +391,127 @@ const index = () => {
           </div>
         </div>
 
-        <div className="midLearn-container">
-          <h2> What you'll learn</h2>
-          <div className="points-wrap">
-            <div className="points">
-              {" "}
-              <img src="/svg/tick.svg" alt="tick" />
-              <p>Learn Flutter and Dart from the ground up, step-by-step</p>
-            </div>
-            <div className="points">
-              {" "}
-              <img src="/svg/tick.svg" alt="tick" />
-              <p>Build engaging native mobile apps for both Android and iOS</p>
-            </div>
-            <div className="points">
-              {" "}
-              <img src="/svg/tick.svg" alt="tick" />
-              <p>
-                Understand all the fundamental concepts of Flutter development
-              </p>
-            </div>
-            <div className="points">
-              {" "}
-              <img src="/svg/tick.svg" alt="tick" />
-              <p>
-                Become proficient in one of the fastest growing technologies
-              </p>
+        <div className="px-3 px-lg-0">
+          <div className="midLearn-container">
+            <h2> What you'll learn</h2>
+            <div className="points-wrap">
+              <div className="points">
+                {" "}
+                <img src="/svg/tick.svg" alt="tick" />
+                <p>Learn Flutter and Dart from the ground up, step-by-step</p>
+              </div>
+              <div className="points">
+                {" "}
+                <img src="/svg/tick.svg" alt="tick" />
+                <p>
+                  Build engaging native mobile apps for both Android and iOS
+                </p>
+              </div>
+              <div className="points">
+                {" "}
+                <img src="/svg/tick.svg" alt="tick" />
+                <p>
+                  Understand all the fundamental concepts of Flutter development
+                </p>
+              </div>
+              <div className="points">
+                {" "}
+                <img src="/svg/tick.svg" alt="tick" />
+                <p>
+                  Become proficient in one of the fastest growing technologies
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="midContent-container">
-          <h2> Course Content </h2>
-          <section className="content-section">
-            <div className="contetnt-list">
-              {faqItems.map((item, index: number) => (
-                <div
-                  className={`content-item ${openItem === index ? "open" : ""}`}
-                  key={index}
-                >
-                  <div className="chapter" onClick={() => toggleItem(index)}>
-                    {item.question}
-                    <span className="toggle-icon">
-                      {openItem === index ? "-" : "+"}
-                    </span>
+          <div className="midContent-container">
+            <h2> Course Content </h2>
+            <section className="content-section">
+              <div className="contetnt-list">
+                {faqItems.map((item, index: number) => (
+                  <div
+                    className={`content-item ${
+                      openItem === index ? "open" : ""
+                    }`}
+                    key={index}
+                  >
+                    <div className="chapter" onClick={() => toggleItem(index)}>
+                      {item.question}
+                      <span className="toggle-icon">
+                        {openItem === index ? "-" : "+"}
+                      </span>
+                    </div>
+                    {openItem === index && (
+                      <div className="topic">{item.answer}</div>
+                    )}
                   </div>
-                  {openItem === index && (
-                    <div className="topic">{item.answer}</div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </section>
-        </div>
+                ))}
+              </div>
+            </section>
+          </div>
 
-        {/* <div className="midLearn-container">
+          {/* <div className="midLearn-container">
                     <h2> Pre-Requisites </h2>
                     <div className="points-wrap">
                         <div className="points"> <img src="/svg/tick.svg" alt="tick" />Basic Computer Science fundamentals</div>
                     </div>
                 </div> */}
 
-        <div className="midDescription-container">
-          <h2> Description </h2>
-          <p className="descriptiontext">
-            Flutter, recognized for its rapid ascension in the tech world, has
-            become the go-to framework for crafting natively compiled
-            applications across various platforms. The course is meticulously
-            curated to demystify Flutter's efficiency, expressive UI, and its
-            ability to streamline app development for a diverse audience. <br />{" "}
-            <br />
-            Tailored for beginners and devoid of prerequisites, our course is a
-            gateway for anyone eager to delve into the world of mobile app
-            development. Whether you're a coding aficionado or a newcomer, our
-            step-by-step approach ensures a seamless learning experience.
-            <br />
-            <br />
-            Structured with precision, the curriculum unfolds systematically.
-            Begin your journey by mastering Dart, the programming language
-            integral to Flutter. Move on to grasp the essentials of UI
-            development, with immersive hands-on practice to fortify your
-            skills. As you progress, delve into advanced concepts, empowering
-            you to tackle real-world app development challenges. The course
-            culminates with an extensive exploration of Firebase integration,
-            enabling you to infuse your Flutter applications with robust backend
-            functionality. <br />
-            <br />
-          </p>
-        </div>
+          <div className="midDescription-container">
+            <h2> Description </h2>
+            <p className="descriptiontext">
+              Flutter, recognized for its rapid ascension in the tech world, has
+              become the go-to framework for crafting natively compiled
+              applications across various platforms. The course is meticulously
+              curated to demystify Flutter's efficiency, expressive UI, and its
+              ability to streamline app development for a diverse audience.{" "}
+              <br /> <br />
+              Tailored for beginners and devoid of prerequisites, our course is
+              a gateway for anyone eager to delve into the world of mobile app
+              development. Whether you're a coding aficionado or a newcomer, our
+              step-by-step approach ensures a seamless learning experience.
+              <br />
+              <br />
+              Structured with precision, the curriculum unfolds systematically.
+              Begin your journey by mastering Dart, the programming language
+              integral to Flutter. Move on to grasp the essentials of UI
+              development, with immersive hands-on practice to fortify your
+              skills. As you progress, delve into advanced concepts, empowering
+              you to tackle real-world app development challenges. The course
+              culminates with an extensive exploration of Firebase integration,
+              enabling you to infuse your Flutter applications with robust
+              backend functionality. <br />
+              <br />
+            </p>
+          </div>
 
-        <div className="midcurated-container">
-          <h2> Curated and verified by experts </h2>
-          <img src="/img/curatedCourse.png" alt="curated course" />
-          <div className="points-wrap">
-            <div className="points">
-              {" "}
-              <img src="/svg/tick.svg" alt="tick" />
-              The best resources handpicked to provide best explaination
-            </div>
-            <div className="points">
-              {" "}
-              <img src="/svg/tick.svg" alt="tick" />
-              Structured pathways, saving learners time by presenting essential
-              topics without unnecessay information
-            </div>
-            <div className="points">
-              {" "}
-              <img src="/svg/tick.svg" alt="tick" />
-              Expertly-Selected Resources, ensuring high-quality materials that
-              align with industry standards.
-            </div>
-            <div className="points">
-              {" "}
-              <img src="/svg/tick.svg" alt="tick" />
-              Streamlined Learning Experience, curated courses streamline the
-              learning process for a more effective and enjoyable experience.
+          <div className="midcurated-container">
+            <h2> Curated and verified by experts </h2>
+            <img src="/img/curatedCourse.png" alt="curated course" />
+            <div className="points-wrap">
+              <div className="points">
+                {" "}
+                <img src="/svg/tick.svg" alt="tick" />
+                The best resources handpicked to provide best explaination
+              </div>
+              <div className="points">
+                {" "}
+                <img src="/svg/tick.svg" alt="tick" />
+                Structured pathways, saving learners time by presenting
+                essential topics without unnecessay information
+              </div>
+              <div className="points">
+                {" "}
+                <img src="/svg/tick.svg" alt="tick" />
+                Expertly-Selected Resources, ensuring high-quality materials
+                that align with industry standards.
+              </div>
+              <div className="points">
+                {" "}
+                <img src="/svg/tick.svg" alt="tick" />
+                Streamlined Learning Experience, curated courses streamline the
+                learning process for a more effective and enjoyable experience.
+              </div>
             </div>
           </div>
         </div>

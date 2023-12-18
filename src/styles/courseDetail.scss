@@ -28,11 +28,13 @@
     height: 100%;
     max-width: auto;
     padding-right: 1rem !important;
+    margin: 0px;
+    padding: 17px;
   }
-  @media screen and (max-width: 426px) {
-    margin: 0px -41px;
-    padding: 17px 41px;
-  }
+  // @media screen and (max-width: 426px) {
+  //   margin: 0px -41px;
+  //   padding: 17px 41px;
+  // }
 }
 .topdescription {
   background-color: #1e566d;
@@ -72,12 +74,14 @@
     }
   }
   @media screen and (max-width: 768px) {
-    padding-top: 1rem;
+    // padding-top: 1rem;
+    margin: 0px;
+    padding: 17px;
   }
-  @media screen and (max-width: 426px) {
-    margin: 0px -41px;
-    padding: 17px 41px;
-  }
+  // @media screen and (max-width: 426px) {
+  //   margin: 0px -41px;
+  //   padding: 17px 41px;
+  // }
 }
 
 .topleft-info {
@@ -243,6 +247,10 @@
     max-width: 750px;
     @media screen and (max-width: 768px) {
       width: 380px;
+    }
+    @include s {
+      width: 100%;
+      margin: 0 auto;
     }
   }
 }

@@ -87,30 +87,32 @@ const index = () => {
           <div className="blogTop_MotoB">A Lot Awaits!</div>
         </div> */}
 
-        <CommunityCard />
+        <div className="px-lg-0 px-3">
+          <CommunityCard />
 
-        {/* FAQ Section */}
-        <section className="faq-section">
-          <h2>Frequently Asked Questions</h2>
-          <div className="faq-list">
-            {faqItems.map((item, index: number) => (
-              <div
-                className={`faq-item ${openItem === index ? "open" : ""}`}
-                key={index}
-              >
-                <div className="question" onClick={() => toggleItem(index)}>
-                  {item.question}
-                  <span className="toggle-icon">
-                    {openItem === index ? "-" : "+"}
-                  </span>
+          {/* FAQ Section */}
+          <section className="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div className="faq-list">
+              {faqItems.map((item, index: number) => (
+                <div
+                  className={`faq-item ${openItem === index ? "open" : ""}`}
+                  key={index}
+                >
+                  <div className="question" onClick={() => toggleItem(index)}>
+                    {item.question}
+                    <span className="toggle-icon">
+                      {openItem === index ? "-" : "+"}
+                    </span>
+                  </div>
+                  {openItem === index && (
+                    <div className="answer">{item.answer}</div>
+                  )}
                 </div>
-                {openItem === index && (
-                  <div className="answer">{item.answer}</div>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
+              ))}
+            </div>
+          </section>
+        </div>
       </AuthLayout>
     </>
   );

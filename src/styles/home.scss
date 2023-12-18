@@ -4,9 +4,12 @@
     flex-direction: column-reverse;
   }
   .inside_home {
-    width: 76%;
+    // width: 76%;
     @include m {
       width: 100%;
+    }
+    @include m {
+      padding-right: 0 !important;
     }
   }
 }
@@ -77,12 +80,18 @@
   margin-top: 20px;
   padding-bottom: 20px;
   border-bottom: solid 1px #212121;
-
+  @include t {
+    flex-direction: column;
+  }
   .video {
     width: 760px;
     height: 235px;
     margin-left: 10px;
     margin-right: 10px;
+    @include t {
+      width: 100%;
+      margin-left: 0;
+    }
     iframe {
       width: 100%;
       height: 100%;

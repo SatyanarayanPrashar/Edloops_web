@@ -57,8 +57,8 @@ const Index = () => {
       </Head>
 
       <AuthLayout>
-        <div className="home w-100">
-          <div className="inside_home">
+        <div className="home w-100 row ps-lg-0 ps-md-3 px-3 pe-1">
+          <div className="inside_home col-lg-9 col-12">
             <div className="homeTop w-100">
               <div className="w-100">
                 <div className="intro-video">

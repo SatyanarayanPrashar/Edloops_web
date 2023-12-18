@@ -59,7 +59,7 @@ const UserCard: React.FC<UserCardProps> = ({
 
   return (
     <>
-      <div>
+      <div className="col-lg-3 col-12 pe-0">
         <div className="userCard">
           {loggedInUserId ? (
             <>
